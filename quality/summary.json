@@ -1,0 +1,47 @@
+[
+  {
+    "version": "original",
+    "blocks": 46,
+    "total_cc": 149,
+    "average_cc": 3.24,
+    "highest_cc": 19,
+    "highest_grade": "C",
+    "worst_block": "rows_from_file"
+  },
+  {
+    "version": "claude",
+    "blocks": 53,
+    "total_cc": 156,
+    "average_cc": 2.94,
+    "highest_cc": 12,
+    "highest_grade": "C",
+    "worst_block": "column_affinity"
+  },
+  {
+    "version": "gpt",
+    "blocks": 46,
+    "total_cc": 149,
+    "average_cc": 3.24,
+    "highest_cc": 19,
+    "highest_grade": "C",
+    "worst_block": "rows_from_file"
+  },
+  {
+    "version": "gemini",
+    "blocks": 47,
+    "total_cc": 149,
+    "average_cc": 3.17,
+    "highest_cc": 19,
+    "highest_grade": "C",
+    "worst_block": "rows_from_file"
+  },
+  {
+    "version": "deepseek",
+    "blocks": 51,
+    "total_cc": 154,
+    "average_cc": 3.02,
+    "highest_cc": 12,
+    "highest_grade": "C",
+    "worst_block": "column_affinity"
+  }
+]
