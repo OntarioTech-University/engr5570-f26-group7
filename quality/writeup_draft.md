@@ -6,27 +6,25 @@ in the Google Doc. Numbers come straight from `quality/summary_table.md`, genera
 
 ## What to write
 
-We measured code quality using radon's cyclomatic complexity (CC) check, run on the original
-pilot file and on each of the 4 LLM-refactored versions (Claude, GPT, Gemini, DeepSeek). For each
-file we recorded three numbers together, as the template suggests: the total CC across all
-functions/methods/classes ("blocks"), the average CC per block, and the highest CC of any single
-block. Looking at all three matters because a model can lower a function's complexity simply by
-splitting it into several smaller functions, which lowers the highest score and the average
-without necessarily reducing the total amount of logic in the file.
+We ran radon's cyclomatic complexity check on the original file and on each of the 4 refactored
+versions, and for each one we looked at three numbers together: the total complexity across every
+function in the file, the average per function, and the single highest score. We look at all
+three because a model could just split one big function into several small ones — that makes the
+highest score and the average look better, but it doesn't actually mean there's less logic in the
+file overall.
 
-On our pilot file, the original had 46 blocks, a total CC of 149, an average of 3.24, and one
-clear complexity hotspot: `rows_from_file` (CC 19, grade C). Claude's and DeepSeek's refactored
-versions both reduced the worst offender to `column_affinity` (CC 12, grade C) by simplifying
-`rows_from_file`, but Claude did this by splitting the file into more blocks (53 vs. 46), so its
-total CC actually rose slightly to 156. DeepSeek reduced the highest score with fewer added blocks
-(51 total), for a smaller total of 154. GPT's version changed several small code paths (per its
-own change summary) but left the total CC, block count, and worst function identical to the
-original (149, 46 blocks, `rows_from_file` at 19) — its edits did not touch the structures radon
-counts as decision points. Gemini's version was close to unchanged as well (149 total, 47 blocks),
-also leaving `rows_from_file` as the worst block. Taken together, only Claude and DeepSeek
-measurably reduced the single most complex function, and DeepSeek did so without increasing
-overall complexity — early evidence that "improved quality" needs to be judged per-metric rather
-than from one number alone, which is directly relevant to RQ1.
+For our pilot file, the original has 46 functions/methods/classes, a total complexity of 149, an
+average of 3.24, and one clear worst case: `rows_from_file`, which scores 19 (grade C). Claude and
+DeepSeek were the only two that actually brought that score down, both to `column_affinity` at 12
+(grade C). But they got there differently: Claude split the file into more pieces (53 vs. 46), so
+even though its worst function improved, the total complexity went up a bit, to 156. DeepSeek
+improved the worst function with fewer new pieces (51), so its total only went up to 154. GPT and
+Gemini barely moved the needle — GPT's total, block count and worst function (`rows_from_file` at
+19) came out exactly the same as the original, even though it did make some small edits elsewhere.
+Gemini was almost the same too (149 total, 47 blocks), and `rows_from_file` was still its worst
+function. So out of the 4 models, only Claude and DeepSeek actually reduced the most complex part
+of the file, and DeepSeek did it without making the file more complex overall — which already
+tells us something useful for RQ1: "better" needs more than one number to back it up.
 
 ## Evidence
 
@@ -45,15 +43,15 @@ into the doc): `quality/radon_raw/{original,claude,gpt,gemini,deepseek}_cc.txt`
 
 ## Contribution
 
-Installed radon, wrote a script (`quality/run_radon.py`) to run it on the original file and all 4
-refactored versions, computed the total/average/highest complexity per file, and wrote the
-comparison table and findings above.
+I installed radon and wrote a small script (`quality/run_radon.py`) that runs it on the original
+file and the 4 refactored versions, then pulls out the total, average and highest complexity for
+each one. I also put together the comparison table and wrote up what we found above.
 
 ## AI Use
 
-I used Claude Code to help write the Python script that automates running radon and building the
-comparison table. I reviewed the script, ran it myself, and verified every number in the table
-against radon's raw text output before writing the analysis paragraph.
+I used Claude Code to help write the script that runs radon and builds the table. I read through
+what it wrote, ran it myself, and double-checked every number in the table against radon's raw
+output before writing the paragraph above.
 
 ## References
 
@@ -65,11 +63,10 @@ against radon's raw text output before writing the analysis paragraph.
 
 ## Suggested addition to Section 8 (Risks and Limits) — "everyone adds one risk"
 
-**Risk: A single complexity number can hide how it was achieved.** A model can lower the
-"highest" or "average" complexity score simply by splitting a function into several smaller
-pieces, without reducing the total amount of branching logic in the file. We saw this with
-Claude's refactor: highest CC dropped 19→12, but total CC rose 149→156. Reporting only one number
-could make a refactor look strictly "better" when it has actually just redistributed complexity.
+**Risk:** A complexity score can look better just because a function got split up. Claude's
+refactor is a good example — the highest score dropped from 19 to 12, but the total actually went
+up (149 → 156) because the file ended up with more functions. If we only reported one number, we
+could say a refactor "improved" the code when really it just moved the complexity around.
 
-**Mitigation:** Always report total, average, and highest CC together (not just one), alongside
-the block count, so a drop in one number can't be read as an improvement on its own.
+**Mitigation:** We'll always report the total, average and highest score together, and mention the
+block count too, so one number dropping doesn't get read as the whole story.
