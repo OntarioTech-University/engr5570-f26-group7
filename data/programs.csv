@@ -1,0 +1,35 @@
+program_id,problem_id,source_model,code_path,tests_path,smells
+p001,143_A,deepseek-coder-v2-16b,data/programs/p001.py,data/tests/p001.json,
+p002,143_A,qwen3-coder-480b,data/programs/p002.py,data/tests/p002.json,Orphan Module
+p003,868_A,qwen3-coder-480b,data/programs/p003.py,data/tests/p003.json,Orphan Module
+p004,appu_and_sugarcane_farm,llama-3.3-70b,data/programs/p004.py,data/tests/p004.json,Orphan Module
+p005,chandu_and_his_girlfriend_returns,gemini-2.5-pro,data/programs/p005.py,data/tests/p005.json,Feature Envy;Orphan Module
+p006,comm3,gemini-2.5-pro,data/programs/p006.py,data/tests/p006.json,Feature Envy
+p007,comm3,qwen3-coder-480b,data/programs/p007.py,data/tests/p007.json,
+p008,golu_and_coins_1,gemini-2.5-pro,data/programs/p008.py,data/tests/p008.json,
+p009,luckybal,llama-3.3-70b,data/programs/p009.py,data/tests/p009.json,Orphan Module
+p010,monks_choice_of_numbers_1,gemini-2.5-pro,data/programs/p010.py,data/tests/p010.json,Orphan Module;Scattered Functionality
+p011,roys_life_cycle,gemini-2.5-pro,data/programs/p011.py,data/tests/p011.json,
+p012,roys_life_cycle,qwen3-coder-480b,data/programs/p012.py,data/tests/p012.json,
+p013,101_C,qwen3-coder-480b,data/programs/p013.py,data/tests/p013.json,Long Method;Orphan Module
+p014,1107_D,deepseek-coder-v2-16b,data/programs/p014.py,data/tests/p014.json,
+p015,1107_D,llama-3.3-70b,data/programs/p015.py,data/tests/p015.json,Orphan Module
+p016,1208_D,gemini-2.5-pro,data/programs/p016.py,data/tests/p016.json,Long Method
+p017,1227_D1,gemini-2.5-pro,data/programs/p017.py,data/tests/p017.json,
+p018,1227_D1,llama-3.3-70b,data/programs/p018.py,data/tests/p018.json,
+p019,1374_E1,qwen3-coder-480b,data/programs/p019.py,data/tests/p019.json,Long Method;Potential Improper API Usage
+p020,260_B,gemini-2.5-pro,data/programs/p020.py,data/tests/p020.json,
+p021,260_B,qwen3-coder-480b,data/programs/p021.py,data/tests/p021.json,Orphan Module
+p022,309_B,gemini-2.5-pro,data/programs/p022.py,data/tests/p022.json,Long Method
+p023,634_C,gemini-2.5-pro,data/programs/p023.py,data/tests/p023.json,
+p024,634_C,qwen3-coder-480b,data/programs/p024.py,data/tests/p024.json,
+p025,663_A,gemini-2.5-pro,data/programs/p025.py,data/tests/p025.json,Feature Envy;Long Method;Potential Improper API Usage
+p026,7_B,gemini-2.5-pro,data/programs/p026.py,data/tests/p026.json,Long Method
+p027,7_B,qwen3-coder-480b,data/programs/p027.py,data/tests/p027.json,Orphan Module;Potential Improper API Usage
+p028,990_E,qwen3-coder-480b,data/programs/p028.py,data/tests/p028.json,
+p029,1037_E,qwen3-coder-480b,data/programs/p029.py,data/tests/p029.json,
+p030,1253_F,qwen3-coder-480b,data/programs/p030.py,data/tests/p030.json,Long Method
+p031,1361_E,llama-3.3-70b,data/programs/p031.py,data/tests/p031.json,
+p032,675_E,deepseek-coder-v2-16b,data/programs/p032.py,data/tests/p032.json,
+p033,754_E,llama-3.3-70b,data/programs/p033.py,data/tests/p033.json,Orphan Module
+p034,754_E,qwen3-coder-480b,data/programs/p034.py,data/tests/p034.json,

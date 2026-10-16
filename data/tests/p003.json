@@ -1,0 +1,728 @@
+{
+ "public": [
+  {
+   "input": "ah\n1\nha\n",
+   "output": "YES"
+  },
+  {
+   "input": "ya\n4\nah\noy\nto\nha\n",
+   "output": "YES"
+  },
+  {
+   "input": "hp\n2\nht\ntp\n",
+   "output": "NO"
+  }
+ ],
+ "private": [
+  {
+   "input": "ab\n2\nbb\nbc\n",
+   "output": "NO"
+  },
+  {
+   "input": "bc\n1\nab\n",
+   "output": "NO"
+  },
+  {
+   "input": "th\n1\nth\n",
+   "output": "YES"
+  },
+  {
+   "input": "bn\n100\ndf\nyb\nze\nml\nyr\nof\nnw\nfm\ndw\nlv\nzr\nhu\nzt\nlw\nld\nmo\nxz\ntp\nmr\nou\nme\npx\nvp\nes\nxi\nnr\nbx\nqc\ngm\njs\nkn\ntw\nrq\nkz\nuc\nvc\nqr\nab\nna\nro\nya\nqy\ngu\nvk\nqk\ngs\nyq\nop\nhw\nrj\neo\nlz\nbh\nkr\nkb\nma\nrd\nza\nuf\nhq\nmc\nmn\nti\nwn\nsh\nax\nsi\nnd\ntz\ndu\nfj\nkl\nws\now\nnf\nvr\nye\nzc\niw\nfv\nkv\noo\nsm\nbc\nrs\nau\nuz\nuv\ngh\nsu\njn\ndz\nrl\nwj\nbk\nzl\nas\nms\nit\nwu\n",
+   "output": "YES"
+  },
+  {
+   "input": "ke\n20\nzk\nra\nbq\nqz\nwt\nzg\nmz\nuk\nge\nuv\nud\nfd\neh\ndm\nsk\nki\nfv\ntp\nat\nfb\n",
+   "output": "YES"
+  },
+  {
+   "input": "ab\n2\nab\ncd\n",
+   "output": "YES"
+  },
+  {
+   "input": "bb\n1\naa\n",
+   "output": "NO"
+  },
+  {
+   "input": "ya\n1\nya\n",
+   "output": "YES"
+  },
+  {
+   "input": "ha\n1\nha\n",
+   "output": "YES"
+  },
+  {
+   "input": "hp\n1\nhp\n",
+   "output": "YES"
+  },
+  {
+   "input": "if\n100\njd\nbc\nje\nhi\nga\nde\nkb\nfc\ncd\ngd\naj\ncb\nei\nbf\ncf\ndk\ndb\ncg\nki\ngg\nkg\nfa\nkj\nii\njf\njg\ngb\nbh\nbg\neh\nhj\nhb\ndg\ndj\njc\njb\nce\ndi\nig\nci\ndf\nji\nhc\nfk\naf\nac\ngk\nhd\nae\nkd\nec\nkc\neb\nfh\nij\nie\nca\nhh\nkf\nha\ndd\nif\nef\nih\nhg\nej\nfe\njk\nea\nib\nck\nhf\nak\ngi\nch\ndc\nba\nke\nad\nka\neg\njh\nja\ngc\nfd\ncc\nab\ngj\nik\nfg\nbj\nhe\nfj\nge\ngh\nhk\nbk\ned\nid\nfi\n",
+   "output": "YES"
+  },
+  {
+   "input": "ba\n1\ncc\n",
+   "output": "NO"
+  },
+  {
+   "input": "ab\n5\nca\nda\nea\nfa\nka\n",
+   "output": "NO"
+  },
+  {
+   "input": "hh\n50\nag\nhg\ndg\nfh\neg\ngh\ngd\nda\nbh\nab\nhf\ndc\nhb\nfe\nad\nec\nac\nfd\nca\naf\ncg\nhd\neb\nce\nhe\nha\ngb\nea\nae\nfb\nff\nbe\nch\nhh\nee\nde\nge\ngf\naa\ngg\neh\ned\nbf\nfc\nah\nga\nbd\ncb\nbg\nbc\n",
+   "output": "YES"
+  },
+  {
+   "input": "ha\n2\nha\nzz\n",
+   "output": "YES"
+  },
+  {
+   "input": "ac\n1\nac\n",
+   "output": "YES"
+  },
+  {
+   "input": "ab\n1\naa\n",
+   "output": "NO"
+  },
+  {
+   "input": "ta\n1\nta\n",
+   "output": "YES"
+  },
+  {
+   "input": "ma\n1\nma\n",
+   "output": "YES"
+  },
+  {
+   "input": "az\n1\nby\n",
+   "output": "NO"
+  },
+  {
+   "input": "rn\n50\nba\nec\nwg\nao\nlk\nmz\njj\ncf\nfa\njk\ndy\nsz\njs\nzr\nqv\ntx\nwv\nrd\nqw\nls\nrr\nvt\nrx\nkc\neh\nnj\niq\nyi\nkh\nue\nnv\nkz\nrn\nes\nua\nzf\nvu\nll\neg\nmj\ncz\nzj\nxz\net\neb\nci\nih\nig\nam\nvd\n",
+   "output": "YES"
+  },
+  {
+   "input": "kd\n100\nek\nea\nha\nkf\nkj\ngh\ndl\nfj\nal\nga\nlj\nik\ngd\nid\ncb\nfh\ndk\nif\nbh\nkb\nhc\nej\nhk\ngc\ngb\nef\nkk\nll\nlf\nkh\ncl\nlh\njj\nil\nhh\nci\ndb\ndf\ngk\njg\nch\nbd\ncg\nfg\nda\neb\nlg\ndg\nbk\nje\nbg\nbl\njl\ncj\nhb\nei\naa\ngl\nka\nfa\nfi\naf\nkc\nla\ngi\nij\nib\nle\ndi\nck\nag\nlc\nca\nge\nie\nlb\nke\nii\nae\nig\nic\nhe\ncf\nhd\nak\nfb\nhi\ngf\nad\nba\nhg\nbi\nkl\nac\ngg\ngj\nbe\nlk\nld\naj\n",
+   "output": "YES"
+  },
+  {
+   "input": "ee\n100\nah\nfb\ncd\nbi\nii\nai\nid\nag\nie\nha\ndi\nec\nae\nce\njb\ndg\njg\ngd\ngf\nda\nih\nbd\nhj\ngg\nhb\ndf\ned\nfh\naf\nja\nci\nfc\nic\nji\nac\nhi\nfj\nch\nbc\njd\naa\nff\nad\ngj\nej\nde\nee\nhe\ncf\nga\nia\ncg\nbb\nhc\nbe\ngi\njf\nbg\naj\njj\nbh\nfe\ndj\nef\ngb\nge\ndb\nig\ncj\ndc\nij\njh\nei\ndd\nib\nhf\neg\nbf\nfg\nab\ngc\nfd\nhd\ngh\neh\njc\neb\nhh\nca\nje\nbj\nif\nea\nhg\nfa\ncc\nba\ndh\ncb\nfi\n",
+   "output": "YES"
+  },
+  {
+   "input": "la\n1\nla\n",
+   "output": "YES"
+  },
+  {
+   "input": "yo\n1\nyo\n",
+   "output": "YES"
+  },
+  {
+   "input": "ok\n1\nok\n",
+   "output": "YES"
+  },
+  {
+   "input": "ab\n2\nxa\nza\n",
+   "output": "NO"
+  },
+  {
+   "input": "aa\n2\nca\ncc\n",
+   "output": "NO"
+  },
+  {
+   "input": "ab\n1\nab\n",
+   "output": "YES"
+  },
+  {
+   "input": "ah\n2\nap\nhp\n",
+   "output": "NO"
+  },
+  {
+   "input": "hi\n1\nhi\n",
+   "output": "YES"
+  },
+  {
+   "input": "ca\n3\nbc\nbd\nca\n",
+   "output": "YES"
+  },
+  {
+   "input": "ez\n1\njl\n",
+   "output": "NO"
+  },
+  {
+   "input": "aa\n2\nab\nac\n",
+   "output": "NO"
+  },
+  {
+   "input": "ag\n1\nag\n",
+   "output": "YES"
+  },
+  {
+   "input": "mq\n25\nqw\nwe\ner\nrt\nty\nyu\nui\nio\nop\npa\nas\nsd\ndf\nfg\ngh\nhj\njk\nkl\nlz\nzx\nxc\ncv\nvb\nbn\nnm\n",
+   "output": "YES"
+  },
+  {
+   "input": "sh\n1\nsh\n",
+   "output": "YES"
+  },
+  {
+   "input": "as\n1\nas\n",
+   "output": "YES"
+  },
+  {
+   "input": "sb\n1\nsb\n",
+   "output": "YES"
+  },
+  {
+   "input": "ah\n1\nah\n",
+   "output": "YES"
+  },
+  {
+   "input": "ha\n3\ndd\ncc\nha\n",
+   "output": "YES"
+  },
+  {
+   "input": "fc\n20\nca\nbb\nce\nfd\nde\nfa\ncc\nec\nfb\nfc\nff\nbe\ncf\nba\ndb\ned\naf\nae\nda\nef\n",
+   "output": "YES"
+  },
+  {
+   "input": "ah\n2\nba\nha\n",
+   "output": "YES"
+  },
+  {
+   "input": "ab\n2\nza\nbz\n",
+   "output": "YES"
+  },
+  {
+   "input": "ax\n2\nii\nxa\n",
+   "output": "YES"
+  },
+  {
+   "input": "pg\n4\nzl\nxs\ndi\nxn\n",
+   "output": "NO"
+  },
+  {
+   "input": "ca\n20\ndc\naf\ndf\neg\naa\nbc\nea\nbd\nab\ndb\ngc\nfb\nba\nbe\nee\ngf\ncf\nag\nga\nca\n",
+   "output": "YES"
+  },
+  {
+   "input": "fa\n1\nfa\n",
+   "output": "YES"
+  },
+  {
+   "input": "bb\n1\nbb\n",
+   "output": "YES"
+  },
+  {
+   "input": "fe\n50\nje\nbi\nbg\ngc\nfb\nig\ndf\nji\ndg\nfe\nfc\ncf\ngf\nai\nhe\nac\nch\nja\ngh\njf\nge\ncb\nij\ngb\ncg\naf\neh\nee\nhd\njd\njb\nii\nca\nci\nga\nab\nhi\nag\nfj\nej\nfi\nie\ndj\nfg\nef\njc\njg\njh\nhf\nha\n",
+   "output": "YES"
+  },
+  {
+   "input": "ab\n2\nba\ntt\n",
+   "output": "YES"
+  },
+  {
+   "input": "qc\n2\nyc\nkr\n",
+   "output": "NO"
+  },
+  {
+   "input": "dd\n2\nac\ndc\n",
+   "output": "NO"
+  },
+  {
+   "input": "oo\n1\nox\n",
+   "output": "NO"
+  },
+  {
+   "input": "dd\n3\nmt\nrg\nxl\n",
+   "output": "NO"
+  },
+  {
+   "input": "ab\n1\nbb\n",
+   "output": "NO"
+  },
+  {
+   "input": "ah\n2\nbb\nha\n",
+   "output": "YES"
+  },
+  {
+   "input": "ww\n4\nuw\now\npo\nko\n",
+   "output": "NO"
+  },
+  {
+   "input": "xy\n2\nxy\naa\n",
+   "output": "YES"
+  },
+  {
+   "input": "ay\n1\nay\n",
+   "output": "YES"
+  },
+  {
+   "input": "sa\n2\nxx\nas\n",
+   "output": "YES"
+  },
+  {
+   "input": "ya\n42\nab\nac\nad\nae\naf\nag\nah\nai\nak\naj\nba\nbc\nbd\nbe\nbf\nbg\nbh\nbi\nbk\nbj\ncb\nca\ncd\nce\ncf\ncg\nch\nci\nck\ncj\ndb\ndc\nda\nde\ndf\ndg\ndh\ndi\ndk\ndj\nef\nek\n",
+   "output": "NO"
+  },
+  {
+   "input": "ab\n2\nax\nbx\n",
+   "output": "NO"
+  },
+  {
+   "input": "aa\n2\nab\nba\n",
+   "output": "YES"
+  },
+  {
+   "input": "bk\n1\nbk\n",
+   "output": "YES"
+  },
+  {
+   "input": "aa\n3\nba\nbb\nab\n",
+   "output": "YES"
+  },
+  {
+   "input": "ca\n3\naa\nbb\nab\n",
+   "output": "NO"
+  },
+  {
+   "input": "ba\n1\nbb\n",
+   "output": "NO"
+  },
+  {
+   "input": "ay\n1\nyb\n",
+   "output": "NO"
+  },
+  {
+   "input": "ba\n1\nba\n",
+   "output": "YES"
+  },
+  {
+   "input": "be\n20\nad\ncd\ncb\ndb\ndd\naa\nab\nca\nae\ned\ndc\nbb\nba\nda\nee\nea\ncc\nac\nec\neb\n",
+   "output": "YES"
+  },
+  {
+   "input": "bc\n1\nbc\n",
+   "output": "YES"
+  },
+  {
+   "input": "ba\n4\ncd\nad\ncc\ncb\n",
+   "output": "YES"
+  },
+  {
+   "input": "qw\n1\nqw\n",
+   "output": "YES"
+  },
+  {
+   "input": "bb\n4\nba\nab\naa\nbb\n",
+   "output": "YES"
+  },
+  {
+   "input": "ab\n2\net\nab\n",
+   "output": "YES"
+  },
+  {
+   "input": "ab\n2\nab\ncc\n",
+   "output": "YES"
+  },
+  {
+   "input": "az\n1\nzz\n",
+   "output": "NO"
+  },
+  {
+   "input": "bc\n4\nca\nba\nbb\ncc\n",
+   "output": "YES"
+  },
+  {
+   "input": "id\n50\nhi\ndc\nfg\nee\ngi\nhc\nac\nih\ndg\nfc\nde\ned\nie\neb\nic\ncf\nib\nfa\ngc\nba\nbe\nga\nha\nhg\nia\ndf\nab\nei\neh\nad\nii\nci\ndh\nec\nif\ndi\nbg\nag\nhe\neg\nca\nae\ndb\naa\nid\nfh\nhh\ncc\nfb\ngb\n",
+   "output": "YES"
+  },
+  {
+   "input": "ab\n3\nab\nxx\nyy\n",
+   "output": "YES"
+  },
+  {
+   "input": "ab\n2\nab\nde\n",
+   "output": "YES"
+  },
+  {
+   "input": "aa\n1\naa\n",
+   "output": "YES"
+  },
+  {
+   "input": "tb\n1\ntb\n",
+   "output": "YES"
+  },
+  {
+   "input": "ap\n1\nap\n",
+   "output": "YES"
+  },
+  {
+   "input": "qm\n25\nqw\nwe\ner\nrt\nty\nyu\nui\nio\nop\npa\nas\nsd\ndf\nfg\ngh\nhj\njk\nkl\nlz\nzx\nxc\ncv\nvb\nbn\nnm\n",
+   "output": "NO"
+  }
+ ],
+ "generated": [
+  {
+   "input": "aa\n2\nbb\nbc\n",
+   "output": "NO\n"
+  },
+  {
+   "input": "th\n1\nht\n",
+   "output": "YES\n"
+  },
+  {
+   "input": "bb\n1\nab\n",
+   "output": "NO\n"
+  },
+  {
+   "input": "bn\n100\ndf\nyb\nze\nml\nyr\nof\nnw\nfm\ndw\nlv\nzr\nhu\nzt\nlw\nld\nmo\nxz\ntp\nmr\nou\nme\npx\nvp\nes\nxi\nnr\nbx\nqc\ngm\njs\nkn\ntw\nrq\nkz\nuc\nvc\nqr\nab\nna\nro\nya\nqy\ngu\nvk\nqk\ngs\nyq\nop\nhw\nrj\neo\nlz\nbh\nkr\nkb\nma\nrd\nz`\nuf\nhq\nmc\nmn\nti\nwn\nsh\nax\nsi\nnd\ntz\ndu\nfj\nkl\nws\now\nnf\nvr\nye\nzc\niw\nfv\nkv\noo\nsm\nbc\nrs\nau\nuz\nuv\ngh\nsu\njn\ndz\nrl\nwj\nbk\nzl\nas\nms\nit\nwu\n",
+   "output": "YES\n"
+  },
+  {
+   "input": "ke\n20\nzk\nra\nbq\nqz\nwt\nzg\nmz\nuk\nge\nuv\nud\nfd\neh\ndl\nsk\nki\nfv\ntp\nat\nfb\n",
+   "output": "YES\n"
+  },
+  {
+   "input": "cb\n1\naa\n",
+   "output": "NO\n"
+  },
+  {
+   "input": "ay\n1\nya\n",
+   "output": "YES\n"
+  },
+  {
+   "input": "ia\n1\nha\n",
+   "output": "NO\n"
+  },
+  {
+   "input": "hp\n1\nhq\n",
+   "output": "NO\n"
+  },
+  {
+   "input": "if\n100\njd\nbc\nje\nhi\nga\nde\nkb\nfc\ncd\nge\naj\ncb\nei\nbf\ncf\ndk\ndb\ncg\nki\ngg\nkg\nfa\nkj\nii\njf\njg\ngb\nbh\nbg\neh\nhj\nhb\ndg\ndj\njc\njb\nce\ndi\nig\nci\ndf\nji\nhc\nfk\naf\nac\ngk\nhd\nae\nkd\nec\nkc\neb\nfh\nij\nie\nca\nhh\nkf\nha\ndd\nif\nef\nih\nhg\nej\nfe\njk\nea\nib\nck\nhf\nak\ngi\nch\ndc\nba\nke\nad\nka\neg\njh\nja\ngc\nfd\ncc\nab\ngj\nik\nfg\nbj\nhe\nfj\nge\ngh\nhk\nbk\ned\nid\nfi\n",
+   "output": "YES\n"
+  },
+  {
+   "input": "ba\n1\ncd\n",
+   "output": "NO\n"
+  },
+  {
+   "input": "ab\n5\nc`\nda\nea\nfa\nka\n",
+   "output": "NO\n"
+  },
+  {
+   "input": "hh\n50\nag\nhg\ndg\nfh\neg\ngh\ngd\nda\nbi\nab\nhf\ndc\nhb\nfe\nad\nec\nac\nfd\nca\naf\ncg\nhd\neb\nce\nhe\nha\ngb\nea\nae\nfb\nff\nbe\nch\nhh\nee\nde\nge\ngf\naa\ngg\neh\ned\nbf\nfc\nah\nga\nbd\ncb\nbg\nbc\n",
+   "output": "YES\n"
+  },
+  {
+   "input": "ah\n2\nha\nzz\n",
+   "output": "YES\n"
+  },
+  {
+   "input": "ba\n1\naa\n",
+   "output": "NO\n"
+  },
+  {
+   "input": "ta\n1\nat\n",
+   "output": "YES\n"
+  },
+  {
+   "input": "am\n1\nma\n",
+   "output": "YES\n"
+  },
+  {
+   "input": "rn\n50\nba\nec\nwg\nao\nlk\nmz\njj\nce\nfa\njk\ndy\nsz\njs\nzr\nqv\ntx\nwv\nrd\nqw\nls\nrr\nvt\nrx\nkc\neh\nnj\niq\nyi\nkh\nue\nnv\nkz\nrn\nes\nua\nzf\nvu\nll\neg\nmj\ncz\nzj\nxz\net\neb\nci\nih\nig\nam\nvd\n",
+   "output": "YES\n"
+  },
+  {
+   "input": "kd\n100\nek\nea\nha\nkf\nkj\ngh\ndl\nfj\nal\nga\nlj\nik\ngd\nid\ncb\nfh\ndk\nif\nbh\nkb\nhc\nej\nhk\ngc\ngb\nef\nkk\nll\nlf\nkh\ncl\nlh\njj\nil\nhh\ndi\ndb\ndf\ngk\njg\nch\nbd\ncg\nfg\nda\neb\nlg\ndg\nbk\nje\nbg\nbl\njl\ncj\nhb\nei\naa\ngl\nka\nfa\nfi\naf\nkc\nla\ngi\nij\nib\nle\ndi\nck\nag\nlc\nca\nge\nie\nlb\nke\nii\nae\nig\nic\nhe\ncf\nhd\nak\nfb\nhi\ngf\nad\nba\nhg\nbi\nkl\nac\ngg\ngj\nbe\nlk\nld\naj\n",
+   "output": "YES\n"
+  },
+  {
+   "input": "ee\n100\nah\nfb\ncd\nbi\nii\nai\nid\nag\nie\nha\ndi\nec\nae\nce\njb\ndg\njg\ndg\ngf\nda\nih\nbd\nhj\ngg\nhb\ndf\ned\nfh\naf\nja\nci\nfc\nic\nji\nac\nhi\nfj\nch\nbc\njd\naa\nff\nad\ngj\nej\nde\nee\nhe\ncf\nga\nia\ncg\nbb\nhc\nbe\ngi\njf\nbg\naj\njj\nbh\nfe\ndj\nef\ngb\nge\ndb\nig\ncj\ndc\nij\njh\nei\ndd\nib\nhf\neg\nbf\nfg\nab\ngc\nfd\nhd\ngh\neh\njc\neb\nhh\nca\nje\nbj\nif\nea\nhg\nfa\ncc\nba\ndh\ncb\nfi\n",
+   "output": "YES\n"
+  },
+  {
+   "input": "yo\n1\noy\n",
+   "output": "YES\n"
+  },
+  {
+   "input": "ko\n1\nok\n",
+   "output": "YES\n"
+  },
+  {
+   "input": "ab\n2\nya\nza\n",
+   "output": "NO\n"
+  },
+  {
+   "input": "aa\n2\ncb\ncc\n",
+   "output": "NO\n"
+  },
+  {
+   "input": "bh\n2\nap\nhp\n",
+   "output": "NO\n"
+  },
+  {
+   "input": "ac\n3\nbc\nbd\nca\n",
+   "output": "YES\n"
+  },
+  {
+   "input": "aa\n2\nab\n`c\n",
+   "output": "NO\n"
+  },
+  {
+   "input": "`g\n1\nag\n",
+   "output": "NO\n"
+  },
+  {
+   "input": "mq\n25\nqw\nwe\ner\nrt\nty\nyu\nui\nio\nop\npa\nas\nsd\ndf\nfg\ngh\nhj\njk\nkl\nlz\nzx\nxc\ncv\nvb\nbn\nmn\n",
+   "output": "NO\n"
+  },
+  {
+   "input": "sh\n1\nsg\n",
+   "output": "NO\n"
+  },
+  {
+   "input": "as\n1\nbs\n",
+   "output": "NO\n"
+  },
+  {
+   "input": "sb\n1\nsc\n",
+   "output": "NO\n"
+  },
+  {
+   "input": "ha\n1\nah\n",
+   "output": "YES\n"
+  },
+  {
+   "input": "h`\n3\ndd\ncc\nha\n",
+   "output": "NO\n"
+  },
+  {
+   "input": "fc\n20\nca\nbb\nce\nfd\nde\nfa\ncc\nec\nfb\nfc\nff\nbe\ncf\nba\ndb\nde\naf\nae\nda\nef\n",
+   "output": "YES\n"
+  },
+  {
+   "input": "ha\n2\nba\nha\n",
+   "output": "YES\n"
+  },
+  {
+   "input": "ab\n2\naz\nbz\n",
+   "output": "NO\n"
+  },
+  {
+   "input": "ax\n2\nhi\nxa\n",
+   "output": "YES\n"
+  },
+  {
+   "input": "gp\n4\nzl\nxs\ndi\nxn\n",
+   "output": "NO\n"
+  },
+  {
+   "input": "ca\n20\ndc\naf\ndf\neg\naa\nbc\nea\nbd\nab\ndb\ngc\nfb\naa\nbe\nee\ngf\ncf\nag\nga\nca\n",
+   "output": "YES\n"
+  },
+  {
+   "input": "fe\n50\nje\nbi\nbg\ngc\nfb\nig\ndf\nji\ndg\nfe\nfc\ncf\ngf\nai\nhe\nac\nch\nja\ngh\njf\nge\ncb\nij\ngb\ncg\naf\neh\nee\nhd\njd\njb\nii\nca\nci\nga\nab\nhi\nah\nfj\nej\nfi\nie\ndj\nfg\nef\njc\njg\njh\nhf\nha\n",
+   "output": "YES\n"
+  },
+  {
+   "input": "ab\n2\nab\ntt\n",
+   "output": "YES\n"
+  },
+  {
+   "input": "dd\n2\nab\ndc\n",
+   "output": "NO\n"
+  },
+  {
+   "input": "oo\n1\nxo\n",
+   "output": "NO\n"
+  },
+  {
+   "input": "ed\n3\nmt\nrg\nxl\n",
+   "output": "NO\n"
+  },
+  {
+   "input": "xy\n2\nxz\naa\n",
+   "output": "NO\n"
+  },
+  {
+   "input": "ya\n42\nab\nac\nad\nae\naf\nag\nah\nai\nak\naj\nba\nbc\nbd\nbe\nbf\nbg\nbh\nbi\nbk\nbj\ncb\nca\ncd\nce\ncf\ncg\nch\nci\nck\ncj\ndb\ndc\nda\nde\ndf\ngd\ndh\ndi\ndk\ndj\nef\nek\n",
+   "output": "NO\n"
+  },
+  {
+   "input": "ab\n2\nax\nbw\n",
+   "output": "NO\n"
+  },
+  {
+   "input": "a`\n2\nab\nba\n",
+   "output": "NO\n"
+  },
+  {
+   "input": "aa\n3\nab\nbb\nab\n",
+   "output": "NO\n"
+  },
+  {
+   "input": "ca\n3\nab\nbb\nab\n",
+   "output": "NO\n"
+  },
+  {
+   "input": "ay\n1\nxb\n",
+   "output": "NO\n"
+  },
+  {
+   "input": "ba\n1\nab\n",
+   "output": "YES\n"
+  },
+  {
+   "input": "be\n20\nda\ncd\ncb\ndb\ndd\naa\nab\nca\nae\ned\ndc\nbb\nba\nda\nee\nea\ncc\nac\nec\neb\n",
+   "output": "YES\n"
+  },
+  {
+   "input": "cc\n1\nbc\n",
+   "output": "NO\n"
+  },
+  {
+   "input": "ba\n4\ncd\nad\ncc\nbb\n",
+   "output": "YES\n"
+  },
+  {
+   "input": "bb\n4\nba\nab\naa\nbc\n",
+   "output": "YES\n"
+  },
+  {
+   "input": "ba\n2\nab\ncc\n",
+   "output": "YES\n"
+  },
+  {
+   "input": "ay\n1\nzz\n",
+   "output": "NO\n"
+  },
+  {
+   "input": "bc\n4\nc`\nba\nbb\ncc\n",
+   "output": "YES\n"
+  },
+  {
+   "input": "id\n50\nhi\ndc\nfg\nee\ngi\nhc\nac\nih\ndg\nfc\nde\ned\nje\neb\nic\ncf\nib\nfa\ngc\nba\nbe\nga\nha\nhg\nia\ndf\nab\nei\neh\nad\nii\nci\ndh\nec\nif\ndi\nbg\nag\nhe\neg\nca\nae\ndb\naa\nid\nfh\nhh\ncc\nfb\ngb\n",
+   "output": "YES\n"
+  },
+  {
+   "input": "ab\n3\nba\nxx\nyy\n",
+   "output": "YES\n"
+  },
+  {
+   "input": "ab\n2\naa\nde\n",
+   "output": "NO\n"
+  },
+  {
+   "input": "tb\n1\nta\n",
+   "output": "NO\n"
+  },
+  {
+   "input": "ap\n1\nbp\n",
+   "output": "NO\n"
+  },
+  {
+   "input": "qm\n25\nqw\nwe\ner\nrt\nty\nyu\nui\nio\nop\np`\nas\nsd\ndf\nfg\ngh\nhj\njk\nkl\nlz\nzx\nxc\ncv\nvb\nbn\nnm\n",
+   "output": "NO\n"
+  },
+  {
+   "input": "`h\n1\nah\n",
+   "output": "NO\n"
+  },
+  {
+   "input": "ya\n4\nah\nox\nto\nha\n",
+   "output": "NO\n"
+  },
+  {
+   "input": "ph\n2\nht\ntp\n",
+   "output": "YES\n"
+  },
+  {
+   "input": "aa\n2\nbb\ncb\n",
+   "output": "NO\n"
+  },
+  {
+   "input": "bb\n1\nba\n",
+   "output": "NO\n"
+  },
+  {
+   "input": "th\n1\ngt\n",
+   "output": "NO\n"
+  },
+  {
+   "input": "bn\n100\ndf\nyb\nze\nml\nyr\nof\nnw\nfm\ndw\nlv\nzr\nhu\nzt\nlw\nld\nmo\nxz\ntp\nms\nou\nme\npx\nvp\nes\nxi\nnr\nbx\nqc\ngm\njs\nkn\ntw\nrq\nkz\nuc\nvc\nqr\nab\nna\nro\nya\nqy\ngu\nvk\nqk\ngs\nyq\nop\nhw\nrj\neo\nlz\nbh\nkr\nkb\nma\nrd\nz`\nuf\nhq\nmc\nmn\nti\nwn\nsh\nax\nsi\nnd\ntz\ndu\nfj\nkl\nws\now\nnf\nvr\nye\nzc\niw\nfv\nkv\noo\nsm\nbc\nrs\nau\nuz\nuv\ngh\nsu\njn\ndz\nrl\nwj\nbk\nzl\nas\nms\nit\nwu\n",
+   "output": "YES\n"
+  },
+  {
+   "input": "ke\n20\nzk\nra\nbq\nqz\nwt\nzg\nmz\nuk\nge\nuv\nud\nfd\neh\ndl\nsk\nki\nfv\nsp\nat\nfb\n",
+   "output": "YES\n"
+  },
+  {
+   "input": "ca\n1\naa\n",
+   "output": "NO\n"
+  },
+  {
+   "input": "ai\n1\nha\n",
+   "output": "NO\n"
+  },
+  {
+   "input": "ph\n1\nhq\n",
+   "output": "NO\n"
+  },
+  {
+   "input": "if\n100\njd\nbc\nje\nhi\nga\nde\nkb\nfc\ncd\nge\naj\ncb\nei\nbf\ncf\ndk\ndb\ncg\nki\ngg\nkg\nfa\nkj\nii\njf\njg\ngb\nbh\nbg\neh\nhj\nhb\ndg\njd\njc\njb\nce\ndi\nig\nci\ndf\nji\nhc\nfk\naf\nac\ngk\nhd\nae\nkd\nec\nkc\neb\nfh\nij\nie\nca\nhh\nkf\nha\ndd\nif\nef\nih\nhg\nej\nfe\njk\nea\nib\nck\nhf\nak\ngi\nch\ndc\nba\nke\nad\nka\neg\njh\nja\ngc\nfd\ncc\nab\ngj\nik\nfg\nbj\nhe\nfj\nge\ngh\nhk\nbk\ned\nid\nfi\n",
+   "output": "YES\n"
+  },
+  {
+   "input": "ba\n1\ndc\n",
+   "output": "NO\n"
+  },
+  {
+   "input": "bb\n5\nc`\nda\nea\nfa\nka\n",
+   "output": "NO\n"
+  },
+  {
+   "input": "hh\n50\nag\nhg\ndg\nfh\ndg\ngh\ngd\nda\nbi\nab\nhf\ndc\nhb\nfe\nad\nec\nac\nfd\nca\naf\ncg\nhd\neb\nce\nhe\nha\ngb\nea\nae\nfb\nff\nbe\nch\nhh\nee\nde\nge\ngf\naa\ngg\neh\ned\nbf\nfc\nah\nga\nbd\ncb\nbg\nbc\n",
+   "output": "YES\n"
+  },
+  {
+   "input": "ag\n2\nha\nzz\n",
+   "output": "NO\n"
+  },
+  {
+   "input": "am\n1\nam\n",
+   "output": "YES\n"
+  },
+  {
+   "input": "rn\n50\nba\nec\nwg\nao\nlk\nmz\njj\nce\nfa\njk\ndy\nsz\njs\nzr\nqv\ntx\nwv\nrd\nqw\nls\nrr\nvt\nrx\nkc\neh\nnj\niq\nyi\nkh\nue\nnv\nkz\nrn\nes\nua\nzf\nvu\nll\neg\nmj\ncz\nzj\nxz\net\neb\nci\nih\nig\nma\nvd\n",
+   "output": "YES\n"
+  },
+  {
+   "input": "kd\n100\nek\nea\nha\nkf\nkj\ngh\ndl\nfj\nal\nga\nlj\nik\ngd\nid\ncb\nfh\ndk\nif\nbg\nkb\nhc\nej\nhk\ngc\ngb\nef\nkk\nll\nlf\nkh\ncl\nlh\njj\nil\nhh\ndi\ndb\ndf\ngk\njg\nch\nbd\ncg\nfg\nda\neb\nlg\ndg\nbk\nje\nbg\nbl\njl\ncj\nhb\nei\naa\ngl\nka\nfa\nfi\naf\nkc\nla\ngi\nij\nib\nle\ndi\nck\nag\nlc\nca\nge\nie\nlb\nke\nii\nae\nig\nic\nhe\ncf\nhd\nak\nfb\nhi\ngf\nad\nba\nhg\nbi\nkl\nac\ngg\ngj\nbe\nlk\nld\naj\n",
+   "output": "YES\n"
+  },
+  {
+   "input": "ee\n100\nah\nfb\ncd\nbi\nii\nai\nid\nag\nie\nha\ndi\nec\nae\nce\njb\ndg\njg\ndg\ngf\nda\nih\nbd\nhj\ngg\nhb\ndf\ned\nfh\naf\nja\nci\nfd\nic\nji\nac\nhi\nfj\nch\nbc\njd\naa\nff\nad\ngj\nej\nde\nee\nhe\ncf\nga\nia\ncg\nbb\nhc\nbe\ngi\njf\nbg\naj\njj\nbh\nfe\ndj\nef\ngb\nge\ndb\nig\ncj\ndc\nij\njh\nei\ndd\nib\nhf\neg\nbf\nfg\nab\ngc\nfd\nhd\ngh\neh\njc\neb\nhh\nca\nje\nbj\nif\nea\nhg\nfa\ncc\nba\ndh\ncb\nfi\n",
+   "output": "YES\n"
+  },
+  {
+   "input": "oy\n1\noy\n",
+   "output": "YES\n"
+  },
+  {
+   "input": "ko\n1\npk\n",
+   "output": "NO\n"
+  },
+  {
+   "input": "ba\n2\nya\nza\n",
+   "output": "NO\n"
+  },
+  {
+   "input": "aa\n2\nbc\ncc\n",
+   "output": "NO\n"
+  },
+  {
+   "input": "bh\n2\nap\ngp\n",
+   "output": "NO\n"
+  }
+ ]
+}

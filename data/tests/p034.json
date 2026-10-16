@@ -1,0 +1,128 @@
+{
+ "public": [
+  {
+   "input": "5 7\nqcezchs\nhhedywq\nwikywqy\nqckrqzt\nbqexcxz\n3 2\n??\nyw\n?q\n",
+   "output": "0000100\n0001001\n0000000\n0000000\n0000000\n"
+  },
+  {
+   "input": "8 6\nibrgxl\nxqdcsg\nokbcgi\ntvpetc\nxgxxig\nigghzo\nlmlaza\ngpswzv\n1 4\ngx??\n",
+   "output": "000100\n000001\n000000\n000000\n010001\n000000\n000000\n000000\n"
+  },
+  {
+   "input": "10 10\nfwtoayylhw\nyyaryyjawr\nywrdzwhscy\nhnsyyxiphn\nbnjwzyyjvo\nkkjgseenwn\ngvmiflpcsy\nlxvkwrobwu\nwyybbcocyy\nyysijsvqry\n2 2\n??\nyy\n",
+   "output": "1000100000\n0000000001\n0001000000\n0000010000\n0000000000\n0000000000\n0000000000\n0100000010\n1000000001\n0000010000\n"
+  }
+ ],
+ "private": [
+  {
+   "input": "8 10\ncwcwcwcwcw\ncrcrcrcrcr\ncwcwcwcwcw\ncrcrcrcrcr\ncwcwcwcwcw\ncrcrcrcrcr\ncwcwcwcwcw\ncrcrcrcrcr\n12 14\n?????r??c?????\n?????w????cw?w\n??????cr????c?\nc?????c??????w\nc???????????c?\n??c?????cw????\n????c?c?c?????\nc?????????c???\nc?????c?????c?\n??????????c??w\n?r????c??r????\n???w?w??c???c?\n",
+   "output": "0000000000\n1010101010\n0000000000\n1010101010\n0000000000\n1010101010\n0000000000\n1010101010\n"
+  }
+ ],
+ "generated": [
+  {
+   "input": "5 7\nqcezchs\nhhedywq\nwikywqy\nqckrpzt\nbqexcxz\n3 2\n??\nyw\n?q\n",
+   "output": "0000100\n0000001\n0000000\n0000000\n0000000\n"
+  },
+  {
+   "input": "8 10\ncwcwcwcwcw\ncrcrcrcrcr\ncwcwcwcwcw\ncrcrcrcrcr\ncwcwcwcwcw\ncrcrcrcrcr\ncwcwcwcwcw\ncrcrcrcrcr\n12 14\n?????r??c?????\n?????w????cw?w\n??????cr????c?\nc?????c??????w\nc???????????c?\n??c?????cw????\n?????c?c?c????\nc?????????c???\nc?????c?????c?\n??????????c??w\n?r????c??r????\n???w?w??c???c?\n",
+   "output": "0000000000\n0000000000\n0000000000\n0000000000\n0000000000\n0000000000\n0000000000\n0000000000\n"
+  },
+  {
+   "input": "5 7\nqcezchs\nhhedywq\nwikywqy\nqckrqzt\nbqexcxz\n3 2\n??\nwy\n?q\n",
+   "output": "0000000\n0000000\n0000000\n0000000\n0000000\n"
+  },
+  {
+   "input": "8 6\nibrgxl\nxqdcsg\nokbcgi\ntvpetc\nxgxxig\nigghzo\nlmalza\ngpswzv\n1 4\ngx??\n",
+   "output": "000100\n000001\n000000\n000000\n010001\n000000\n000000\n000000\n"
+  },
+  {
+   "input": "10 10\nfwtoayylhw\nyyaryyjawr\nywrdzwhscy\nhnsyyxiphn\nbnjwzyyjvo\nkkjgseenwn\ngvmiflpcsy\nuwborwkvxl\nwyybbcocyy\nyysijsvqry\n2 2\n??\nyy\n",
+   "output": "1000100000\n0000000001\n0001000000\n0000010000\n0000000000\n0000000000\n0000000000\n0100000010\n1000000001\n0000010000\n"
+  },
+  {
+   "input": "8 6\nibrgxl\nxqdcsg\nokbcgi\ntvpetc\nxgxxig\nigghzo\nlmalza\ngpswzv\n1 4\nxg??\n",
+   "output": "000000\n000000\n000000\n000000\n100000\n000000\n000000\n000000\n"
+  },
+  {
+   "input": "10 10\nfwtoayylhw\nyyaryyjawr\nywrdzwhscy\nhnyysxiphn\nbnjwzyyjvo\nkkjgseenwn\ngvmiflpcsy\nuwborwkvxl\nwyybbcocyy\nyysijsvqry\n2 2\n??\nyy\n",
+   "output": "1000100000\n0000000001\n0010000000\n0000010000\n0000000000\n0000000000\n0000000000\n0100000010\n1000000001\n0000010000\n"
+  },
+  {
+   "input": "10 10\nfwtoayylhw\nyyaryyjawr\nywrdzwhscy\nhntyyxiphn\nbnjwzyyjvo\nkkjgseenwn\ngvmiflpcsy\nuwborwkvxl\nwyybbcocyx\nyysijsvqry\n2 2\n??\nyy\n",
+   "output": "1000100000\n0000000001\n0001000000\n0000010000\n0000000000\n0000000000\n0000000000\n0100000000\n1000000001\n0000010000\n"
+  },
+  {
+   "input": "10 10\nfwtoayylhw\nyyaryyjawr\nywrdzwhscy\nhnyysxiphn\novjyyzwjnb\nkkjgseenwn\ngvmiflpcsy\nuwborwkvxl\nwyybbcocyy\nyysijsvqry\n2 2\n??\nyy\n",
+   "output": "1000100000\n0000000001\n0010000000\n0001000000\n0000000000\n0000000000\n0000000000\n0100000010\n1000000001\n0000010000\n"
+  },
+  {
+   "input": "8 6\nibrgxl\nxqdcsg\nokbdgi\ntvpetc\nxgxxig\nigghzo\nlmalza\ngpswzv\n1 4\nxf??\n",
+   "output": "000000\n000000\n000000\n000000\n000000\n000000\n000000\n000000\n"
+  },
+  {
+   "input": "10 10\nfwtoayylhw\nyyarzyjawr\nywrdzwhscy\nhntyyxiphn\nbnjwzyyjvo\nkkjgseenwn\ngvmiflpcsy\nuwborwkvxl\nwyybbcocyx\nyysijsvqry\n2 2\n??\nyy\n",
+   "output": "1000000000\n0000000001\n0001000000\n0000010000\n0000000000\n0000000000\n0000000000\n0100000000\n1000000001\n0000010000\n"
+  },
+  {
+   "input": "5 7\nqcezchs\nghedywq\nwikywqy\nqckrqzt\nbqexcxz\n3 2\n??\nwy\n?q\n",
+   "output": "0000000\n0000000\n0000000\n0000000\n0000000\n"
+  },
+  {
+   "input": "10 10\nfwtoayylhw\nyyaryyjawr\nywrdzwhscy\nhntyyxiphn\nbnjwzyyjvo\nkkjgseenwn\ngvmiflpcsy\nuwborwkvxl\nwyybbcocyy\nyysijsvqry\n2 2\n??\nyy\n",
+   "output": "1000100000\n0000000001\n0001000000\n0000010000\n0000000000\n0000000000\n0000000000\n0100000010\n1000000001\n0000010000\n"
+  },
+  {
+   "input": "5 7\nqcezchs\nghedywq\nwikywqy\nqdkrqzt\nbqexcxz\n3 2\n??\nwy\n?q\n",
+   "output": "0000000\n0000000\n0000000\n0000000\n0000000\n"
+  },
+  {
+   "input": "8 6\nibrgxl\nxqdcsg\nokbcgi\ntvpetc\nxgxxig\nigghzo\nlmalza\nvzwspg\n1 4\nxg??\n",
+   "output": "000000\n000000\n000000\n000000\n100000\n000000\n000000\n000000\n"
+  },
+  {
+   "input": "5 7\nqcezchs\nghedywq\nwikywqx\nqdkrqzt\nbqexcxz\n3 2\n??\nwy\n?q\n",
+   "output": "0000000\n0000000\n0000000\n0000000\n0000000\n"
+  },
+  {
+   "input": "8 10\ncwcwcwcwcw\ncrcrcrcrcr\ncwcwcwcwcw\ncrcrcrcrcr\ncwcwcwcwcw\ncrcrcrcrcr\ncwcwcwcwcw\ncrcrcrcrcr\n12 14\n?????r??c?????\n?????w????cw?w\n??????cr????c?\nw??????c?????c\nc???????????c?\n??c?????cw????\n????c?c?c?????\nc?????????c???\nc?????c?????c?\n??????????c??w\n?r????c??r????\n???w?w??c???c?\n",
+   "output": "0000000000\n0000000000\n0000000000\n0000000000\n0000000000\n0000000000\n0000000000\n0000000000\n"
+  },
+  {
+   "input": "10 10\nfwtoayylhw\nyyaryyjawq\nywrdzwhscy\nhnsyyxiphn\nbnjwzyyjvo\nkkjgseenwn\ngvmiflpcsy\nlxvkwrobwu\nwyybbcocyy\nyysijsvqry\n2 2\n??\nyy\n",
+   "output": "1000100000\n0000000001\n0001000000\n0000010000\n0000000000\n0000000000\n0000000000\n0100000010\n1000000001\n0000010000\n"
+  },
+  {
+   "input": "5 7\nqcezchs\nhhedywq\nwikywqy\nqckrpzt\nbqexcxz\n3 2\n??\nyw\nq?\n",
+   "output": "0000000\n0000000\n0000000\n0000000\n0000000\n"
+  },
+  {
+   "input": "8 10\ncwcwcwcwcw\ncrcrcrcrcr\ncwcwcwcwcw\ncrcrcrcrcr\ncwcwcwcwcw\ncrcrcrcrcr\ncwcwcwcwcw\ncrcrcrcrcq\n12 14\n?????r??c?????\n?????w????cw?w\n??????cr????c?\nc?????c??????w\nc???????????c?\n??c?????cw????\n?????c?c?c????\nc?????????c???\nc?????c?????c?\n??????????c??w\n?r????c??r????\n???w?w??c???c?\n",
+   "output": "0000000000\n0000000000\n0000000000\n0000000000\n0000000000\n0000000000\n0000000000\n0000000000\n"
+  },
+  {
+   "input": "5 7\nqcezchs\nghedywq\nwikywqy\nqckrqzt\nzxcxeqb\n3 2\n??\nwy\n?q\n",
+   "output": "0000000\n0000000\n0000000\n0000000\n0000000\n"
+  },
+  {
+   "input": "8 6\nibrgxl\nxqdcsg\nokbdgi\ntvpetc\nxgxxig\nigghzo\nlmalza\ngpswzv\n1 4\nxg??\n",
+   "output": "000000\n000000\n000000\n000000\n100000\n000000\n000000\n000000\n"
+  },
+  {
+   "input": "10 10\nfwtoayylhw\nyyaryyjawq\nywrdzwhscy\nhnryyxiphn\nbnjwzyyjvo\nkkjgseenwn\ngvmiflpcsy\nlxvkwrobwu\nwyybbcocyy\nyysijsvqry\n2 2\n??\nyy\n",
+   "output": "1000100000\n0000000001\n0001000000\n0000010000\n0000000000\n0000000000\n0000000000\n0100000010\n1000000001\n0000010000\n"
+  },
+  {
+   "input": "5 7\nqcezchs\nhqedywh\nwikywqy\nqckrpzt\nbqexcxz\n3 2\n??\nyw\nq?\n",
+   "output": "0000000\n0000000\n0000000\n0000000\n0000000\n"
+  },
+  {
+   "input": "8 10\ncwcwcwcwcw\ncrcrcrcrcr\ncwcwcwcwcw\ncrcrcrcrcr\ncwcwcwcwcw\ncrcrcrcrcr\ncwcwcwcwcw\ncrcrcrcrcq\n12 14\n?????r??c?????\n?????w????cw?w\n??????crc?????\nc?????c??????w\nc???????????c?\n??c?????cw????\n?????c?c?c????\nc?????????c???\nc?????c?????c?\n??????????c??w\n?r????c??r????\n???w?w??c???c?\n",
+   "output": "0000000000\n0000000000\n0000000000\n0000000000\n0000000000\n0000000000\n0000000000\n0000000000\n"
+  },
+  {
+   "input": "5 7\npcezchs\nghedywq\nwikywqy\nqckrqzt\nzxcxeqb\n3 2\n??\nwy\n?q\n",
+   "output": "0000000\n0000000\n0000000\n0000000\n0000000\n"
+  }
+ ]
+}

@@ -1,0 +1,61 @@
+import sys
+from collections import Counter
+
+def solve():
+    """
+    Solves the optimal subsequence problem for the given input.
+    """
+    try:
+        # Fast I/O
+        input = sys.stdin.readline
+        
+        n_str = input()
+        if not n_str: return
+        n = int(n_str)
+        
+        a = list(map(int, input().split()))
+        m = int(input())
+
+        # 1. Pair values with their original indices
+        # This helps us keep track of original positions after sorting.
+        indexed_a = []
+        for i in range(n):
+            indexed_a.append((a[i], i))
+
+        # 2. Sort to find the elements for the max-sum subsequence.
+        # Primary key: value (descending).
+        # Secondary key: index (ascending) for tie-breaking to ensure
+        # we pick elements that appear earlier, which is crucial for
+        # lexicographical minimality.
+        indexed_a.sort(key=lambda x: (-x[0], x[1]))
+
+        # Cache to store computed optimal subsequences for each k
+        optimal_subs_cache = {}
+
+        for _ in range(m):
+            k, pos = map(int, input().split())
+
+            # If we haven't computed the subsequence for this k yet, do it now.
+            if k not in optimal_subs_cache:
+                # Select the top k elements based on our sorting.
+                # These are the specific elements (value and original index)
+                # that will form the optimal subsequence.
+                top_k_pairs = indexed_a[:k]
+
+                # 3. Reconstruct the subsequence by sorting the chosen elements
+                # by their original index. This preserves the subsequence property.
+                top_k_pairs.sort(key=lambda x: x[1])
+
+                # Store the final sequence of values in the cache.
+                optimal_subs_cache[k] = [pair[0] for pair in top_k_pairs]
+
+            # 4. Retrieve the answer from the cache.
+            # pos is 1-based, so we use pos-1 for list indexing.
+            result = optimal_subs_cache[k][pos - 1]
+            sys.stdout.write(str(result) + '\n')
+
+    except (IOError, ValueError) as e:
+        # Handle potential empty lines or format errors at the end of input
+        pass
+
+solve()
