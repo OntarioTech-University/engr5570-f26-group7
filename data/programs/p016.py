@@ -1,0 +1,82 @@
+import sys
+
+# Increase recursion limit for deep segment tree traversals, a good practice in Python.
+sys.setrecursionlimit(200005 + 5)
+
+def solve():
+    """
+    Main function to read input, solve the problem, and print the output.
+    """
+    try:
+        # Fast I/O
+        readline = sys.stdin.readline
+        n = int(readline())
+        s = list(map(int, readline().split()))
+    except (IOError, ValueError):
+        return
+
+    # Segment Tree stores sums of available numbers.
+    # Size 4*n is a safe upper bound for the array representation.
+    tree = [0] * (4 * n)
+
+    def build(node, start, end):
+        """
+        Recursively builds the segment tree.
+        """
+        if start == end:
+            tree[node] = start
+            return
+        mid = (start + end) // 2
+        build(2 * node, start, mid)
+        build(2 * node + 1, mid + 1, end)
+        tree[node] = tree[2 * node] + tree[2 * node + 1]
+
+    def update(node, start, end, idx, val):
+        """
+        Updates the value at a specific index (leaf) and propagates changes up.
+        """
+        if start == end:
+            tree[node] = val
+            return
+        mid = (start + end) // 2
+        if start <= idx <= mid:
+            update(2 * node, start, mid, idx, val)
+        else:
+            update(2 * node + 1, mid + 1, end, idx, val)
+        tree[node] = tree[2 * node] + tree[2 * node + 1]
+
+    def find_by_sum(node, start, end, k):
+        """
+        Finds the number corresponding to a given prefix sum 'k'.
+        """
+        if start == end:
+            return start
+        
+        mid = (start + end) // 2
+        left_sum = tree[2 * node]
+        
+        if k < left_sum:
+            return find_by_sum(2 * node, start, mid, k)
+        else:
+            return find_by_sum(2 * node + 1, mid + 1, end, k - left_sum)
+
+    # Initialize the segment tree with all numbers from 1 to n available.
+    build(1, 1, n)
+
+    p = [0] * n
+    # Iterate from n down to 1 to determine p_n, p_{n-1}, ...
+    for i in range(n - 1, -1, -1):
+        # s[i] is the target sum for the i-th element of the permutation (0-indexed).
+        target_sum = s[i]
+        
+        # Find the value for p[i].
+        value = find_by_sum(1, 1, n, target_sum)
+        p[i] = value
+        
+        # "Remove" the found value from the set of available numbers
+        # by setting its contribution in the segment tree to 0.
+        update(1, 1, n, value, 0)
+
+    print(*p)
+
+solve()

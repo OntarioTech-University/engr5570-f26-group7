@@ -1,0 +1,133 @@
+{
+  "runner": "scripts/check_runner.py (Part 2 stand-in)",
+  "notes": {
+    "deepseek_coder/np: no PyExamine report in the package": 1,
+    "qwen_coder_30b/raw: no JSON in the package, 97 snippet files cannot be matched to problems, skipped": 1
+  },
+  "pool_total": 810,
+  "pool_by_status": {
+    "fails_tests": 422,
+    "pass_all": 183,
+    "not_python": 101,
+    "no_public_or_hidden_tests": 29,
+    "no_stdin": 15,
+    "too_slow": 1,
+    "empty": 58,
+    "duplicate": 1
+  },
+  "status_by_model": {
+    "gemini-2.5-pro": {
+      "fails_tests": 10,
+      "pass_all": 49,
+      "not_python": 53,
+      "no_public_or_hidden_tests": 6,
+      "no_stdin": 3,
+      "too_slow": 1,
+      "empty": 58
+    },
+    "llama-3.3-70b": {
+      "fails_tests": 116,
+      "pass_all": 38,
+      "no_public_or_hidden_tests": 11,
+      "not_python": 8,
+      "no_stdin": 7
+    },
+    "deepseek-coder-v2-16b": {
+      "pass_all": 18,
+      "fails_tests": 156,
+      "not_python": 5,
+      "no_stdin": 1
+    },
+    "qwen3-coder-30b": {
+      "fails_tests": 52,
+      "not_python": 22,
+      "pass_all": 16
+    },
+    "qwen3-coder-480b": {
+      "fails_tests": 88,
+      "pass_all": 62,
+      "not_python": 13,
+      "no_public_or_hidden_tests": 12,
+      "no_stdin": 4,
+      "duplicate": 1
+    }
+  },
+  "status_by_condition": {
+    "zero-shot": {
+      "fails_tests": 183,
+      "pass_all": 90,
+      "not_python": 61,
+      "no_public_or_hidden_tests": 15,
+      "no_stdin": 10,
+      "too_slow": 1
+    },
+    "few-shot": {
+      "fails_tests": 239,
+      "pass_all": 93,
+      "not_python": 40,
+      "empty": 58,
+      "no_public_or_hidden_tests": 14,
+      "no_stdin": 5,
+      "duplicate": 1
+    }
+  },
+  "pass_all_by_difficulty": {
+    "easy": 131,
+    "middle": 38,
+    "hard": 14
+  },
+  "fail_kind": {
+    "wrong_answer": 353,
+    "crash": 52,
+    "timeout": 17
+  },
+  "ase_marked_pass_but_not_usable": 539,
+  "passing_with_cleanup_reason": 48,
+  "passing_problem_model_pairs": 118,
+  "eligible_problem_model_pairs": 35,
+  "eligible_by_model": {
+    "qwen3-coder-480b": 14,
+    "deepseek-coder-v2-16b": 3,
+    "llama-3.3-70b": 6,
+    "gemini-2.5-pro": 12
+  },
+  "distinct_problems": 139,
+  "problems_per_model": {
+    "gemini-2.5-pro": 90,
+    "llama-3.3-70b": 90,
+    "deepseek-coder-v2-16b": 90,
+    "qwen3-coder-30b": 90,
+    "qwen3-coder-480b": 90
+  },
+  "selected": 34,
+  "selected_by_model": {
+    "deepseek-coder-v2-16b": 3,
+    "qwen3-coder-480b": 13,
+    "llama-3.3-70b": 6,
+    "gemini-2.5-pro": 12
+  },
+  "selected_by_difficulty": {
+    "easy": 12,
+    "middle": 16,
+    "hard": 6
+  },
+  "selected_by_condition": {
+    "few-shot": 12,
+    "zero-shot": 22
+  },
+  "selected_distinct_problems": 25,
+  "selected_reason_counts": {
+    "cc": 15,
+    "nesting": 20,
+    "block_lines": 24,
+    "smell": 9
+  },
+  "hidden_tests_removed_as_copies_of_public": 1,
+  "selected_smells": {
+    "Orphan Module": 11,
+    "Feature Envy": 3,
+    "Scattered Functionality": 1,
+    "Long Method": 7,
+    "Potential Improper API Usage": 3
+  }
+}

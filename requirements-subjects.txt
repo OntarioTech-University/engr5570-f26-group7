@@ -1,0 +1,2 @@
+pyarrow>=15
+radon>=6

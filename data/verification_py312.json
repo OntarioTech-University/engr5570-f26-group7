@@ -1,0 +1,247 @@
+{
+ "runner": "scripts/check_runner.py (Part 2 stand-in)",
+ "python": "3.12.3",
+ "os": "Linux",
+ "hash_seed": "3991",
+ "errors": [],
+ "programs": [
+  {
+   "program_id": "p001",
+   "passed_all": true,
+   "n_public": 4,
+   "n_hidden": 123,
+   "time_all_s": 1.853
+  },
+  {
+   "program_id": "p002",
+   "passed_all": true,
+   "n_public": 4,
+   "n_hidden": 123,
+   "time_all_s": 1.755
+  },
+  {
+   "program_id": "p003",
+   "passed_all": true,
+   "n_public": 3,
+   "n_hidden": 177,
+   "time_all_s": 2.621
+  },
+  {
+   "program_id": "p004",
+   "passed_all": true,
+   "n_public": 1,
+   "n_hidden": 114,
+   "time_all_s": 1.598
+  },
+  {
+   "program_id": "p005",
+   "passed_all": true,
+   "n_public": 1,
+   "n_hidden": 101,
+   "time_all_s": 1.307
+  },
+  {
+   "program_id": "p006",
+   "passed_all": true,
+   "n_public": 1,
+   "n_hidden": 100,
+   "time_all_s": 1.321
+  },
+  {
+   "program_id": "p007",
+   "passed_all": true,
+   "n_public": 1,
+   "n_hidden": 100,
+   "time_all_s": 1.371
+  },
+  {
+   "program_id": "p008",
+   "passed_all": true,
+   "n_public": 1,
+   "n_hidden": 106,
+   "time_all_s": 1.689
+  },
+  {
+   "program_id": "p009",
+   "passed_all": true,
+   "n_public": 1,
+   "n_hidden": 19,
+   "time_all_s": 0.288
+  },
+  {
+   "program_id": "p010",
+   "passed_all": true,
+   "n_public": 1,
+   "n_hidden": 101,
+   "time_all_s": 1.928
+  },
+  {
+   "program_id": "p011",
+   "passed_all": true,
+   "n_public": 1,
+   "n_hidden": 100,
+   "time_all_s": 1.388
+  },
+  {
+   "program_id": "p012",
+   "passed_all": true,
+   "n_public": 1,
+   "n_hidden": 100,
+   "time_all_s": 1.35
+  },
+  {
+   "program_id": "p013",
+   "passed_all": true,
+   "n_public": 3,
+   "n_hidden": 277,
+   "time_all_s": 4.573
+  },
+  {
+   "program_id": "p014",
+   "passed_all": true,
+   "n_public": 2,
+   "n_hidden": 94,
+   "time_all_s": 1.359
+  },
+  {
+   "program_id": "p015",
+   "passed_all": true,
+   "n_public": 2,
+   "n_hidden": 94,
+   "time_all_s": 1.282
+  },
+  {
+   "program_id": "p016",
+   "passed_all": true,
+   "n_public": 3,
+   "n_hidden": 35,
+   "time_all_s": 0.558
+  },
+  {
+   "program_id": "p017",
+   "passed_all": true,
+   "n_public": 2,
+   "n_hidden": 102,
+   "time_all_s": 1.659
+  },
+  {
+   "program_id": "p018",
+   "passed_all": true,
+   "n_public": 2,
+   "n_hidden": 102,
+   "time_all_s": 1.46
+  },
+  {
+   "program_id": "p019",
+   "passed_all": true,
+   "n_public": 3,
+   "n_hidden": 74,
+   "time_all_s": 1.054
+  },
+  {
+   "program_id": "p020",
+   "passed_all": true,
+   "n_public": 1,
+   "n_hidden": 101,
+   "time_all_s": 1.366
+  },
+  {
+   "program_id": "p021",
+   "passed_all": true,
+   "n_public": 1,
+   "n_hidden": 101,
+   "time_all_s": 1.394
+  },
+  {
+   "program_id": "p022",
+   "passed_all": true,
+   "n_public": 4,
+   "n_hidden": 94,
+   "time_all_s": 1.308
+  },
+  {
+   "program_id": "p023",
+   "passed_all": true,
+   "n_public": 2,
+   "n_hidden": 52,
+   "time_all_s": 0.718
+  },
+  {
+   "program_id": "p024",
+   "passed_all": true,
+   "n_public": 2,
+   "n_hidden": 52,
+   "time_all_s": 0.786
+  },
+  {
+   "program_id": "p025",
+   "passed_all": true,
+   "n_public": 3,
+   "n_hidden": 106,
+   "time_all_s": 1.512
+  },
+  {
+   "program_id": "p026",
+   "passed_all": true,
+   "n_public": 1,
+   "n_hidden": 98,
+   "time_all_s": 1.303
+  },
+  {
+   "program_id": "p027",
+   "passed_all": true,
+   "n_public": 1,
+   "n_hidden": 98,
+   "time_all_s": 1.385
+  },
+  {
+   "program_id": "p028",
+   "passed_all": true,
+   "n_public": 4,
+   "n_hidden": 65,
+   "time_all_s": 2.255
+  },
+  {
+   "program_id": "p029",
+   "passed_all": true,
+   "n_public": 3,
+   "n_hidden": 47,
+   "time_all_s": 0.768
+  },
+  {
+   "program_id": "p030",
+   "passed_all": true,
+   "n_public": 2,
+   "n_hidden": 40,
+   "time_all_s": 0.97
+  },
+  {
+   "program_id": "p031",
+   "passed_all": true,
+   "n_public": 1,
+   "n_hidden": 33,
+   "time_all_s": 0.591
+  },
+  {
+   "program_id": "p032",
+   "passed_all": true,
+   "n_public": 2,
+   "n_hidden": 51,
+   "time_all_s": 0.697
+  },
+  {
+   "program_id": "p033",
+   "passed_all": true,
+   "n_public": 3,
+   "n_hidden": 27,
+   "time_all_s": 0.447
+  },
+  {
+   "program_id": "p034",
+   "passed_all": true,
+   "n_public": 3,
+   "n_hidden": 27,
+   "time_all_s": 0.392
+  }
+ ]
+}

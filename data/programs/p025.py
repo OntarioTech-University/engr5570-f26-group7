@@ -1,0 +1,88 @@
+import sys
+
+def solve():
+    """
+    Solves the rebus problem by checking feasibility and then constructing a solution.
+    """
+    # 1. Parse the input
+    line = sys.stdin.readline().split()
+    
+    # The target number 'n' is the last element
+    n = int(line[-1])
+    
+    # 2. Count the number of positive and negative terms
+    num_plus = 1  # The first '?' is always positive
+    num_minus = 0
+    operators = []
+    
+    for item in line:
+        if item == '+':
+            num_plus += 1
+            operators.append('+')
+        elif item == '-':
+            num_minus += 1
+            operators.append('-')
+
+    # 3. Feasibility Check: Calculate min and max possible sums
+    min_sum = num_plus * 1 - num_minus * n
+    max_sum = num_plus * n - num_minus * 1
+    
+    if not (min_sum <= n <= max_sum):
+        print("Impossible")
+        return
+
+    # 4. If possible, construct a solution
+    print("Possible")
+    
+    # Start by assigning 1 to every term
+    pos_values = [1] * num_plus
+    neg_values = [1] * num_minus
+    
+    current_sum = num_plus - num_minus
+    diff = n - current_sum
+    
+    if diff > 0:
+        # We need to increase the sum. Add the difference to positive values.
+        for i in range(num_plus):
+            # Add as much as possible to the current positive value, up to n
+            add_amount = min(diff, n - 1) # Can add at most n-1 to a value of 1
+            pos_values[i] += add_amount
+            diff -= add_amount
+            if diff == 0:
+                break
+    elif diff < 0:
+        # We need to decrease the sum. Add the difference to negative values.
+        to_decrease = -diff
+        for i in range(num_minus):
+            # Add as much as possible to the current negative value, up to n
+            add_amount = min(to_decrease, n - 1)
+            neg_values[i] += add_amount
+            to_decrease -= add_amount
+            if to_decrease == 0:
+                break
+
+    # 5. Format and print the final rebus
+    result_parts = []
+    pos_idx = 0
+    neg_idx = 0
+    
+    # Add the first number (always positive)
+    result_parts.append(str(pos_values[pos_idx]))
+    pos_idx += 1
+    
+    # Add the remaining operators and numbers
+    for op in operators:
+        result_parts.append(op)
+        if op == '+':
+            result_parts.append(str(pos_values[pos_idx]))
+            pos_idx += 1
+        else: # op == '-'
+            result_parts.append(str(neg_values[neg_idx]))
+            neg_idx += 1
+            
+    result_parts.append("=")
+    result_parts.append(str(n))
+    
+    print(" ".join(result_parts))
+
+solve()
