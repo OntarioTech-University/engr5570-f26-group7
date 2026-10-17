@@ -1,0 +1,137 @@
+
+Please refactor the Python code below to improve its internal design and maintainability, specifically focusing on: Reduce complexity and improve readability. Simplify complex or deeply nested conditional logic, and split long code into smaller, well named functions where this makes the code easier to understand.
+
+Key constraints for this refactoring:
+- Preserve runtime behavior: The code must produce the exact same outputs, return values, side effects, and exceptions as before.
+- Keep public interfaces: Do not rename or modify signatures for any public functions, classes, or methods to avoid breaking external callers.
+- Strict scope: Focus solely on structural improvements. Do not add features, fix bugs, or change error handling logic, even if something looks wrong. Do not modify test files. If a change might alter behavior, skip it.
+- No-op condition: If you determine that the code does not benefit from this specific refactoring, return it unchanged and briefly state why.
+
+Response format:
+1. The complete refactored file in a single Python code block.
+2. A short bulleted list summarizing each change and its justification.
+
+Code:
+def rotate_90_clockwise(x, y):
+    return (y, -x)
+
+def gcd(a, b):
+    while b:
+        a, b = b, a % b
+    return abs(a)
+
+def main():
+    line = input().split()
+    x1, y1 = int(line[0]), int(line[1])
+    
+    line = input().split()
+    x2, y2 = int(line[0]), int(line[1])
+    
+    line = input().split()
+    x3, y3 = int(line[0]), int(line[1])
+    
+    # Generate the 4 rotations of C
+    c_vectors = [(x3, y3)]
+    for _ in range(3):
+        c_vectors.append(rotate_90_clockwise(c_vectors[-1][0], c_vectors[-1][1]))
+    
+    # For each rotation of A, check if B - rotated_A can be expressed as non-negative combination
+    current_a = (x1, y1)
+    for rot in range(4):
+        target_x = x2 - current_a[0]
+        target_y = y2 - current_a[1]
+        
+        # We want to solve:
+        # k0*c0_x + k1*c1_x + k2*c2_x + k3*c3_x = target_x
+        # k0*c0_y + k1*c1_y + k2*c2_y + k3*c3_y = target_y
+        # k0,k1,k2,k3 >= 0
+        
+        # Try some systematic search or mathematical approach
+        # Since bounds can be up to 10^8, brute force won't work
+        # But mathematically, with 4 vectors in 2D, there's good chance
+        
+        # Special case: if target is (0,0), answer is yes (ki=0 for all)
+        if target_x == 0 and target_y == 0:
+            print("YES")
+            return
+            
+        # Try expressing using subsets of vectors
+        found = False
+        
+        # Check all single vectors
+        for i in range(4):
+            vx, vy = c_vectors[i]
+            if vx != 0 and target_x % vx == 0:
+                k = target_x // vx
+                if k >= 0 and k * vy == target_y:
+                    found = True
+                    break
+            elif vy != 0 and target_y % vy == 0:
+                k = target_y // vy
+                if k >= 0 and k * vx == target_x:
+                    found = True
+                    break
+            elif vx == 0 and vy == 0 and target_x == 0 and target_y == 0:
+                found = True
+                break
+                    
+        if found:
+            print("YES")
+            return
+            
+        # Check all pairs of vectors - solve 2x2 system
+        for i in range(4):
+            for j in range(i+1, 4):
+                v1x, v1y = c_vectors[i]
+                v2x, v2y = c_vectors[j]
+                
+                # Solve: a*v1 + b*v2 = target
+                # a*v1x + b*v2x = target_x
+                # a*v1y + b*v2y = target_y
+                
+                det = v1x * v2y - v1y * v2x
+                if det != 0:
+                    # Cramer's rule
+                    if (v2y * target_x - v2x * target_y) % det == 0 and \
+                       (v1x * target_y - v1y * target_x) % det == 0:
+                        a = (v2y * target_x - v2x * target_y) // det
+                        b = (v1x * target_y - v1y * target_x) // det
+                        if a >= 0 and b >= 0:
+                            found = True
+                            break
+                else:
+                    # Dependent vectors
+                    # Check if target is in span
+                    cross = v1x * target_y - v1y * target_x
+                    if cross == 0:  # Target parallel to v1
+                        # Check if we can express target as a*v1 with a >= 0
+                        if v1x != 0:
+                            if target_x % v1x == 0:
+                                a = target_x // v1x
+                                if a >= 0 and a * v1y == target_y:
+                                    found = True
+                                    break
+                        elif v1y != 0:
+                            if target_y % v1y == 0:
+                                a = target_y // v1y
+                                if a >= 0 and a * v1x == target_x:
+                                    found = True
+                                    break
+                        elif target_x == 0 and target_y == 0:
+                            found = True
+                            break
+                            
+            if found:
+                break
+                
+        if found:
+            print("YES")
+            return
+            
+        current_a = rotate_90_clockwise(current_a[0], current_a[1])
+    
+    print("NO")
+
+if __name__ == "__main__":
+    main()
+

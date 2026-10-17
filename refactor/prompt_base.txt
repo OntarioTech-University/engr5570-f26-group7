@@ -1,4 +1,4 @@
-@'
+
 Please refactor the Python code below to improve its internal design and maintainability, specifically focusing on: {REFACTORING_TASK}
 
 Key constraints for this refactoring:
@@ -13,4 +13,3 @@ Response format:
 
 Code:
 {CODE}
-'@ | Out-File -Encoding utf8 refactor\prompt_base.txt

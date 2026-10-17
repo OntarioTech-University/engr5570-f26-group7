@@ -1,0 +1,41 @@
+
+Please refactor the Python code below to improve its internal design and maintainability, specifically focusing on: Reduce complexity and improve readability. Simplify complex or deeply nested conditional logic, and split long code into smaller, well named functions where this makes the code easier to understand.
+
+Key constraints for this refactoring:
+- Preserve runtime behavior: The code must produce the exact same outputs, return values, side effects, and exceptions as before.
+- Keep public interfaces: Do not rename or modify signatures for any public functions, classes, or methods to avoid breaking external callers.
+- Strict scope: Focus solely on structural improvements. Do not add features, fix bugs, or change error handling logic, even if something looks wrong. Do not modify test files. If a change might alter behavior, skip it.
+- No-op condition: If you determine that the code does not benefit from this specific refactoring, return it unchanged and briefly state why.
+
+Response format:
+1. The complete refactored file in a single Python code block.
+2. A short bulleted list summarizing each change and its justification.
+
+Code:
+from itertools import combinations
+
+def find_optimal_subsequence(a, k):
+    max_sum = 0
+    optimal_subsequence = None
+    for subsequence in combinations(a, k):
+        subsequence_sum = sum(subsequence)
+        if subsequence_sum > max_sum:
+            max_sum = subsequence_sum
+            optimal_subsequence = subsequence
+        elif subsequence_sum == max_sum:
+            if optimal_subsequence is None or subsequence < optimal_subsequence:
+                optimal_subsequence = subsequence
+    return optimal_subsequence
+
+def main():
+    n = int(input())
+    a = list(map(int, input().split()))
+    m = int(input())
+    for _ in range(m):
+        k, pos = map(int, input().split())
+        optimal_subsequence = find_optimal_subsequence(a, k)
+        print(optimal_subsequence[pos-1])
+
+if __name__ == "__main__":
+    main()
+

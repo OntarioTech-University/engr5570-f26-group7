@@ -1,0 +1,32 @@
+
+Please refactor the Python code below to improve its internal design and maintainability, specifically focusing on: Reduce complexity and improve readability. Simplify complex or deeply nested conditional logic, and split long code into smaller, well named functions where this makes the code easier to understand.
+
+Key constraints for this refactoring:
+- Preserve runtime behavior: The code must produce the exact same outputs, return values, side effects, and exceptions as before.
+- Keep public interfaces: Do not rename or modify signatures for any public functions, classes, or methods to avoid breaking external callers.
+- Strict scope: Focus solely on structural improvements. Do not add features, fix bugs, or change error handling logic, even if something looks wrong. Do not modify test files. If a change might alter behavior, skip it.
+- No-op condition: If you determine that the code does not benefit from this specific refactoring, return it unchanged and briefly state why.
+
+Response format:
+1. The complete refactored file in a single Python code block.
+2. A short bulleted list summarizing each change and its justification.
+
+Code:
+def count_balanced_substrings(s):
+    count = 0
+    n = len(s)
+    for l in range(n):
+        for r in range(l, n):
+            for x in range(l, r + 1):
+                left_4 = s[l:x].count('4')
+                right_7 = s[x:r + 1].count('7')
+                if left_4 == right_7:
+                    count += 1
+                    break
+    return count
+
+t = int(input())
+for _ in range(t):
+    s = input()
+    print(count_balanced_substrings(s))
+

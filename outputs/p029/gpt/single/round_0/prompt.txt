@@ -1,0 +1,76 @@
+
+Please refactor the Python code below to improve its internal design and maintainability, specifically focusing on: Reduce complexity and improve readability. Simplify complex or deeply nested conditional logic, and split long code into smaller, well named functions where this makes the code easier to understand.
+
+Key constraints for this refactoring:
+- Preserve runtime behavior: The code must produce the exact same outputs, return values, side effects, and exceptions as before.
+- Keep public interfaces: Do not rename or modify signatures for any public functions, classes, or methods to avoid breaking external callers.
+- Strict scope: Focus solely on structural improvements. Do not add features, fix bugs, or change error handling logic, even if something looks wrong. Do not modify test files. If a change might alter behavior, skip it.
+- No-op condition: If you determine that the code does not benefit from this specific refactoring, return it unchanged and briefly state why.
+
+Response format:
+1. The complete refactored file in a single Python code block.
+2. A short bulleted list summarizing each change and its justification.
+
+Code:
+from collections import deque, defaultdict
+import sys
+input = sys.stdin.read
+
+def main():
+    data = input().split()
+    idx = 0
+    n = int(data[idx])
+    idx += 1
+    m = int(data[idx])
+    idx += 1
+    k = int(data[idx])
+    idx += 1
+
+    # Graph initialization
+    adj = [set() for _ in range(n + 1)]
+    deg = [0] * (n + 1)
+
+    results = []
+
+    for _ in range(m):
+        u = int(data[idx])
+        idx += 1
+        v = int(data[idx])
+        idx += 1
+
+        # Add edge
+        if v not in adj[u]:
+            adj[u].add(v)
+            adj[v].add(u)
+            deg[u] += 1
+            deg[v] += 1
+
+        # Now calculate max group size satisfying condition
+        # Make copy of current degrees
+        cur_deg = deg[:]
+        queue = deque()
+
+        # Enqueue all nodes with degree < k
+        for i in range(1, n + 1):
+            if cur_deg[i] < k:
+                queue.append(i)
+
+        removed = [False] * (n + 1)
+        while queue:
+            node = queue.popleft()
+            if removed[node]: continue
+            removed[node] = True
+            for nei in adj[node]:
+                if not removed[nei]:
+                    cur_deg[nei] -= 1
+                    if cur_deg[nei] < k:
+                        queue.append(nei)
+
+        count = sum(1 for i in range(1, n + 1) if not removed[i])
+        results.append(count)
+
+    print('\n'.join(map(str, results)))
+
+if __name__ == "__main__":
+    main()
+

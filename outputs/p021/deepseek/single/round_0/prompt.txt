@@ -1,0 +1,57 @@
+
+Please refactor the Python code below to improve its internal design and maintainability, specifically focusing on: Reduce complexity and improve readability. Simplify complex or deeply nested conditional logic, and split long code into smaller, well named functions where this makes the code easier to understand.
+
+Key constraints for this refactoring:
+- Preserve runtime behavior: The code must produce the exact same outputs, return values, side effects, and exceptions as before.
+- Keep public interfaces: Do not rename or modify signatures for any public functions, classes, or methods to avoid breaking external callers.
+- Strict scope: Focus solely on structural improvements. Do not add features, fix bugs, or change error handling logic, even if something looks wrong. Do not modify test files. If a change might alter behavior, skip it.
+- No-op condition: If you determine that the code does not benefit from this specific refactoring, return it unchanged and briefly state why.
+
+Response format:
+1. The complete refactored file in a single Python code block.
+2. A short bulleted list summarizing each change and its justification.
+
+Code:
+def is_valid_date(day, month, year):
+    if year < 2013 or year > 2015:
+        return False
+    if month < 1 or month > 12:
+        return False
+    
+    # Days in each month for non-leap years
+    days_in_month = [31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31]
+    max_days = days_in_month[month - 1]
+    
+    return 1 <= day <= max_days
+
+def solve(prophesy):
+    date_count = {}
+    
+    # Check every possible 10-character substring
+    for i in range(len(prophesy) - 9):
+        substring = prophesy[i:i+10]
+        
+        # Check if it matches dd-mm-yyyy pattern
+        if len(substring) == 10 and substring[2] == '-' and substring[5] == '-':
+            try:
+                day = int(substring[0:2])
+                month = int(substring[3:5])
+                year = int(substring[6:10])
+                
+                # Check if it's a valid date
+                if is_valid_date(day, month, year):
+                    date_str = substring
+                    date_count[date_str] = date_count.get(date_str, 0) + 1
+            except ValueError:
+                continue
+    
+    # Find the date with maximum count
+    max_count = max(date_count.values())
+    for date, count in date_count.items():
+        if count == max_count:
+            return date
+
+# Read input and solve
+prophesy = input().strip()
+print(solve(prophesy))
+

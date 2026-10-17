@@ -1,0 +1,66 @@
+--- original.py
++++ code.py
+@@ -1,18 +1,7 @@
+-def solve():
++def _merge_non_increasing(arr1, arr2, n, m):
+     """
+-    This function handles a single test case.
++    Merge two sorted arrays into a single array sorted in non-increasing order.
+     """
+-    # Read the sizes of the two arrays
+-    try:
+-        n, m = map(int, input().split())
+-    except (EOFError, ValueError):
+-        return # Stop if there's no more input
+-
+-    # Read the two sorted arrays
+-    arr1 = list(map(int, input().split()))
+-    arr2 = list(map(int, input().split()))
+-
+-    # Initialize pointers for both arrays and the result array
+     i = 0  # Pointer for arr1
+     j = 0  # Pointer for arr2
+     merged_array = []
+@@ -20,7 +9,7 @@
+     # Merge the two arrays using the two-pointer technique
+     while i < n and j < m:
+         # Since arrays are sorted in non-increasing order,
+-        # we pick the larger element to maintain the order.
++        # pick the larger element to maintain the order.
+         if arr1[i] >= arr2[j]:
+             merged_array.append(arr1[i])
+             i += 1
+@@ -37,6 +26,26 @@
+     while j < m:
+         merged_array.append(arr2[j])
+         j += 1
++
++    return merged_array
++
++
++def solve():
++    """
++    This function handles a single test case.
++    """
++    # Read the sizes of the two arrays
++    try:
++        n, m = map(int, input().split())
++    except (EOFError, ValueError):
++        return  # Stop if there's no more input
++
++    # Read the two sorted arrays
++    arr1 = list(map(int, input().split()))
++    arr2 = list(map(int, input().split()))
++
++    # Merge the two arrays
++    merged_array = _merge_non_increasing(arr1, arr2, n, m)
+ 
+     # Print the final merged array with space-separated values
+     print(*merged_array)
+@@ -55,5 +64,6 @@
+         # Handles cases with no input or invalid input
+         pass
+ 
++
+ if __name__ == "__main__":
+     main()

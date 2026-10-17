@@ -1,0 +1,96 @@
+--- original.py
++++ code.py
+@@ -1,6 +1,40 @@
+ from collections import deque, defaultdict
+ import sys
++
+ input = sys.stdin.read
++
++
++def _add_edge(adj, deg, u, v):
++    if v not in adj[u]:
++        adj[u].add(v)
++        adj[v].add(u)
++        deg[u] += 1
++        deg[v] += 1
++
++
++def _count_remaining_nodes(adj, deg, n, k):
++    cur_deg = deg[:]
++    queue = deque()
++
++    for i in range(1, n + 1):
++        if cur_deg[i] < k:
++            queue.append(i)
++
++    removed = [False] * (n + 1)
++    while queue:
++        node = queue.popleft()
++        if removed[node]:
++            continue
++
++        removed[node] = True
++        for nei in adj[node]:
++            if not removed[nei]:
++                cur_deg[nei] -= 1
++                if cur_deg[nei] < k:
++                    queue.append(nei)
++
++    return sum(1 for i in range(1, n + 1) if not removed[i])
++
+ 
+ def main():
+     data = input().split()
+@@ -12,10 +46,8 @@
+     k = int(data[idx])
+     idx += 1
+ 
+-    # Graph initialization
+     adj = [set() for _ in range(n + 1)]
+     deg = [0] * (n + 1)
+-
+     results = []
+ 
+     for _ in range(m):
+@@ -24,38 +56,11 @@
+         v = int(data[idx])
+         idx += 1
+ 
+-        # Add edge
+-        if v not in adj[u]:
+-            adj[u].add(v)
+-            adj[v].add(u)
+-            deg[u] += 1
+-            deg[v] += 1
+-
+-        # Now calculate max group size satisfying condition
+-        # Make copy of current degrees
+-        cur_deg = deg[:]
+-        queue = deque()
+-
+-        # Enqueue all nodes with degree < k
+-        for i in range(1, n + 1):
+-            if cur_deg[i] < k:
+-                queue.append(i)
+-
+-        removed = [False] * (n + 1)
+-        while queue:
+-            node = queue.popleft()
+-            if removed[node]: continue
+-            removed[node] = True
+-            for nei in adj[node]:
+-                if not removed[nei]:
+-                    cur_deg[nei] -= 1
+-                    if cur_deg[nei] < k:
+-                        queue.append(nei)
+-
+-        count = sum(1 for i in range(1, n + 1) if not removed[i])
+-        results.append(count)
++        _add_edge(adj, deg, u, v)
++        results.append(_count_remaining_nodes(adj, deg, n, k))
+ 
+     print('\n'.join(map(str, results)))
+ 
++
+ if __name__ == "__main__":
+     main()

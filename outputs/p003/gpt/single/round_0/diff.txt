@@ -1,0 +1,34 @@
+--- original.py
++++ code.py
+@@ -9,25 +9,11 @@
+ if password in words:
+     print("YES")
+ else:
+-    # Check if we can form password across word boundaries
++    # Check whether the password can be formed across word boundaries.
+     first_char_needed = password[0]
+     second_char_needed = password[1]
+-    
+-    # Find if there's a word ending with first_char_needed
+-    can_end_with_first = False
+-    for word in words:
+-        if word[1] == first_char_needed:
+-            can_end_with_first = True
+-            break
+-    
+-    # Find if there's a word starting with second_char_needed
+-    can_start_with_second = False
+-    for word in words:
+-        if word[0] == second_char_needed:
+-            can_start_with_second = True
+-            break
+-    
+-    if can_end_with_first and can_start_with_second:
+-        print("YES")
+-    else:
+-        print("NO")
++
++    can_end_with_first = any(word[1] == first_char_needed for word in words)
++    can_start_with_second = any(word[0] == second_char_needed for word in words)
++
++    print("YES" if can_end_with_first and can_start_with_second else "NO")

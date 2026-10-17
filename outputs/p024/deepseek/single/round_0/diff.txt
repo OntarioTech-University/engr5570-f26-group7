@@ -1,0 +1,78 @@
+--- original.py
++++ code.py
+@@ -15,22 +15,44 @@
+             idx -= idx & (-idx)
+         return res
+ 
++
+ import sys
+-input = sys.stdin.read
+ 
+-def main():
+-    data = input().split()
++
++def parse_input(data):
++    """Parse the initial input values and return them along with the starting index."""
+     idx = 0
+     n = int(data[idx]); idx += 1
+     k = int(data[idx]); idx += 1
+     a = int(data[idx]); idx += 1
+     b = int(data[idx]); idx += 1
+     q = int(data[idx]); idx += 1
++    return n, k, a, b, q, idx
+ 
+-    # orders[i]: number of orders for day i (1-based)
++
++def process_order_update(orders, bit_pre, bit_suf, d, x, a, b):
++    """Update order counts and BITs for a type 1 query."""
++    old_b_val = min(orders[d], b)
++    old_a_val = min(orders[d], a)
++    orders[d] += x
++    new_b_val = min(orders[d], b)
++    new_a_val = min(orders[d], a)
++    bit_pre.update(d, new_b_val - old_b_val)
++    bit_suf.update(d, new_a_val - old_a_val)
++
++
++def process_query(bit_pre, bit_suf, p, k, n):
++    """Calculate and return the result for a type 2 query."""
++    pre_sum = bit_pre.query(p - 1)
++    suf_sum = bit_suf.query(n) - bit_suf.query(p + k - 1)
++    return pre_sum + suf_sum
++
++
++def main():
++    data = sys.stdin.read().split()
++    n, k, a, b, q, idx = parse_input(data)
++
+     orders = [0] * (n + 1)
+-
+-    # BITs for prefix and suffix
+     bit_pre = BIT(n)   # stores min(order_count[i], b)
+     bit_suf = BIT(n)   # stores min(order_count[i], a)
+ 
+@@ -41,21 +63,13 @@
+         if t == 1:
+             d = int(data[idx]); idx += 1
+             x = int(data[idx]); idx += 1
+-            old_b_val = min(orders[d], b)
+-            old_a_val = min(orders[d], a)
+-            orders[d] += x
+-            new_b_val = min(orders[d], b)
+-            new_a_val = min(orders[d], a)
+-            bit_pre.update(d, new_b_val - old_b_val)
+-            bit_suf.update(d, new_a_val - old_a_val)
++            process_order_update(orders, bit_pre, bit_suf, d, x, a, b)
+         else:
+             p = int(data[idx]); idx += 1
+-            # Maintenance from p to p+k-1 inclusive
+-            pre_sum = bit_pre.query(p - 1)
+-            suf_sum = bit_suf.query(n) - bit_suf.query(p + k - 1)
+-            results.append(pre_sum + suf_sum)
++            results.append(process_query(bit_pre, bit_suf, p, k, n))
+ 
+     print('\n'.join(map(str, results)))
+ 
++
+ if __name__ == "__main__":
+     main()
