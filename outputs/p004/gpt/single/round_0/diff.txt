@@ -1,0 +1,47 @@
+--- original.py
++++ code.py
+@@ -1,25 +1,28 @@
++def _can_halving_reach(height, min_height):
++    if height % 2 != 0:
++        return False
++
++    temp = height
++    while temp > min_height:
++        if temp % 2 == 0:
++            temp = temp // 2
++        else:
++            return False
++
++    if temp != min_height:
++        return False
++    return True
++
++
+ def can_make_same_height(N, heights):
+-    # Find the minimum height
+     min_height = min(heights)
+ 
+-    # Check if all heights can be made equal to the minimum height
+     for height in heights:
+-        # If the height is not equal to the minimum height, try to make it equal
+-        if height != min_height:
+-            # If the height is not a multiple of 2, it's not possible to make it equal
+-            if height % 2 != 0:
+-                return "NO"
+-            # If the height is a multiple of 2, but not a multiple of the minimum height, it's not possible to make it equal
+-            temp = height
+-            while temp > min_height:
+-                if temp % 2 == 0:
+-                    temp = temp // 2
+-                else:
+-                    return "NO"
+-            if temp != min_height:
+-                return "NO"
++        if height != min_height and not _can_halving_reach(height, min_height):
++            return "NO"
+ 
+     return "YES"
++
+ 
+ # Read the number of sugarcanes
+ N = int(input())

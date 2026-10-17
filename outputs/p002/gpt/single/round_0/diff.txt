@@ -1,0 +1,32 @@
+--- original.py
++++ code.py
+@@ -12,16 +12,19 @@
+     b = r1 - a
+     c = c1 - a
+     d = d1 - a
+-    
+-    # Check if they are valid integers in [1,9] and distinct
+-    if 1 <= b <= 9 and 1 <= c <= 9 and 1 <= d <= 9:
+-        s = {a, b, c, d}
+-        if len(s) == 4:  # Distinctness check
+-            # Verify remaining constraints
+-            if c + d == r2 and b + d == c2 and b + c == d2:
+-                found = True
+-                result = [[a, b], [c, d]]
+-                break
++
++    if not (1 <= b <= 9 and 1 <= c <= 9 and 1 <= d <= 9):
++        continue
++
++    s = {a, b, c, d}
++    if len(s) != 4:
++        continue
++
++    # Verify remaining constraints
++    if c + d == r2 and b + d == c2 and b + c == d2:
++        found = True
++        result = [[a, b], [c, d]]
++        break
+ 
+ if found:
+     print(result[0][0], result[0][1])

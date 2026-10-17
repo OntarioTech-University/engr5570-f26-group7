@@ -1,0 +1,83 @@
+--- original.py
++++ code.py
+@@ -6,46 +6,43 @@
+ def can_communicate_directly(pos1, pos2, R):
+     return distance(pos1, pos2) <= R
+ 
++def _read_position():
++    return tuple(map(int, input().split()))
++
++def _pair_can_communicate(positions, i, j, R):
++    if i == j:
++        return True
++    return can_communicate_directly(positions[i], positions[j], R)
++
++def _build_communication_matrix(positions, R):
++    return [
++        [_pair_can_communicate(positions, i, j, R) for j in range(3)]
++        for i in range(3)
++    ]
++
++def _all_can_communicate(can_communicate):
++    chef_head_server = can_communicate[0][1]
++    chef_sous_chef = can_communicate[0][2]
++    head_server_sous_chef = can_communicate[1][2]
++
++    # With three participants, the group is connected exactly when
++    # at least two of the three pairwise direct links exist.
++    return (
++        (chef_head_server and chef_sous_chef)
++        or (chef_head_server and head_server_sous_chef)
++        or (chef_sous_chef and head_server_sous_chef)
++    )
++
+ def solve_case():
+     R = int(input())
+-    chef = tuple(map(int, input().split()))
+-    head_server = tuple(map(int, input().split()))
+-    sous_chef = tuple(map(int, input().split()))
+-    
++    chef = _read_position()
++    head_server = _read_position()
++    sous_chef = _read_position()
++
+     positions = [chef, head_server, sous_chef]
+-    
+-    # Check direct communication between all pairs
+-    can_communicate = [[False for _ in range(3)] for _ in range(3)]
+-    
+-    for i in range(3):
+-        for j in range(3):
+-            if i == j:
+-                can_communicate[i][j] = True
+-            else:
+-                can_communicate[i][j] = can_communicate_directly(positions[i], positions[j], R)
+-    
+-    # Check if all pairs can communicate (directly or indirectly)
+-    all_can_communicate = True
+-    
+-    # Check Chef <-> Head Server
+-    if not can_communicate[0][1]:
+-        # Need to go through Sous Chef
+-        if not (can_communicate[0][2] and can_communicate[1][2]):
+-            all_can_communicate = False
+-    
+-    # Check Chef <-> Sous Chef  
+-    if not can_communicate[0][2]:
+-        # Need to go through Head Server
+-        if not (can_communicate[0][1] and can_communicate[1][2]):
+-            all_can_communicate = False
+-    
+-    # Check Head Server <-> Sous Chef
+-    if not can_communicate[1][2]:
+-        # Need to go through Chef
+-        if not (can_communicate[0][1] and can_communicate[0][2]):
+-            all_can_communicate = False
+-    
+-    return "yes" if all_can_communicate else "no"
++    can_communicate = _build_communication_matrix(positions, R)
++
++    return "yes" if _all_can_communicate(can_communicate) else "no"
+ 
+ T = int(input())
+ for _ in range(T):

@@ -1,0 +1,46 @@
+
+Please refactor the Python code below to improve its internal design and maintainability, specifically focusing on: Reduce complexity and improve readability. Simplify complex or deeply nested conditional logic, and split long code into smaller, well named functions where this makes the code easier to understand.
+
+Key constraints for this refactoring:
+- Preserve runtime behavior: The code must produce the exact same outputs, return values, side effects, and exceptions as before.
+- Keep public interfaces: Do not rename or modify signatures for any public functions, classes, or methods to avoid breaking external callers.
+- Strict scope: Focus solely on structural improvements. Do not add features, fix bugs, or change error handling logic, even if something looks wrong. Do not modify test files. If a change might alter behavior, skip it.
+- No-op condition: If you determine that the code does not benefit from this specific refactoring, return it unchanged and briefly state why.
+
+Response format:
+1. The complete refactored file in a single Python code block.
+2. A short bulleted list summarizing each change and its justification.
+
+Code:
+def can_make_same_height(N, heights):
+    # Find the minimum height
+    min_height = min(heights)
+
+    # Check if all heights can be made equal to the minimum height
+    for height in heights:
+        # If the height is not equal to the minimum height, try to make it equal
+        if height != min_height:
+            # If the height is not a multiple of 2, it's not possible to make it equal
+            if height % 2 != 0:
+                return "NO"
+            # If the height is a multiple of 2, but not a multiple of the minimum height, it's not possible to make it equal
+            temp = height
+            while temp > min_height:
+                if temp % 2 == 0:
+                    temp = temp // 2
+                else:
+                    return "NO"
+            if temp != min_height:
+                return "NO"
+
+    return "YES"
+
+# Read the number of sugarcanes
+N = int(input())
+
+# Read the heights of sugarcanes
+heights = list(map(int, input().split()))
+
+# Check if it's possible to make all sugarcanes of the same height
+print(can_make_same_height(N, heights))
+

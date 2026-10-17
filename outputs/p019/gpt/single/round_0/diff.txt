@@ -1,0 +1,125 @@
+--- original.py
++++ code.py
+@@ -1,31 +1,11 @@
+ import heapq
+ from sys import stdin
+ 
+-def main():
+-    import sys
+-    input = sys.stdin.read
+-    data = input().split()
+-    
+-    idx = 0
+-    n = int(data[idx])
+-    idx += 1
+-    k = int(data[idx])
+-    idx += 1
+-    
+-    books = []
+-    for _ in range(n):
+-        t = int(data[idx])
+-        idx += 1
+-        a = int(data[idx])
+-        idx += 1
+-        b = int(data[idx])
+-        idx += 1
+-        books.append((t, a, b))
+-    
+-    # Separate books into categories
+-    ab = []   # both like
+-    a_only = []   # alice only
+-    b_only = []   # bob only
++
++def _categorize_books(books):
++    ab = []
++    a_only = []
++    b_only = []
+     none = []
+ 
+     for t, a, b in books:
+@@ -38,42 +18,71 @@
+         else:
+             none.append(t)
+ 
+-    # Sort all arrays
+     ab.sort()
+     a_only.sort()
+     b_only.sort()
++    return ab, a_only, b_only
+ 
+-    # Prefix sums for quick sum calculation
+-    def make_prefix(arr):
+-        res = [0]
+-        s = 0
+-        for x in arr:
+-            s += x
+-            res.append(s)
+-        return res
+ 
+-    p_ab = make_prefix(ab)
+-    p_a = make_prefix(a_only)
+-    p_b = make_prefix(b_only)
++def _make_prefix(arr):
++    res = [0]
++    s = 0
++    for x in arr:
++        s += x
++        res.append(s)
++    return res
++
++
++def _minimum_time(ab, a_only, b_only, k):
++    p_ab = _make_prefix(ab)
++    p_a = _make_prefix(a_only)
++    p_b = _make_prefix(b_only)
+ 
+     min_time = float('inf')
+     max_ab = len(ab)
+ 
+-    # Try every valid count of books taken from 'ab' list
+     for cnt_ab in range(max_ab + 1):
+         alice_needed = max(0, k - cnt_ab)
+         bob_needed = max(0, k - cnt_ab)
+ 
+         if alice_needed > len(a_only) or bob_needed > len(b_only):
+             continue
+-        
++
+         total_time = p_ab[cnt_ab] + p_a[alice_needed] + p_b[bob_needed]
+         min_time = min(min_time, total_time)
++
++    return min_time
++
++
++def main():
++    import sys
++    input = sys.stdin.read
++    data = input().split()
++
++    idx = 0
++    n = int(data[idx])
++    idx += 1
++    k = int(data[idx])
++    idx += 1
++
++    books = []
++    for _ in range(n):
++        t = int(data[idx])
++        idx += 1
++        a = int(data[idx])
++        idx += 1
++        b = int(data[idx])
++        idx += 1
++        books.append((t, a, b))
++
++    ab, a_only, b_only = _categorize_books(books)
++    min_time = _minimum_time(ab, a_only, b_only, k)
+ 
+     if min_time == float('inf'):
+         print(-1)
+     else:
+         print(min_time)
+ 
++
+ if __name__ == "__main__":
+     main()

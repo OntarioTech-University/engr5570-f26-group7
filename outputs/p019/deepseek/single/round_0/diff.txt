@@ -1,0 +1,116 @@
+--- original.py
++++ code.py
+@@ -3,9 +3,26 @@
+ 
+ def main():
+     import sys
+-    input = sys.stdin.read
+-    data = input().split()
++    data = sys.stdin.read().split()
+     
++    n, k, books = parse_input(data)
++    
++    ab, a_only, b_only = categorize_books(books)
++    
++    ab.sort()
++    a_only.sort()
++    b_only.sort()
++    
++    p_ab = make_prefix_sum(ab)
++    p_a = make_prefix_sum(a_only)
++    p_b = make_prefix_sum(b_only)
++    
++    min_time = find_minimum_time(k, p_ab, p_a, p_b, len(ab), len(a_only), len(b_only))
++    
++    print_result(min_time)
++
++def parse_input(data):
++    """Parse input data and return n, k, and list of books."""
+     idx = 0
+     n = int(data[idx])
+     idx += 1
+@@ -22,12 +39,14 @@
+         idx += 1
+         books.append((t, a, b))
+     
+-    # Separate books into categories
+-    ab = []   # both like
+-    a_only = []   # alice only
+-    b_only = []   # bob only
+-    none = []
++    return n, k, books
+ 
++def categorize_books(books):
++    """Separate books into categories based on who likes them."""
++    ab = []      # both like
++    a_only = []  # alice only
++    b_only = []  # bob only
++    
+     for t, a, b in books:
+         if a == 1 and b == 1:
+             ab.append(t)
+@@ -35,41 +54,36 @@
+             a_only.append(t)
+         elif a == 0 and b == 1:
+             b_only.append(t)
+-        else:
+-            none.append(t)
++        # Books that neither likes are ignored
++    
++    return ab, a_only, b_only
+ 
+-    # Sort all arrays
+-    ab.sort()
+-    a_only.sort()
+-    b_only.sort()
++def make_prefix_sum(arr):
++    """Create prefix sum array for quick sum calculation."""
++    prefix = [0]
++    running_sum = 0
++    for value in arr:
++        running_sum += value
++        prefix.append(running_sum)
++    return prefix
+ 
+-    # Prefix sums for quick sum calculation
+-    def make_prefix(arr):
+-        res = [0]
+-        s = 0
+-        for x in arr:
+-            s += x
+-            res.append(s)
+-        return res
+-
+-    p_ab = make_prefix(ab)
+-    p_a = make_prefix(a_only)
+-    p_b = make_prefix(b_only)
+-
++def find_minimum_time(k, p_ab, p_a, p_b, len_ab, len_a, len_b):
++    """Find minimum time to satisfy both Alice and Bob's requirements."""
+     min_time = float('inf')
+-    max_ab = len(ab)
+-
+-    # Try every valid count of books taken from 'ab' list
+-    for cnt_ab in range(max_ab + 1):
+-        alice_needed = max(0, k - cnt_ab)
+-        bob_needed = max(0, k - cnt_ab)
+-
+-        if alice_needed > len(a_only) or bob_needed > len(b_only):
++    
++    for cnt_ab in range(len_ab + 1):
++        needed = max(0, k - cnt_ab)
++        
++        if needed > len_a or needed > len_b:
+             continue
+         
+-        total_time = p_ab[cnt_ab] + p_a[alice_needed] + p_b[bob_needed]
++        total_time = p_ab[cnt_ab] + p_a[needed] + p_b[needed]
+         min_time = min(min_time, total_time)
++    
++    return min_time
+ 
++def print_result(min_time):
++    """Print the result or -1 if no valid solution exists."""
+     if min_time == float('inf'):
+         print(-1)
+     else:

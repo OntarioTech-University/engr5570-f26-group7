@@ -1,0 +1,31 @@
+--- original.py
++++ code.py
+@@ -1,17 +1,19 @@
+ def solve(n, m, table, r, c, pattern):
++    def matches_at(row, col):
++        for x in range(r):
++            for y in range(c):
++                if (
++                    pattern[x][y] != '?'
++                    and pattern[x][y] != table[(row + x) % n][(col + y) % m]
++                ):
++                    return False
++        return True
++
+     result = [['0' for _ in range(m)] for _ in range(n)]
+ 
+     for i in range(n):
+         for j in range(m):
+-            match = True
+-            for x in range(r):
+-                for y in range(c):
+-                    if pattern[x][y] != '?' and pattern[x][y] != table[(i + x) % n][(j + y) % m]:
+-                        match = False
+-                        break
+-                if not match:
+-                    break
+-            if match:
++            if matches_at(i, j):
+                 result[i][j] = '1'
+ 
+     return result

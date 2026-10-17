@@ -1,0 +1,125 @@
+--- original.py
++++ code.py
+@@ -1,4 +1,9 @@
+ import sys
++
++DAYS_IN_MONTH = [0, 31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31]
++MIN_YEAR = 2013
++MAX_YEAR = 2015
++DATE_LENGTH = 10
+ 
+ def find_apocalypse_date():
+     """
+@@ -6,65 +11,60 @@
+     counts their occurrences, and prints the date that appears most frequently.
+     """
+     prophesy = sys.stdin.readline().strip()
+-    n = len(prophesy)
++    date_counts = count_valid_dates(prophesy)
++    apocalypse_date = find_most_frequent_date(date_counts)
++    print(apocalypse_date)
+ 
+-    # A dictionary to store the frequency of each valid date found.
+-    # Key: date string "dd-mm-yyyy", Value: count
++def count_valid_dates(prophesy):
++    """Count occurrences of all valid dates in the prophesy string."""
+     date_counts = {}
++    
++    for i in range(len(prophesy) - DATE_LENGTH + 1):
++        candidate = prophesy[i : i + DATE_LENGTH]
++        if is_valid_date(candidate):
++            date_counts[candidate] = date_counts.get(candidate, 0) + 1
++    
++    return date_counts
+ 
+-    # Days in each month for a non-leap year (years 2013-2015).
+-    # Index 0 is a placeholder to allow for 1-based month indexing.
+-    days_in_month = [0, 31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31]
++def is_valid_date(candidate):
++    """Check if a string represents a valid date in dd-mm-yyyy format."""
++    if not has_valid_format(candidate):
++        return False
++    
++    day, month, year = parse_date_parts(candidate)
++    return is_valid_date_components(day, month, year)
+ 
+-    # Iterate through the prophesy string to find all possible 10-character substrings
+-    # that could represent a date in the "dd-mm-yyyy" format.
+-    for i in range(n - 9):
+-        # Extract a potential date substring of length 10.
+-        candidate = prophesy[i : i + 10]
++def has_valid_format(candidate):
++    """Check if the string has the correct format with hyphens in the right positions."""
++    return candidate[2] == '-' and candidate[5] == '-'
+ 
+-        # --- Validation Steps ---
++def parse_date_parts(candidate):
++    """Extract and convert date components from the candidate string."""
++    day_str = candidate[0:2]
++    month_str = candidate[3:5]
++    year_str = candidate[6:10]
++    
++    if not (day_str.isdigit() and month_str.isdigit() and year_str.isdigit()):
++        return None, None, None
++    
++    return int(day_str), int(month_str), int(year_str)
+ 
+-        # 1. Check the basic format: "xx-xx-xxxx"
+-        # The hyphens must be in the correct positions.
+-        if candidate[2] != '-' or candidate[5] != '-':
+-            continue
++def is_valid_date_components(day, month, year):
++    """Validate date components against the given rules."""
++    if day is None or month is None or year is None:
++        return False
++    
++    if not (MIN_YEAR <= year <= MAX_YEAR):
++        return False
++    
++    if not (1 <= month <= 12):
++        return False
++    
++    return 1 <= day <= DAYS_IN_MONTH[month]
+ 
+-        # 2. Extract day, month, and year parts.
+-        dd_str = candidate[0:2]
+-        mm_str = candidate[3:5]
+-        yyyy_str = candidate[6:10]
+-
+-        # 3. Check if all parts are composed of digits.
+-        if not (dd_str.isdigit() and mm_str.isdigit() and yyyy_str.isdigit()):
+-            continue
+-
+-        # 4. Convert parts to integers for numerical validation.
+-        d = int(dd_str)
+-        m = int(mm_str)
+-        y = int(yyyy_str)
+-
+-        # 5. Validate the date against the given rules.
+-        # Year must be between 2013 and 2015.
+-        if not (2013 <= y <= 2015):
+-            continue
+-
+-        # Month must be between 1 and 12.
+-        if not (1 <= m <= 12):
+-            continue
+-
+-        # Day must be valid for the given month.
+-        if not (1 <= d <= days_in_month[m]):
+-            continue
+-
+-        # If all checks pass, the date is correct.
+-        # Increment its count in our dictionary.
+-        date_counts[candidate] = date_counts.get(candidate, 0) + 1
+-
+-    # The problem guarantees that a unique apocalypse date exists.
+-    # Find the date (key) with the highest count (value) in the dictionary.
+-    apocalypse_date = max(date_counts, key=date_counts.get)
+-
+-    print(apocalypse_date)
++def find_most_frequent_date(date_counts):
++    """Find the date with the highest occurrence count."""
++    return max(date_counts, key=date_counts.get)
+ 
+ # Standard entry point for the script.
+ if __name__ == "__main__":

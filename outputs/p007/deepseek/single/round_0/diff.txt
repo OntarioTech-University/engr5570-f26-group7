@@ -1,0 +1,69 @@
+--- original.py
++++ code.py
+@@ -6,15 +6,14 @@
+ def can_communicate_directly(pos1, pos2, R):
+     return distance(pos1, pos2) <= R
+ 
+-def solve_case():
++def read_positions():
+     R = int(input())
+     chef = tuple(map(int, input().split()))
+     head_server = tuple(map(int, input().split()))
+     sous_chef = tuple(map(int, input().split()))
+-    
+-    positions = [chef, head_server, sous_chef]
+-    
+-    # Check direct communication between all pairs
++    return R, [chef, head_server, sous_chef]
++
++def build_communication_matrix(positions, R):
+     can_communicate = [[False for _ in range(3)] for _ in range(3)]
+     
+     for i in range(3):
+@@ -24,28 +23,26 @@
+             else:
+                 can_communicate[i][j] = can_communicate_directly(positions[i], positions[j], R)
+     
+-    # Check if all pairs can communicate (directly or indirectly)
+-    all_can_communicate = True
++    return can_communicate
++
++def can_communicate_indirectly(matrix, node1, node2, intermediate):
++    return matrix[node1][intermediate] and matrix[node2][intermediate]
++
++def all_nodes_connected(matrix):
++    # Check each pair can communicate directly or through the third node
++    pairs_to_check = [(0, 1, 2), (0, 2, 1), (1, 2, 0)]
+     
+-    # Check Chef <-> Head Server
+-    if not can_communicate[0][1]:
+-        # Need to go through Sous Chef
+-        if not (can_communicate[0][2] and can_communicate[1][2]):
+-            all_can_communicate = False
++    for node1, node2, intermediate in pairs_to_check:
++        if not matrix[node1][node2]:
++            if not can_communicate_indirectly(matrix, node1, node2, intermediate):
++                return False
+     
+-    # Check Chef <-> Sous Chef  
+-    if not can_communicate[0][2]:
+-        # Need to go through Head Server
+-        if not (can_communicate[0][1] and can_communicate[1][2]):
+-            all_can_communicate = False
+-    
+-    # Check Head Server <-> Sous Chef
+-    if not can_communicate[1][2]:
+-        # Need to go through Chef
+-        if not (can_communicate[0][1] and can_communicate[0][2]):
+-            all_can_communicate = False
+-    
+-    return "yes" if all_can_communicate else "no"
++    return True
++
++def solve_case():
++    R, positions = read_positions()
++    communication_matrix = build_communication_matrix(positions, R)
++    return "yes" if all_nodes_connected(communication_matrix) else "no"
+ 
+ T = int(input())
+ for _ in range(T):

@@ -1,0 +1,117 @@
+```python
+import sys
+
+# Increase recursion limit for deep segment tree traversals, a good practice in Python.
+sys.setrecursionlimit(200005 + 5)
+
+
+def _read_input():
+    """
+    Reads the input values.
+    """
+    readline = sys.stdin.readline
+    n = int(readline())
+    s = list(map(int, readline().split()))
+    return n, s
+
+
+def _build(tree, node, start, end):
+    """
+    Recursively builds the segment tree.
+    """
+    if start == end:
+        tree[node] = start
+        return
+
+    mid = (start + end) // 2
+    _build(tree, 2 * node, start, mid)
+    _build(tree, 2 * node + 1, mid + 1, end)
+    tree[node] = tree[2 * node] + tree[2 * node + 1]
+
+
+def _update(tree, node, start, end, idx, val):
+    """
+    Updates the value at a specific index (leaf) and propagates changes up.
+    """
+    if start == end:
+        tree[node] = val
+        return
+
+    mid = (start + end) // 2
+    if start <= idx <= mid:
+        _update(tree, 2 * node, start, mid, idx, val)
+    else:
+        _update(tree, 2 * node + 1, mid + 1, end, idx, val)
+
+    tree[node] = tree[2 * node] + tree[2 * node + 1]
+
+
+def _find_by_sum(tree, node, start, end, k):
+    """
+    Finds the number corresponding to a given prefix sum 'k'.
+    """
+    if start == end:
+        return start
+
+    mid = (start + end) // 2
+    left_sum = tree[2 * node]
+
+    if k < left_sum:
+        return _find_by_sum(tree, 2 * node, start, mid, k)
+    else:
+        return _find_by_sum(tree, 2 * node + 1, mid + 1, end, k - left_sum)
+
+
+def _build_initial_tree(n):
+    """
+    Initializes the segment tree with all numbers from 1 to n available.
+    """
+    # Segment Tree stores sums of available numbers.
+    # Size 4*n is a safe upper bound for the array representation.
+    tree = [0] * (4 * n)
+    _build(tree, 1, 1, n)
+    return tree
+
+
+def _restore_permutation(tree, n, target_sums):
+    """
+    Reconstructs the permutation by repeatedly selecting and removing values.
+    """
+    p = [0] * n
+
+    # Iterate from n down to 1 to determine p_n, p_{n-1}, ...
+    for i in range(n - 1, -1, -1):
+        # target_sums[i] is the target sum for the i-th element of the permutation.
+        value = _find_by_sum(tree, 1, 1, n, target_sums[i])
+        p[i] = value
+
+        # "Remove" the found value from the set of available numbers
+        # by setting its contribution in the segment tree to 0.
+        _update(tree, 1, 1, n, value, 0)
+
+    return p
+
+
+def solve():
+    """
+    Main function to read input, solve the problem, and print the output.
+    """
+    try:
+        n, s = _read_input()
+    except (IOError, ValueError):
+        return
+
+    tree = _build_initial_tree(n)
+    p = _restore_permutation(tree, n, s)
+
+    print(*p)
+
+
+solve()
+```
+
+- Extracted input parsing into `_read_input()` so `solve()` focuses on orchestration while preserving the original exception handling.
+- Moved segment tree operations out of `solve()` into private helpers (`_build`, `_update`, `_find_by_sum`) to reduce nesting and make each operation independently readable.
+- Added `_build_initial_tree()` to encapsulate tree allocation and initialization.
+- Added `_restore_permutation()` to encapsulate the reconstruction loop, making `solve()` shorter and clearer.
+- Kept the public `solve()` signature, recursion limit, algorithmic logic, side effects, and error handling unchanged.

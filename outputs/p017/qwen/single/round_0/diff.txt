@@ -1,0 +1,118 @@
+--- original.py
++++ code.py
+@@ -1,5 +1,45 @@
+ import sys
+ from collections import Counter
++
++
++def _read_problem_input(read_line):
++    n_str = read_line()
++    if not n_str:
++        return None
++
++    n = int(n_str)
++    a = list(map(int, read_line().split()))
++    m = int(read_line())
++    return n, a, m
++
++
++def _build_indexed_pairs(a, n):
++    return [(a[i], i) for i in range(n)]
++
++
++def _sort_for_max_sum_subsequence(indexed_a):
++    indexed_a.sort(key=lambda pair: (-pair[0], pair[1]))
++
++
++def _read_query(read_line):
++    k, pos = map(int, read_line().split())
++    return k, pos
++
++
++def _build_subsequence(top_k_pairs):
++    top_k_pairs.sort(key=lambda pair: pair[1])
++    return [pair[0] for pair in top_k_pairs]
++
++
++def _get_cached_subsequence(optimal_subs_cache, indexed_a, k):
++    if k not in optimal_subs_cache:
++        optimal_subs_cache[k] = _build_subsequence(indexed_a[:k])
++    return optimal_subs_cache[k]
++
++
++def _write_answer(value):
++    sys.stdout.write(str(value) + '\n')
++
+ 
+ def solve():
+     """
+@@ -7,55 +47,32 @@
+     """
+     try:
+         # Fast I/O
+-        input = sys.stdin.readline
+-        
+-        n_str = input()
+-        if not n_str: return
+-        n = int(n_str)
+-        
+-        a = list(map(int, input().split()))
+-        m = int(input())
++        read_line = sys.stdin.readline
+ 
+-        # 1. Pair values with their original indices
+-        # This helps us keep track of original positions after sorting.
+-        indexed_a = []
+-        for i in range(n):
+-            indexed_a.append((a[i], i))
++        problem_input = _read_problem_input(read_line)
++        if problem_input is None:
++            return
++        n, a, m = problem_input
++
++        # 1. Pair values with their original indices.
++        indexed_a = _build_indexed_pairs(a, n)
+ 
+         # 2. Sort to find the elements for the max-sum subsequence.
+-        # Primary key: value (descending).
+-        # Secondary key: index (ascending) for tie-breaking to ensure
+-        # we pick elements that appear earlier, which is crucial for
+-        # lexicographical minimality.
+-        indexed_a.sort(key=lambda x: (-x[0], x[1]))
++        _sort_for_max_sum_subsequence(indexed_a)
+ 
+-        # Cache to store computed optimal subsequences for each k
++        # Cache to store computed optimal subsequences for each k.
+         optimal_subs_cache = {}
+ 
+         for _ in range(m):
+-            k, pos = map(int, input().split())
++            k, pos = _read_query(read_line)
++            subsequence = _get_cached_subsequence(optimal_subs_cache, indexed_a, k)
+ 
+-            # If we haven't computed the subsequence for this k yet, do it now.
+-            if k not in optimal_subs_cache:
+-                # Select the top k elements based on our sorting.
+-                # These are the specific elements (value and original index)
+-                # that will form the optimal subsequence.
+-                top_k_pairs = indexed_a[:k]
+-
+-                # 3. Reconstruct the subsequence by sorting the chosen elements
+-                # by their original index. This preserves the subsequence property.
+-                top_k_pairs.sort(key=lambda x: x[1])
+-
+-                # Store the final sequence of values in the cache.
+-                optimal_subs_cache[k] = [pair[0] for pair in top_k_pairs]
+-
+-            # 4. Retrieve the answer from the cache.
+             # pos is 1-based, so we use pos-1 for list indexing.
+-            result = optimal_subs_cache[k][pos - 1]
+-            sys.stdout.write(str(result) + '\n')
++            _write_answer(subsequence[pos - 1])
+ 
+     except (IOError, ValueError) as e:
+         # Handle potential empty lines or format errors at the end of input
+         pass
+ 
++
+ solve()
