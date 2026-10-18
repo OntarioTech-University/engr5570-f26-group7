@@ -24,13 +24,20 @@ here reproduce `data/subjects_meta.csv` exactly: all 34 match on `sloc`,
 `n_functions`, `max_cc`, `max_nesting` and `longest_block`.
 
 **Code smells** come from PyExamine, the tool the ASE paper used for the `smells`
-column of `data/programs.csv`, so before and after are counted the same way.
-It also fills a gap: the ASE package has no PyExamine report for the
-`deepseek_coder/np` programs, so those originals have an empty `smells` value
-upstream. Running the tool ourselves scores every original.
+column of `data/programs.csv`. We run its code-level detector on each file and
+not its structural or architectural detectors: the structural metrics overlap
+with what radon already gives, and the architectural ones describe a whole
+project folder rather than one program.
 
-`n_smells` counts occurrences, not distinct kinds, the same way the `smells`
-column does: two long functions in one file count twice.
+These counts are code-level only and are not the same quantity as the `smells`
+column. On the 34 originals we count 14 code smells across 13 programs, while
+the column lists 25 entries across 18 programs, 11 of them Orphan Module, and is
+empty for 16 of the 34. We do not compare our numbers to that column; what the
+before and after rests on is that originals and refactored versions go through
+the same detector on the same kind of input.
+
+`n_smells` counts occurrences, not distinct kinds: two long functions in one
+file count twice.
 
 **Running time** is the wall time of the whole hidden suite, measured with
 Yujie's `tests/run_tests.py`.
@@ -42,14 +49,15 @@ original timings in `data/verification_py31*.json` were produced on different
 machines, so they cannot be compared with each other. The same 123 hidden tests
 of `p001`:
 
-| Source | Time |
-| --- | ---: |
-| original, this machine, Yujie's runner | 1.21 s |
-| refactored gpt, `outputs/p001/gpt/single/hidden.json` | 5.11 s |
-| original, `verification_py312.json` (Linux, Part 2 stand-in runner) | 1.85 s |
+| Source | Tests | Time |
+| --- | ---: | ---: |
+| original, this machine, Yujie's runner | 123 hidden | 1.267 s |
+| refactored gpt, `outputs/p001/gpt/single/hidden.json` | 123 hidden | 5.112 s |
+| original, `verification_py312.json`, Linux, Part 2 stand-in runner | 127 all | 1.853 s |
 
 Reading the first and third rows as a before/after would report the refactoring
-as roughly 2.8x slower when nothing about the code changed. `run_scoring.py`
+as roughly 2.8x slower when nothing about the code changed, and the third row
+does not even cover the same tests. `run_scoring.py`
 therefore reruns the hidden suite for every version in one session on one
 machine. It costs about two minutes for all 136 versions.
 
@@ -57,10 +65,12 @@ A time is only written when the version passes every hidden test, because a
 crash or a timeout makes the number meaningless.
 
 **Limit of this measurement.** Every test runs the program as a new process, and
-these programs are small, so about 97% of the wall time is Python interpreter
-startup (9.9 ms per run, 123 runs, 1.22 s of the 1.26 s measured for `p001`).
-This metric can only detect a large slowdown, not a small one. Read the near-1.00
-ratios as "no large regression", not as "identical performance".
+these programs are small, so most of the wall time is Python interpreter
+startup. Starting the interpreter on nothing takes about 9.2 ms here over 60
+samples, so the 123 runs behind the `p001` figure account for roughly 1.13 s of
+the 1.267 s measured, near 90%. The exact share moves between runs. This metric
+can only detect a large slowdown, not a small one. Read the near-1.00 ratios as
+"no large regression", not as "identical performance".
 
 ## Rules followed
 
