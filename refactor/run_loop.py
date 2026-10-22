@@ -20,6 +20,9 @@ Examples (run from the repository root):
   python refactor/run_loop.py --programs p001 --models qwen  # one real run
   python refactor/run_loop.py --condition single           # A2 baseline
   python refactor/run_loop.py                              # everything
+  python refactor/run_loop.py --task-file refactor/task_main_function.txt \\
+      --condition single --programs p023 p013 --out outputs_pilot_hard
+                                                           # try a different task
 """
 
 import argparse
@@ -300,7 +303,15 @@ def main():
                    help="redo runs that ended with no_code or api_error")
     p.add_argument("--dry-run", action="store_true", help="no API calls, the model echoes the code")
     p.add_argument("--out", default="outputs", help="output folder, default outputs")
+    p.add_argument("--task-file", help="text file with a different refactoring task, "
+                                       "e.g. refactor/task_main_function.txt")
     args = p.parse_args()
+
+    global TASK
+    if args.task_file:
+        TASK = (ROOT / args.task_file).read_text(encoding="utf-8-sig").strip()
+        if args.out == "outputs" and not args.dry_run:
+            sys.exit("Please use --out with --task-file, so the baseline in outputs/ is not mixed up.")
 
     TEMPLATE = (ROOT / "refactor" / "prompt_base.txt").read_text(encoding="utf-8-sig")
     with open(ROOT / "data" / "programs.csv", encoding="utf-8") as f:
