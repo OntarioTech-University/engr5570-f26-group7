@@ -1,0 +1,214 @@
+--- original.py
++++ code.py
+@@ -1,93 +1,131 @@
+ import sys
++
++
++def read_initial_configuration():
++    """Read the operation count and memory size from standard input."""
++    try:
++        line = sys.stdin.readline()
++        if not line:
++            return None
++        t, m = map(int, line.split())
++    except (IOError, ValueError):
++        return None
++    return t, m
++
++
++def read_operation_line():
++    """Read one operation line from standard input."""
++    return sys.stdin.readline().strip()
++
++
++def parse_integer_argument(parts):
++    """Return the second token of a split command line as an integer."""
++    return int(parts[1])
++
++
++def write_output(value):
++    """Write one line of program output."""
++    print(value)
++
++
++def find_first_fit(memory, m, n):
++    """Return the first starting position with at least n free bytes, or -1."""
++    i = 0
++    while i <= m - n:
++        if memory[i] == 0:
++            j = i
++            while j < m and memory[j] == 0:
++                j += 1
++
++            if (j - i) >= n:
++                return i
++
++            i = j
++        else:
++            i += 1
++
++    return -1
++
++
++def allocate_block(memory, start, n, block_id):
++    """Mark n bytes beginning at start as occupied by block_id."""
++    for k in range(start, start + n):
++        memory[k] = block_id
++
++
++def erase_block(memory, m, block_id):
++    """Free every byte currently occupied by block_id."""
++    for i in range(m):
++        if memory[i] == block_id:
++            memory[i] = 0
++
++
++def defragment_memory(memory, m):
++    """Return a compacted copy of memory with occupied bytes moved left."""
++    occupied_blocks = [block for block in memory if block != 0]
++    return occupied_blocks + [0] * (m - len(occupied_blocks))
++
++
++def is_valid_erase_target(block_id, active_ids):
++    """Return True if block_id refers to an active block."""
++    return block_id > 0 and block_id in active_ids
++
++
++def process_operations(t, m):
++    """Execute the memory-manager operation loop."""
++    memory = [0] * m
++    next_id = 1
++    active_ids = set()
++
++    for _ in range(t):
++        line = read_operation_line()
++        if not line:
++            continue
++
++        parts = line.split()
++        command = parts[0]
++
++        if command == "alloc":
++            n = parse_integer_argument(parts)
++            found_pos = find_first_fit(memory, m, n)
++
++            if found_pos != -1:
++                write_output(next_id)
++                active_ids.add(next_id)
++                allocate_block(memory, found_pos, n, next_id)
++                next_id += 1
++            else:
++                write_output("NULL")
++
++        elif command == "erase":
++            x = parse_integer_argument(parts)
++
++            if is_valid_erase_target(x, active_ids):
++                active_ids.remove(x)
++                erase_block(memory, m, x)
++            else:
++                write_output("ILLEGAL_ERASE_ARGUMENT")
++
++        elif command == "defragment":
++            memory = defragment_memory(memory, m)
++
+ 
+ def memory_manager():
+     """
+     Implements a simple memory manager with alloc, erase, and defragment operations.
+     """
+-    try:
+-        # Read the number of operations (t) and the total memory size (m)
+-        line = sys.stdin.readline()
+-        if not line:
+-            return
+-        t, m = map(int, line.split())
+-    except (IOError, ValueError):
++    configuration = read_initial_configuration()
++    if configuration is None:
+         return
+ 
+-    # State of the memory manager
+-    memory = [0] * m  # 0 represents a free byte, a positive integer represents a block ID
+-    next_id = 1       # The ID for the next successful allocation
+-    active_ids = set() # A set of currently allocated (active) block IDs
++    t, m = configuration
++    process_operations(t, m)
+ 
+-    # Process each of the t operations
+-    for _ in range(t):
+-        line = sys.stdin.readline().strip()
+-        if not line:
+-            continue
+-        
+-        parts = line.split()
+-        command = parts[0]
+ 
+-        if command == "alloc":
+-            n = int(parts[1])
+-            
+-            # Find the first contiguous block of n free bytes (first-fit algorithm)
+-            # This search is optimized to be O(m)
+-            found_pos = -1
+-            i = 0
+-            while i <= m - n:
+-                if memory[i] == 0:
+-                    # Found a potential start of a free block. Check its length.
+-                    j = i
+-                    while j < m and memory[j] == 0:
+-                        j += 1
+-                    
+-                    # The length of the free block is (j - i)
+-                    if (j - i) >= n:
+-                        found_pos = i
+-                        break
+-                    else:
+-                        # This free block is too small. Jump past it to continue the search.
+-                        i = j
+-                else:
+-                    # This byte is occupied. Move to the next one.
+-                    i += 1
+-            
+-            if found_pos != -1:
+-                # A suitable block was found. Allocate it.
+-                print(next_id)
+-                active_ids.add(next_id)
+-                for k in range(found_pos, found_pos + n):
+-                    memory[k] = next_id
+-                next_id += 1
+-            else:
+-                # No suitable block could be found.
+-                print("NULL")
++def main():
++    """Program entry point."""
++    memory_manager()
+ 
+-        elif command == "erase":
+-            x = int(parts[1])
+-            
+-            # Check if the provided ID is valid.
+-            # It must be a positive number and must correspond to a currently active block.
+-            if x > 0 and x in active_ids:
+-                # Valid ID. Proceed with erasing the block.
+-                active_ids.remove(x)
+-                # Iterate through memory and free the bytes belonging to this block.
+-                for i in range(m):
+-                    if memory[i] == x:
+-                        memory[i] = 0
+-            else:
+-                # Invalid ID. Report an error.
+-                print("ILLEGAL_ERASE_ARGUMENT")
+ 
+-        elif command == "defragment":
+-            # Compact the memory by moving all occupied blocks to the beginning.
+-            # The relative order of the blocks is preserved.
+-            
+-            # Create a new list containing only the occupied blocks.
+-            occupied_blocks = [block for block in memory if block != 0]
+-            # The new memory layout is the occupied blocks followed by free space.
+-            memory = occupied_blocks + [0] * (m - len(occupied_blocks))
+-
+-# Run the memory manager simulation
+ if __name__ == "__main__":
+-    memory_manager()
++    main()
