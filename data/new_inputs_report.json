@@ -1,0 +1,303 @@
+{
+ "settings": {
+  "refs": "/tmp/claude-0/work/repo/build/ref_solutions.json",
+  "per_program": 100,
+  "max_seconds": 2.0,
+  "jobs": 3
+ },
+ "plan": [
+  [
+   "tiny",
+   15
+  ],
+  [
+   "small",
+   55
+  ],
+  [
+   "medium",
+   50
+  ],
+  [
+   "large",
+   20
+  ]
+ ],
+ "problems": {
+  "101_C": {
+   "candidates": 140,
+   "guarantee_rejected": 0,
+   "dropped_invalid_by_refs": 0,
+   "n_refs": 1
+  },
+  "1037_E": {
+   "candidates": 140,
+   "guarantee_rejected": 0,
+   "dropped_invalid_by_refs": 0,
+   "n_refs": 1
+  },
+  "1107_D": {
+   "candidates": 140,
+   "guarantee_rejected": 0,
+   "dropped_invalid_by_refs": 0,
+   "n_refs": 3
+  },
+  "1208_D": {
+   "candidates": 134,
+   "guarantee_rejected": 0,
+   "dropped_invalid_by_refs": 0,
+   "n_refs": 3
+  },
+  "1227_D1": {
+   "candidates": 140,
+   "guarantee_rejected": 0,
+   "dropped_invalid_by_refs": 0,
+   "n_refs": 3
+  },
+  "1253_F": {
+   "candidates": 140,
+   "guarantee_rejected": 0,
+   "dropped_invalid_by_refs": 0,
+   "n_refs": 0
+  },
+  "1361_E": {
+   "candidates": 140,
+   "guarantee_rejected": 0,
+   "dropped_invalid_by_refs": 0,
+   "n_refs": 0
+  },
+  "1374_E1": {
+   "candidates": 140,
+   "guarantee_rejected": 0,
+   "dropped_invalid_by_refs": 0,
+   "n_refs": 3
+  },
+  "143_A": {
+   "candidates": 140,
+   "guarantee_rejected": 0,
+   "dropped_invalid_by_refs": 0,
+   "n_refs": 3
+  },
+  "260_B": {
+   "candidates": 140,
+   "guarantee_rejected": 19,
+   "dropped_invalid_by_refs": 0,
+   "n_refs": 3
+  },
+  "309_B": {
+   "candidates": 140,
+   "guarantee_rejected": 0,
+   "dropped_invalid_by_refs": 0,
+   "n_refs": 0
+  },
+  "634_C": {
+   "candidates": 140,
+   "guarantee_rejected": 0,
+   "dropped_invalid_by_refs": 0,
+   "n_refs": 2
+  },
+  "663_A": {
+   "candidates": 140,
+   "guarantee_rejected": 0,
+   "dropped_invalid_by_refs": 0,
+   "n_refs": 3
+  },
+  "675_E": {
+   "candidates": 134,
+   "guarantee_rejected": 0,
+   "dropped_invalid_by_refs": 0,
+   "n_refs": 3
+  },
+  "754_E": {
+   "candidates": 140,
+   "guarantee_rejected": 0,
+   "dropped_invalid_by_refs": 0,
+   "n_refs": 0
+  },
+  "7_B": {
+   "candidates": 140,
+   "guarantee_rejected": 0,
+   "dropped_invalid_by_refs": 0,
+   "n_refs": 3
+  },
+  "868_A": {
+   "candidates": 140,
+   "guarantee_rejected": 0,
+   "dropped_invalid_by_refs": 0,
+   "n_refs": 3
+  },
+  "990_E": {
+   "candidates": 140,
+   "guarantee_rejected": 0,
+   "dropped_invalid_by_refs": 0,
+   "n_refs": 3
+  },
+  "appu_and_sugarcane_farm": {
+   "candidates": 140,
+   "guarantee_rejected": 0,
+   "dropped_invalid_by_refs": 0,
+   "n_refs": 1
+  },
+  "chandu_and_his_girlfriend_returns": {
+   "candidates": 140,
+   "guarantee_rejected": 0,
+   "dropped_invalid_by_refs": 0,
+   "n_refs": 1
+  },
+  "comm3": {
+   "candidates": 140,
+   "guarantee_rejected": 0,
+   "dropped_invalid_by_refs": 0,
+   "n_refs": 1
+  },
+  "golu_and_coins_1": {
+   "candidates": 140,
+   "guarantee_rejected": 0,
+   "dropped_invalid_by_refs": 0,
+   "n_refs": 0
+  },
+  "luckybal": {
+   "candidates": 139,
+   "guarantee_rejected": 0,
+   "dropped_invalid_by_refs": 0,
+   "n_refs": 1
+  },
+  "monks_choice_of_numbers_1": {
+   "candidates": 140,
+   "guarantee_rejected": 0,
+   "dropped_invalid_by_refs": 0,
+   "n_refs": 1
+  },
+  "roys_life_cycle": {
+   "candidates": 140,
+   "guarantee_rejected": 0,
+   "dropped_invalid_by_refs": 0,
+   "n_refs": 1
+  }
+ },
+ "programs": {
+  "p001": {
+   "disagree_input_indexes": []
+  },
+  "p002": {
+   "disagree_input_indexes": []
+  },
+  "p003": {
+   "disagree_input_indexes": []
+  },
+  "p004": {
+   "disagree_input_indexes": []
+  },
+  "p005": {
+   "disagree_input_indexes": []
+  },
+  "p006": {
+   "disagree_input_indexes": []
+  },
+  "p007": {
+   "disagree_input_indexes": []
+  },
+  "p008": {
+   "disagree_input_indexes": []
+  },
+  "p009": {
+   "disagree_input_indexes": []
+  },
+  "p010": {
+   "disagree_input_indexes": []
+  },
+  "p011": {
+   "disagree_input_indexes": []
+  },
+  "p012": {
+   "disagree_input_indexes": [
+    2,
+    3,
+    7,
+    10,
+    11,
+    13,
+    14,
+    15,
+    18,
+    19,
+    22,
+    23,
+    26,
+    27,
+    31,
+    34,
+    35,
+    37,
+    38,
+    39
+   ]
+  },
+  "p013": {
+   "disagree_input_indexes": []
+  },
+  "p014": {
+   "disagree_input_indexes": []
+  },
+  "p015": {
+   "disagree_input_indexes": []
+  },
+  "p016": {
+   "disagree_input_indexes": []
+  },
+  "p017": {
+   "disagree_input_indexes": []
+  },
+  "p018": {
+   "disagree_input_indexes": []
+  },
+  "p019": {
+   "disagree_input_indexes": []
+  },
+  "p020": {
+   "disagree_input_indexes": []
+  },
+  "p021": {
+   "disagree_input_indexes": []
+  },
+  "p022": {
+   "disagree_input_indexes": []
+  },
+  "p023": {
+   "disagree_input_indexes": []
+  },
+  "p024": {
+   "disagree_input_indexes": []
+  },
+  "p025": {
+   "disagree_input_indexes": []
+  },
+  "p026": {
+   "disagree_input_indexes": []
+  },
+  "p027": {
+   "disagree_input_indexes": []
+  },
+  "p028": {
+   "disagree_input_indexes": []
+  },
+  "p029": {
+   "disagree_input_indexes": []
+  },
+  "p030": {
+   "disagree_input_indexes": []
+  },
+  "p031": {
+   "disagree_input_indexes": []
+  },
+  "p032": {
+   "disagree_input_indexes": []
+  },
+  "p033": {
+   "disagree_input_indexes": []
+  },
+  "p034": {
+   "disagree_input_indexes": []
+  }
+ }
+}
