@@ -1,0 +1,31 @@
+--- original.py
++++ code.py
+@@ -21,11 +21,22 @@
+ 
+     return "YES"
+ 
+-# Read the number of sugarcanes
+-N = int(input())
+ 
+-# Read the heights of sugarcanes
+-heights = list(map(int, input().split()))
++def read_input():
++    N = int(input())
++    heights = list(map(int, input().split()))
++    return N, heights
+ 
+-# Check if it's possible to make all sugarcanes of the same height
+-print(can_make_same_height(N, heights))
++
++def print_output(result):
++    print(result)
++
++
++def main():
++    N, heights = read_input()
++    result = can_make_same_height(N, heights)
++    print_output(result)
++
++
++if __name__ == "__main__":
++    main()

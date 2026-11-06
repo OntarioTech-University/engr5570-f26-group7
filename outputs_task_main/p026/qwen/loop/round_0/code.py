@@ -1,0 +1,166 @@
+import sys
+
+
+def read_initial_configuration(input_stream):
+    """
+    Read the number of operations (t) and the total memory size (m).
+    Return (t, m), or None if the input is missing or invalid.
+    """
+    try:
+        line = input_stream.readline()
+        if not line:
+            return None
+        t, m = map(int, line.split())
+        return t, m
+    except (IOError, ValueError):
+        return None
+
+
+def read_operation_line(input_stream):
+    """
+    Read one operation line and remove surrounding whitespace.
+    """
+    return input_stream.readline().strip()
+
+
+def write_output(value):
+    """
+    Write one output line.
+    """
+    print(value)
+
+
+def find_first_fit(memory, m, n):
+    """
+    Return the first starting position where n free bytes fit.
+    Return -1 if no suitable block exists.
+    """
+    i = 0
+    while i <= m - n:
+        if memory[i] == 0:
+            # Found a potential start of a free block. Check its length.
+            j = i
+            while j < m and memory[j] == 0:
+                j += 1
+
+            # The length of the free block is (j - i)
+            if (j - i) >= n:
+                return i
+
+            # This free block is too small. Jump past it to continue the search.
+            i = j
+        else:
+            # This byte is occupied. Move to the next one.
+            i += 1
+
+    return -1
+
+
+def allocate_memory(memory, m, n, next_id, active_ids):
+    """
+    Allocate n bytes using first-fit allocation.
+    Return the next block ID to use for future allocations.
+    """
+    found_pos = find_first_fit(memory, m, n)
+
+    if found_pos != -1:
+        # A suitable block was found. Allocate it.
+        write_output(next_id)
+        active_ids.add(next_id)
+        for k in range(found_pos, found_pos + n):
+            memory[k] = next_id
+        return next_id + 1
+
+    # No suitable block could be found.
+    write_output("NULL")
+    return next_id
+
+
+def erase_block(memory, m, block_id, active_ids):
+    """
+    Erase an active block if the ID is valid.
+    Otherwise, report an illegal erase argument.
+    """
+    # Check if the provided ID is valid.
+    # It must be a positive number and must correspond to a currently active block.
+    if block_id > 0 and block_id in active_ids:
+        # Valid ID. Proceed with erasing the block.
+        active_ids.remove(block_id)
+        # Iterate through memory and free the bytes belonging to this block.
+        for i in range(m):
+            if memory[i] == block_id:
+                memory[i] = 0
+    else:
+        # Invalid ID. Report an error.
+        write_output("ILLEGAL_ERASE_ARGUMENT")
+
+
+def defragment_memory(memory, m):
+    """
+    Compact memory by moving all occupied blocks to the beginning.
+    The relative order of the blocks is preserved.
+    """
+    # Create a new list containing only the occupied blocks.
+    occupied_blocks = [block for block in memory if block != 0]
+    # The new memory layout is the occupied blocks followed by free space.
+    return occupied_blocks + [0] * (m - len(occupied_blocks))
+
+
+def process_operations(t, m, input_stream):
+    """
+    Process the t memory-manager operations.
+    """
+    # State of the memory manager
+    memory = [0] * m  # 0 represents a free byte, a positive integer represents a block ID
+    next_id = 1       # The ID for the next successful allocation
+    active_ids = set()  # A set of currently allocated (active) block IDs
+
+    # Process each of the t operations
+    for _ in range(t):
+        line = read_operation_line(input_stream)
+        if not line:
+            continue
+
+        parts = line.split()
+        command = parts[0]
+
+        if command == "alloc":
+            n = int(parts[1])
+            next_id = allocate_memory(memory, m, n, next_id, active_ids)
+
+        elif command == "erase":
+            x = int(parts[1])
+            erase_block(memory, m, x, active_ids)
+
+        elif command == "defragment":
+            memory = defragment_memory(memory, m)
+
+
+def run_memory_manager(input_stream):
+    """
+    Read the initial configuration and run the memory-manager simulation.
+    """
+    configuration = read_initial_configuration(input_stream)
+    if configuration is None:
+        return
+
+    t, m = configuration
+    process_operations(t, m, input_stream)
+
+
+def memory_manager():
+    """
+    Implements a simple memory manager with alloc, erase, and defragment operations.
+    """
+    run_memory_manager(sys.stdin)
+
+
+def main():
+    """
+    Program entry point.
+    """
+    memory_manager()
+
+
+if __name__ == "__main__":
+    main()

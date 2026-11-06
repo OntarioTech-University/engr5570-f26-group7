@@ -1,0 +1,201 @@
+--- original.py
++++ code.py
+@@ -1,90 +1,120 @@
+-t, m = map(int, input().split())
++def read_initial_counts():
++    t, m = map(int, input().split())
++    return t, m
+ 
+-# Memory representation: True means occupied
+-memory = [False] * (m + 1)  # 1-based indexing
+ 
+-# List of blocks: (id, start, length)
+-blocks = []
++def create_initial_state(m):
++    return {
++        'memory': [False] * (m + 1),
++        'blocks': [],
++        'next_id': 1,
++        'active_ids': set(),
++        'result': []
++    }
+ 
+-# Keep track of next id to assign
+-next_id = 1
+ 
+-# Set of currently active ids
+-active_ids = set()
++def read_operation():
++    return input().strip().split()
+ 
+-result = []
+ 
+-for _ in range(t):
+-    parts = input().strip().split()
++def process_operation(state, parts):
+     op = parts[0]
++    if op == "alloc":
++        handle_alloc(state, int(parts[1]))
++    elif op == "erase":
++        handle_erase(state, int(parts[1]))
++    elif op == "defragment":
++        handle_defragment(state)
+ 
+-    if op == "alloc":
+-        n = int(parts[1])
+-        # Find first fit
+-        found = False
+-        pos = -1
+-        for i in range(1, m - n + 2):
+-            valid = True
+-            for j in range(i, i + n):
+-                if memory[j]:
+-                    valid = False
+-                    break
+-            if valid:
+-                pos = i
+-                found = True
+-                break
+-        if found:
+-            # Allocate memory
+-            for i in range(pos, pos + n):
+-                memory[i] = True
+-            blocks.append((next_id, pos, n))
+-            active_ids.add(next_id)
+-            result.append(str(next_id))
+-            next_id += 1
+-        else:
+-            result.append("NULL")
+ 
+-    elif op == "erase":
+-        x = int(parts[1])
+-        if x not in active_ids:
+-            result.append("ILLEGAL_ERASE_ARGUMENT")
+-        else:
+-            # Free memory
+-            idx_to_remove = None
+-            for i in range(len(blocks)):
+-                b_id, start, length = blocks[i]
+-                if b_id == x:
+-                    idx_to_remove = i
+-                    for j in range(start, start + length):
+-                        memory[j] = False
+-                    break
+-            if idx_to_remove is not None:
+-                del blocks[idx_to_remove]
+-                active_ids.discard(x)
++def handle_alloc(state, n):
++    pos = find_first_fit(state['memory'], n, len(state['memory']) - 1)
++    if pos == -1:
++        state['result'].append("NULL")
++    else:
++        allocate_memory(state, pos, n)
+ 
+-    elif op == "defragment":
+-        # Sort blocks by their current position to preserve order
+-        blocks.sort(key=lambda b: b[1])
+ 
+-        # Now move them together starting at index 1
+-        current_pos = 1
+-        new_blocks = []
+-        for b_id, old_start, length in blocks:
+-            # Try placing at current_pos
+-            end_pos = current_pos + length - 1
+-            if end_pos > m:
+-                # Should not happen due to constraints
+-                continue
+-            # Clear old memory
+-            for i in range(old_start, old_start + length):
+-                memory[i] = False
+-            # Mark new memory
+-            for i in range(current_pos, current_pos + length):
+-                memory[i] = True
+-            new_blocks.append((b_id, current_pos, length))
+-            current_pos += length
+-        blocks = new_blocks
++def find_first_fit(memory, n, m):
++    for i in range(1, m - n + 2):
++        if is_range_free(memory, i, n):
++            return i
++    return -1
+ 
+-# Print results
+-for line in result:
+-    print(line)
++
++def is_range_free(memory, start, length):
++    for j in range(start, start + length):
++        if memory[j]:
++            return False
++    return True
++
++
++def allocate_memory(state, pos, n):
++    for i in range(pos, pos + n):
++        state['memory'][i] = True
++    block_id = state['next_id']
++    state['blocks'].append((block_id, pos, n))
++    state['active_ids'].add(block_id)
++    state['result'].append(str(block_id))
++    state['next_id'] += 1
++
++
++def handle_erase(state, x):
++    if x not in state['active_ids']:
++        state['result'].append("ILLEGAL_ERASE_ARGUMENT")
++    else:
++        erase_block(state, x)
++
++
++def erase_block(state, x):
++    idx_to_remove = None
++    for i, (b_id, start, length) in enumerate(state['blocks']):
++        if b_id == x:
++            idx_to_remove = i
++            free_memory(state['memory'], start, length)
++            break
++    if idx_to_remove is not None:
++        del state['blocks'][idx_to_remove]
++        state['active_ids'].discard(x)
++
++
++def free_memory(memory, start, length):
++    for j in range(start, start + length):
++        memory[j] = False
++
++
++def handle_defragment(state):
++    state['blocks'].sort(key=lambda b: b[1])
++    current_pos = 1
++    new_blocks = []
++    for b_id, old_start, length in state['blocks']:
++        end_pos = current_pos + length - 1
++        if end_pos > len(state['memory']) - 1:
++            continue
++        free_memory(state['memory'], old_start, length)
++        allocate_range(state['memory'], current_pos, length)
++        new_blocks.append((b_id, current_pos, length))
++        current_pos += length
++    state['blocks'] = new_blocks
++
++
++def allocate_range(memory, start, length):
++    for i in range(start, start + length):
++        memory[i] = True
++
++
++def print_results(result):
++    for line in result:
++        print(line)
++
++
++def main():
++    t, m = read_initial_counts()
++    state = create_initial_state(m)
++    for _ in range(t):
++        parts = read_operation()
++        process_operation(state, parts)
++    print_results(state['result'])
++
++
++main()

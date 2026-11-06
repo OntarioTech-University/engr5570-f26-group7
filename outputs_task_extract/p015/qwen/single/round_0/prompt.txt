@@ -1,0 +1,56 @@
+
+Please refactor the Python code below to improve its internal design and maintainability, specifically focusing on: Split the code into small, well named functions. Each function should do one clear job and be no longer than about 15 lines. Move the input reading, each step of the computation and the output printing into their own functions. Do not leave long blocks of logic inside one function or at the top level of the file.
+
+Key constraints for this refactoring:
+- Preserve runtime behavior: The code must produce the exact same outputs, return values, side effects, and exceptions as before.
+- Keep public interfaces: Do not rename or modify signatures for any public functions, classes, or methods to avoid breaking external callers.
+- Strict scope: Focus solely on structural improvements. Do not add features, fix bugs, or change error handling logic, even if something looks wrong. Do not modify test files. If a change might alter behavior, skip it.
+- No-op condition: If you determine that the code does not benefit from this specific refactoring, return it unchanged and briefly state why.
+
+Response format:
+1. The complete refactored file in a single Python code block.
+2. A short bulleted list summarizing each change and its justification.
+
+Code:
+def hex_to_bin(hex_str):
+    """Convert a hexadecimal string to a binary string."""
+    bin_str = ''
+    for char in hex_str:
+        if char.isdigit():
+            bin_str += format(int(char), '04b')
+        else:
+            bin_str += format(int(char, 16), '04b')
+    return bin_str
+
+def can_compress(matrix, x):
+    """Check if the matrix can be x-compressed."""
+    n = len(matrix)
+    for i in range(0, n, x):
+        for j in range(0, n, x):
+            val = matrix[i][j]
+            for di in range(x):
+                for dj in range(x):
+                    if matrix[i + di][j + dj] != val:
+                        return False
+    return True
+
+def solve(n, matrix):
+    """Find the maximum x such that an x-compression of the given matrix is possible."""
+    max_x = 1
+    for x in range(2, n + 1):
+        if n % x == 0 and can_compress(matrix, x):
+            max_x = x
+    return max_x
+
+def main():
+    n = int(input())
+    matrix = []
+    for _ in range(n):
+        hex_str = input()
+        bin_str = hex_to_bin(hex_str)
+        matrix.append([int(bit) for bit in bin_str])
+    print(solve(n, matrix))
+
+if __name__ == "__main__":
+    main()
+

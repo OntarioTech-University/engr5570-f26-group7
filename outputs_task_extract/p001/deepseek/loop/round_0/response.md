@@ -1,0 +1,60 @@
+```python
+def _read_two_ints():
+    return map(int, input().split())
+
+def _read_input():
+    r1, r2 = _read_two_ints()
+    c1, c2 = _read_two_ints()
+    d1, d2 = _read_two_ints()
+    return r1, r2, c1, c2, d1, d2
+
+def _is_solution(a, b, c, d, r1, r2, c1, c2, d1, d2):
+    return (
+        len({a, b, c, d}) == 4
+        and a + b == r1
+        and c + d == r2
+        and a + c == c1
+        and b + d == c2
+        and a + d == d1
+        and b + c == d2
+    )
+
+def _candidate_solutions():
+    for a in range(1, 10):
+        for b in range(1, 10):
+            for c in range(1, 10):
+                for d in range(1, 10):
+                    yield a, b, c, d
+
+def _find_solution(r1, r2, c1, c2, d1, d2):
+    for a, b, c, d in _candidate_solutions():
+        if _is_solution(a, b, c, d, r1, r2, c1, c2, d1, d2):
+            return a, b, c, d
+    return None
+
+def _format_solution(a, b, c, d):
+    return f"{a} {b}\n{c} {d}"
+
+def solve_magic_box(r1, r2, c1, c2, d1, d2):
+    solution = _find_solution(r1, r2, c1, c2, d1, d2)
+    if solution is None:
+        return "-1"
+    return _format_solution(*solution)
+
+def _print_result(result):
+    print(result)
+
+def main():
+    r1, r2, c1, c2, d1, d2 = _read_input()
+    result = solve_magic_box(r1, r2, c1, c2, d1, d2)
+    _print_result(result)
+
+main()
+```
+
+- Split input reading into `_read_two_ints` and `_read_input`, preserving the original reading order and lazy `map` unpacking behavior.
+- Extracted the solution validity check into `_is_solution`.
+- Extracted candidate enumeration into `_candidate_solutions`, preserving the original nested loop order.
+- Extracted solution search into `_find_solution` and result formatting into `_format_solution`.
+- Kept the public `solve_magic_box` signature unchanged while simplifying its body.
+- Added `_print_result` and `main`, with a top-level `main()` call to preserve script execution and import-time side effects.

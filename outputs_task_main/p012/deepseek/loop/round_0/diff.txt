@@ -1,0 +1,134 @@
+--- original.py
++++ code.py
+@@ -1,58 +1,83 @@
+-def main():
++def read_input():
+     import sys
+-    input = sys.stdin.read
+-    data = input().splitlines()
+-    
++    data = sys.stdin.read().splitlines()
+     n = int(data[0])
+     lines = data[1:]
+-    
+-    x = 0  # Max within a single day
+-    y = 0  # Max across multiple days
+-    
+-    prev_trailing_c = 0  # Trailing C's from previous day
+-    
++    return n, lines
++
++
++def max_consecutive_c(line):
++    max_in_day = 0
++    curr_streak = 0
++
++    for ch in line:
++        if ch == 'C':
++            curr_streak += 1
++            if curr_streak > max_in_day:
++                max_in_day = curr_streak
++        else:
++            curr_streak = 0
++
++    return max_in_day
++
++
++def _count_edge_c(line, reverse=False):
++    chars = reversed(line) if reverse else line
++    count = 0
++
++    for ch in chars:
++        if ch == 'C':
++            count += 1
++        else:
++            break
++
++    return count
++
++
++def count_leading_c(line):
++    return _count_edge_c(line, reverse=False)
++
++
++def count_trailing_c(line):
++    return _count_edge_c(line, reverse=True)
++
++
++def compute_streaks(lines):
++    max_single_day = 0
++    max_multi_day = 0
++    prev_trailing_c = 0
++
+     for line in lines:
+-        # Find max streak within this day
+-        max_in_day = 0
+-        curr_streak = 0
+-        
+-        for ch in line:
+-            if ch == 'C':
+-                curr_streak += 1
+-                max_in_day = max(max_in_day, curr_streak)
+-            else:
+-                curr_streak = 0
+-        
+-        x = max(x, max_in_day)
+-        
+-        # Now process for across-day streaks
+-        # Count leading C's
+-        leading_c = 0
+-        for ch in line:
+-            if ch == 'C':
+-                leading_c += 1
+-            else:
+-                break
+-        
+-        # Count trailing C's
+-        trailing_c = 0
+-        for ch in reversed(line):
+-            if ch == 'C':
+-                trailing_c += 1
+-            else:
+-                break
+-        
+-        # Combine with previous day's trailing C's
++        max_in_day = max_consecutive_c(line)
++
++        if max_in_day > max_single_day:
++            max_single_day = max_in_day
++
++        leading_c = count_leading_c(line)
++        trailing_c = count_trailing_c(line)
++
+         if prev_trailing_c > 0 and leading_c > 0:
+             combined = prev_trailing_c + leading_c
+-            y = max(y, combined)
+-        
+-        # Also consider max_in_day itself for Y
+-        y = max(y, max_in_day)
+-        
++            if combined > max_multi_day:
++                max_multi_day = combined
++
++        if max_in_day > max_multi_day:
++            max_multi_day = max_in_day
++
+         prev_trailing_c = trailing_c
+-    
+-    print(x, y)
++
++    return max_single_day, max_multi_day
++
++
++def print_streaks(max_single_day, max_multi_day):
++    print(max_single_day, max_multi_day)
++
++
++def main():
++    _, lines = read_input()
++    max_single_day, max_multi_day = compute_streaks(lines)
++    print_streaks(max_single_day, max_multi_day)
++
+ 
+ if __name__ == "__main__":
+     main()

@@ -1,0 +1,82 @@
+--- original.py
++++ code.py
+@@ -6,47 +6,45 @@
+ def can_communicate_directly(pos1, pos2, R):
+     return distance(pos1, pos2) <= R
+ 
+-def solve_case():
++def _read_case():
+     R = int(input())
+     chef = tuple(map(int, input().split()))
+     head_server = tuple(map(int, input().split()))
+     sous_chef = tuple(map(int, input().split()))
+-    
+-    positions = [chef, head_server, sous_chef]
+-    
+-    # Check direct communication between all pairs
+-    can_communicate = [[False for _ in range(3)] for _ in range(3)]
+-    
+-    for i in range(3):
+-        for j in range(3):
++    return R, [chef, head_server, sous_chef]
++
++def _can_all_communicate(positions, R):
++    n = len(positions)
++    can_communicate = [[False] * n for _ in range(n)]
++
++    for i in range(n):
++        for j in range(n):
+             if i == j:
+                 can_communicate[i][j] = True
+             else:
+                 can_communicate[i][j] = can_communicate_directly(positions[i], positions[j], R)
+-    
+-    # Check if all pairs can communicate (directly or indirectly)
++
+     all_can_communicate = True
+-    
+-    # Check Chef <-> Head Server
+-    if not can_communicate[0][1]:
+-        # Need to go through Sous Chef
+-        if not (can_communicate[0][2] and can_communicate[1][2]):
+-            all_can_communicate = False
+-    
+-    # Check Chef <-> Sous Chef  
+-    if not can_communicate[0][2]:
+-        # Need to go through Head Server
+-        if not (can_communicate[0][1] and can_communicate[1][2]):
+-            all_can_communicate = False
+-    
+-    # Check Head Server <-> Sous Chef
+-    if not can_communicate[1][2]:
+-        # Need to go through Chef
+-        if not (can_communicate[0][1] and can_communicate[0][2]):
+-            all_can_communicate = False
+-    
+-    return "yes" if all_can_communicate else "no"
++    pairs = [(0, 1, 2), (0, 2, 1), (1, 2, 0)]
+ 
+-T = int(input())
+-for _ in range(T):
+-    print(solve_case())
++    for a, b, c in pairs:
++        if not can_communicate[a][b]:
++            if not (can_communicate[a][c] and can_communicate[b][c]):
++                all_can_communicate = False
++
++    return all_can_communicate
++
++def solve_case():
++    R, positions = _read_case()
++    return "yes" if _can_all_communicate(positions, R) else "no"
++
++def _print_result(result):
++    print(result)
++
++def main():
++    T = int(input())
++    for _ in range(T):
++        _print_result(solve_case())
++
++if __name__ == "__main__":
++    main()

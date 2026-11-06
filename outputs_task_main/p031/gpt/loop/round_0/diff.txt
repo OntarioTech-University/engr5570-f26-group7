@@ -1,0 +1,48 @@
+--- original.py
++++ code.py
+@@ -1,4 +1,5 @@
+ from collections import defaultdict, deque
++
+ 
+ def find_interesting_cities(n, edges):
+     graph = defaultdict(list)
+@@ -18,6 +19,7 @@
+         return [-1]
+     return interesting_cities
+ 
++
+ def find_simple_paths(graph, source, dest):
+     queue = deque([(source, [source])])
+     paths = set()
+@@ -31,9 +33,28 @@
+                     queue.append((neighbor, path + [neighbor]))
+     return paths
+ 
+-t = int(input())
+-for _ in range(t):
++
++def read_test_count():
++    return int(input())
++
++
++def read_case():
+     n, m = map(int, input().split())
+     edges = [tuple(map(int, input().split())) for _ in range(m)]
+-    result = find_interesting_cities(n, edges)
++    return n, edges
++
++
++def print_result(result):
+     print(' '.join(map(str, result)))
++
++
++def main():
++    t = read_test_count()
++    for _ in range(t):
++        n, edges = read_case()
++        result = find_interesting_cities(n, edges)
++        print_result(result)
++
++
++if __name__ == "__main__":
++    main()

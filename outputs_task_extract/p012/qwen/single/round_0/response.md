@@ -1,0 +1,111 @@
+```python
+def read_input_lines():
+    import sys
+    return sys.stdin.read().splitlines()
+
+
+def parse_day_count(data):
+    return int(data[0])
+
+
+def get_day_lines(data):
+    return data[1:]
+
+
+def max_c_streak_in_day(line):
+    max_in_day = 0
+    curr_streak = 0
+
+    for ch in line:
+        if ch == 'C':
+            curr_streak += 1
+            max_in_day = max(max_in_day, curr_streak)
+        else:
+            curr_streak = 0
+
+    return max_in_day
+
+
+def count_leading_c(line):
+    leading_c = 0
+
+    for ch in line:
+        if ch == 'C':
+            leading_c += 1
+        else:
+            break
+
+    return leading_c
+
+
+def count_trailing_c(line):
+    trailing_c = 0
+
+    for ch in reversed(line):
+        if ch == 'C':
+            trailing_c += 1
+        else:
+            break
+
+    return trailing_c
+
+
+def update_across_day_max(y, prev_trailing_c, leading_c):
+    if prev_trailing_c > 0 and leading_c > 0:
+        combined = prev_trailing_c + leading_c
+        y = max(y, combined)
+
+    return y
+
+
+def process_day(line, x, y, prev_trailing_c):
+    max_in_day = max_c_streak_in_day(line)
+    x = max(x, max_in_day)
+
+    leading_c = count_leading_c(line)
+    trailing_c = count_trailing_c(line)
+
+    y = update_across_day_max(y, prev_trailing_c, leading_c)
+    y = max(y, max_in_day)
+
+    return x, y, trailing_c
+
+
+def process_days(lines):
+    x = 0
+    y = 0
+    prev_trailing_c = 0
+
+    for line in lines:
+        x, y, prev_trailing_c = process_day(line, x, y, prev_trailing_c)
+
+    return x, y
+
+
+def print_result(x, y):
+    print(x, y)
+
+
+def main():
+    data = read_input_lines()
+    _ = parse_day_count(data)
+    lines = get_day_lines(data)
+
+    x, y = process_days(lines)
+    print_result(x, y)
+
+
+if __name__ == "__main__":
+    main()
+```
+
+- Split input reading into `read_input_lines()` so `main()` no longer directly handles `sys.stdin`.
+- Kept the unused but behavior-relevant `int(data[0])` conversion in `parse_day_count()` to preserve the original exception behavior exactly.
+- Separated day-line extraction into `get_day_lines()` for clearer data preparation.
+- Moved per-day streak calculation into `max_c_streak_in_day()`, keeping that logic isolated and short.
+- Extracted leading-C and trailing-C counting into `count_leading_c()` and `count_trailing_c()` so each helper has one clear responsibility.
+- Moved cross-day streak update logic into `update_across_day_max()` to avoid embedding conditional state updates in the main loop.
+- Created `process_day()` to handle one line/day using the smaller helpers, preserving the original order of operations.
+- Created `process_days()` to own the loop state (`x`, `y`, `prev_trailing_c`) while staying concise.
+- Moved output printing into `print_result()` so `main()` only orchestrates the workflow.
+- Preserved the public `main()` signature and runtime behavior, including outputs, exceptions, and side effects.

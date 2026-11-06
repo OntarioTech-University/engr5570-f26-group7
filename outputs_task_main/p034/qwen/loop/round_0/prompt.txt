@@ -1,0 +1,64 @@
+
+Please refactor the Python code below to improve its internal design and maintainability, specifically focusing on: Restructure the program so that no logic runs at the top level of the file and no global variables are used. Put the input reading, the main computation and the output printing into separate, well named functions. Pass data between these functions through parameters and return values. Remove duplicated code by moving it into shared helper functions. Call a main() function under if __name__ == "__main__":.
+
+Key constraints for this refactoring:
+- Preserve runtime behavior: The code must produce the exact same outputs, return values, side effects, and exceptions as before.
+- Keep public interfaces: Do not rename or modify signatures for any public functions, classes, or methods to avoid breaking external callers.
+- Strict scope: Focus solely on structural improvements. Do not add features, fix bugs, or change error handling logic, even if something looks wrong. Do not modify test files. If a change might alter behavior, skip it.
+- No-op condition: If you determine that the code does not benefit from this specific refactoring, return it unchanged and briefly state why.
+
+Response format:
+1. The complete refactored file in a single Python code block.
+2. A short bulleted list summarizing each change and its justification.
+
+Code:
+def main():
+    import sys
+    input = sys.stdin.read
+    data = input().splitlines()
+    
+    idx = 0
+    n, m = map(int, data[idx].split())
+    idx += 1
+    
+    # Read the cyclic table
+    table = []
+    for _ in range(n):
+        table.append(data[idx])
+        idx += 1
+    
+    r, c = map(int, data[idx].split())
+    idx += 1
+    
+    # Read the pattern
+    pattern = []
+    for _ in range(r):
+        pattern.append(data[idx])
+        idx += 1
+
+    # Initialize answer grid
+    ans = [['0'] * m for _ in range(n)]
+
+    # Check for each cell (i,j) in the table
+    for i in range(n):
+        for j in range(m):
+            match = True
+            for x in range(r):
+                for y in range(c):
+                    pat_char = pattern[x][y]
+                    tbl_char = table[(i + x) % n][(j + y) % m]
+                    if pat_char != '?' and pat_char != tbl_char:
+                        match = False
+                        break
+                if not match:
+                    break
+            if match:
+                ans[i][j] = '1'
+
+    # Print the result
+    for row in ans:
+        print(''.join(row))
+
+if __name__ == "__main__":
+    main()
+

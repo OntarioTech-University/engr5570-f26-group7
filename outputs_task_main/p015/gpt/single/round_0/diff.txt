@@ -1,0 +1,47 @@
+--- original.py
++++ code.py
+@@ -7,6 +7,7 @@
+         else:
+             bin_str += format(int(char, 16), '04b')
+     return bin_str
++
+ 
+ def can_compress(matrix, x):
+     """Check if the matrix can be x-compressed."""
+@@ -20,6 +21,7 @@
+                         return False
+     return True
+ 
++
+ def solve(n, matrix):
+     """Find the maximum x such that an x-compression of the given matrix is possible."""
+     max_x = 1
+@@ -28,14 +30,26 @@
+             max_x = x
+     return max_x
+ 
+-def main():
++
++def read_input():
+     n = int(input())
+     matrix = []
+     for _ in range(n):
+         hex_str = input()
+         bin_str = hex_to_bin(hex_str)
+         matrix.append([int(bit) for bit in bin_str])
+-    print(solve(n, matrix))
++    return n, matrix
++
++
++def print_output(result):
++    print(result)
++
++
++def main():
++    n, matrix = read_input()
++    result = solve(n, matrix)
++    print_output(result)
++
+ 
+ if __name__ == "__main__":
+     main()

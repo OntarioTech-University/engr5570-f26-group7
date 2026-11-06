@@ -1,0 +1,33 @@
+--- original.py
++++ code.py
+@@ -11,7 +11,26 @@
+                     break
+     return count
+ 
+-t = int(input())
+-for _ in range(t):
+-    s = input()
+-    print(count_balanced_substrings(s))
++
++def read_case_count():
++    return int(input())
++
++
++def read_case():
++    return input()
++
++
++def print_result(result):
++    print(result)
++
++
++def main():
++    case_count = read_case_count()
++    for _ in range(case_count):
++        s = read_case()
++        result = count_balanced_substrings(s)
++        print_result(result)
++
++
++if __name__ == "__main__":
++    main()

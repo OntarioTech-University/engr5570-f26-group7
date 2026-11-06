@@ -1,0 +1,96 @@
+--- original.py
++++ code.py
+@@ -1,45 +1,69 @@
++def read_case_parameters():
++    """Read N and K from the current input line."""
++    return map(int, input().split())
++
++
++def read_numbers():
++    """Read the list of numbers from the current input line."""
++    return list(map(int, input().split()))
++
++
++def calculate_cheesecake_counts(numbers):
++    """Return the number of set bits for each number."""
++    return [bin(num).count('1') for num in numbers]
++
++
++def sort_counts_descending(counts):
++    """Sort counts in descending order in place."""
++    counts.sort(reverse=True)
++
++
++def sum_top_counts(counts, k):
++    """Return the sum of the first k counts."""
++    return sum(counts[:k])
++
++
++def print_result(answer):
++    """Print the answer for one test case."""
++    print(answer)
++
++
+ def solve():
+     """
+     Solves a single test case for the Monk and Cakes problem.
+     """
+     try:
+-        # Read N (total numbers) and K (numbers to choose)
+-        n, k = map(int, input().split())
++        n, k = read_case_parameters()
++        numbers = read_numbers()
++        cheesecake_counts = calculate_cheesecake_counts(numbers)
++        sort_counts_descending(cheesecake_counts)
++        max_cakes = sum_top_counts(cheesecake_counts, k)
++        print_result(max_cakes)
++    except (ValueError, EOFError):
++        pass
+ 
+-        # Read the list of N numbers
+-        numbers = list(map(int, input().split()))
+ 
+-        # Step 1: Calculate the number of set bits (cheesecakes) for each number.
+-        # We can use a list comprehension for a concise way to do this.
+-        # bin(num) converts a number to its binary string (e.g., 6 -> '0b110').
+-        # .count('1') counts the occurrences of '1' in that string.
+-        cheesecake_counts = [bin(num).count('1') for num in numbers]
++def read_test_count():
++    """Read the number of test cases."""
++    return int(input())
+ 
+-        # Step 2: Sort the list of cheesecake counts in descending order.
+-        cheesecake_counts.sort(reverse=True)
+ 
+-        # Step 3: Sum the top K counts.
+-        # Slicing the list with [:k] gives us the first K elements.
+-        max_cakes = sum(cheesecake_counts[:k])
++def run_test_cases(test_count):
++    """Run solve once for each test case."""
++    for _ in range(test_count):
++        solve()
+ 
+-        # Print the final answer for the test case.
+-        print(max_cakes)
+-
+-    except (ValueError, EOFError):
+-        # Handles potential errors with input, common in some online judges.
+-        pass
+ 
+ def main():
+     """
+     Main function to handle multiple test cases.
+     """
+     try:
+-        # Read the number of test cases
+-        t = int(input())
+-        for _ in range(t):
+-            solve()
++        test_count = read_test_count()
++        run_test_cases(test_count)
+     except (ValueError, EOFError):
+         pass
+ 
++
+ if __name__ == "__main__":
+     main()

@@ -1,0 +1,1 @@
+Split the code into small, well named functions. Each function should do one clear job and be no longer than about 15 lines. Move the input reading, each step of the computation and the output printing into their own functions. Do not leave long blocks of logic inside one function or at the top level of the file.

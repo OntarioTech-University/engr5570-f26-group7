@@ -1,0 +1,45 @@
+--- original.py
++++ code.py
+@@ -16,13 +16,35 @@
+ 
+     return result
+ 
+-n, m = map(int, input().split())
+-table = [list(input()) for _ in range(n)]
+ 
+-r, c = map(int, input().split())
+-pattern = [list(input()) for _ in range(r)]
++def _read_dimensions():
++    return map(int, input().split())
+ 
+-result = solve(n, m, table, r, c, pattern)
+ 
+-for row in result:
+-    print(''.join(row))
++def _read_grid(row_count):
++    return [list(input()) for _ in range(row_count)]
++
++
++def read_input():
++    n, m = _read_dimensions()
++    table = _read_grid(n)
++
++    r, c = _read_dimensions()
++    pattern = _read_grid(r)
++
++    return n, m, table, r, c, pattern
++
++
++def print_result(result):
++    for row in result:
++        print(''.join(row))
++
++
++def main():
++    n, m, table, r, c, pattern = read_input()
++    result = solve(n, m, table, r, c, pattern)
++    print_result(result)
++
++
++if __name__ == "__main__":
++    main()

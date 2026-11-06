@@ -1,0 +1,74 @@
+
+Please refactor the Python code below to improve its internal design and maintainability, specifically focusing on: Restructure the program so that no logic runs at the top level of the file and no global variables are used. Put the input reading, the main computation and the output printing into separate, well named functions. Pass data between these functions through parameters and return values. Remove duplicated code by moving it into shared helper functions. Call a main() function under if __name__ == "__main__":.
+
+Key constraints for this refactoring:
+- Preserve runtime behavior: The code must produce the exact same outputs, return values, side effects, and exceptions as before.
+- Keep public interfaces: Do not rename or modify signatures for any public functions, classes, or methods to avoid breaking external callers.
+- Strict scope: Focus solely on structural improvements. Do not add features, fix bugs, or change error handling logic, even if something looks wrong. Do not modify test files. If a change might alter behavior, skip it.
+- No-op condition: If you determine that the code does not benefit from this specific refactoring, return it unchanged and briefly state why.
+
+Response format:
+1. The complete refactored file in a single Python code block.
+2. A short bulleted list summarizing each change and its justification.
+
+Code:
+def solve():
+    """
+    This function handles a single test case.
+    """
+    # Read the sizes of the two arrays
+    try:
+        n, m = map(int, input().split())
+    except (EOFError, ValueError):
+        return # Stop if there's no more input
+
+    # Read the two sorted arrays
+    arr1 = list(map(int, input().split()))
+    arr2 = list(map(int, input().split()))
+
+    # Initialize pointers for both arrays and the result array
+    i = 0  # Pointer for arr1
+    j = 0  # Pointer for arr2
+    merged_array = []
+
+    # Merge the two arrays using the two-pointer technique
+    while i < n and j < m:
+        # Since arrays are sorted in non-increasing order,
+        # we pick the larger element to maintain the order.
+        if arr1[i] >= arr2[j]:
+            merged_array.append(arr1[i])
+            i += 1
+        else:
+            merged_array.append(arr2[j])
+            j += 1
+
+    # If there are remaining elements in arr1, append them
+    while i < n:
+        merged_array.append(arr1[i])
+        i += 1
+
+    # If there are remaining elements in arr2, append them
+    while j < m:
+        merged_array.append(arr2[j])
+        j += 1
+
+    # Print the final merged array with space-separated values
+    print(*merged_array)
+
+
+def main():
+    """
+    Main function to handle the number of test cases.
+    """
+    try:
+        # Read the number of test cases
+        t = int(input())
+        for _ in range(t):
+            solve()
+    except (EOFError, ValueError):
+        # Handles cases with no input or invalid input
+        pass
+
+if __name__ == "__main__":
+    main()
+

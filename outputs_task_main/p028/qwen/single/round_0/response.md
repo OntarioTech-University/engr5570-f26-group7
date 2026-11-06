@@ -1,0 +1,100 @@
+```python
+import sys
+
+
+def read_input_data():
+    return sys.stdin.read().split()
+
+
+def parse_input_data(data):
+    idx = 0
+
+    n = int(data[idx])
+    idx += 1
+    m = int(data[idx])
+    idx += 1
+    k = int(data[idx])
+    idx += 1
+
+    blocked = set()
+    if m > 0:
+        blocked_list = list(map(int, data[idx:idx + m]))
+        idx += m
+        blocked = set(blocked_list)
+
+    a = list(map(int, data[idx:idx + k]))
+
+    return n, k, blocked, a
+
+
+def build_blocked_flags(n, blocked):
+    is_blocked = [False] * n
+    for pos in blocked:
+        is_blocked[pos] = True
+    return is_blocked
+
+
+def count_lamps_needed(n, is_blocked, power):
+    count = 0
+    i = 0
+
+    while i < n:
+        start_pos = max(0, i - power + 1)
+        found = False
+        pos = min(i, n - 1)
+
+        while pos >= start_pos:
+            if not is_blocked[pos]:
+                count += 1
+                i = pos + power
+                found = True
+                break
+            pos -= 1
+
+        if not found:
+            return -1
+
+    return count
+
+
+def compute_minimum_cost(n, k, blocked, a):
+    is_blocked = build_blocked_flags(n, blocked)
+    min_cost = float('inf')
+
+    for power in range(1, k + 1):
+        cost_per_lamp = a[power - 1]
+        count = count_lamps_needed(n, is_blocked, power)
+
+        if count != -1:
+            total_cost = count * cost_per_lamp
+            if total_cost < min_cost:
+                min_cost = total_cost
+
+    return min_cost
+
+
+def print_minimum_cost(min_cost):
+    if min_cost == float('inf'):
+        print(-1)
+    else:
+        print(min_cost)
+
+
+def main():
+    data = read_input_data()
+    n, k, blocked, a = parse_input_data(data)
+    min_cost = compute_minimum_cost(n, k, blocked, a)
+    print_minimum_cost(min_cost)
+
+
+if __name__ == "__main__":
+    main()
+```
+
+- Removed the top-level `input` global alias; stdin reading is now encapsulated in `read_input_data()`, eliminating global state.
+- Kept `main()` with its original signature and made it only orchestrate reading, parsing, computation, and output.
+- Moved token parsing into `parse_input_data()` so raw input is converted into explicit return values passed to the computation.
+- Moved the core algorithm into `compute_minimum_cost()` to separate business logic from input/output.
+- Extracted `build_blocked_flags()` and `count_lamps_needed()` as shared helpers, reducing inline complexity and centralizing reusable steps.
+- Added `print_minimum_cost()` to isolate output logic.
+- Preserved the original control flow, parsing order, exception behavior, and printed output.
