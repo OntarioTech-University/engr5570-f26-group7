@@ -1,0 +1,43 @@
+
+Please refactor the Python code below to improve its internal design and maintainability, specifically focusing on: Restructure the program so that no logic runs at the top level of the file and no global variables are used. Put the input reading, the main computation and the output printing into separate, well named functions. Pass data between these functions through parameters and return values. Remove duplicated code by moving it into shared helper functions. Call a main() function under if __name__ == "__main__":.
+
+Key constraints for this refactoring:
+- Preserve runtime behavior: The code must produce the exact same outputs, return values, side effects, and exceptions as before.
+- Keep public interfaces: Do not rename or modify signatures for any public functions, classes, or methods to avoid breaking external callers.
+- Strict scope: Focus solely on structural improvements. Do not add features, fix bugs, or change error handling logic, even if something looks wrong. Do not modify test files. If a change might alter behavior, skip it.
+- No-op condition: If you determine that the code does not benefit from this specific refactoring, return it unchanged and briefly state why.
+
+Response format:
+1. The complete refactored file in a single Python code block.
+2. A short bulleted list summarizing each change and its justification.
+
+Code:
+def solve(n, m, table, r, c, pattern):
+    result = [['0' for _ in range(m)] for _ in range(n)]
+
+    for i in range(n):
+        for j in range(m):
+            match = True
+            for x in range(r):
+                for y in range(c):
+                    if pattern[x][y] != '?' and pattern[x][y] != table[(i + x) % n][(j + y) % m]:
+                        match = False
+                        break
+                if not match:
+                    break
+            if match:
+                result[i][j] = '1'
+
+    return result
+
+n, m = map(int, input().split())
+table = [list(input()) for _ in range(n)]
+
+r, c = map(int, input().split())
+pattern = [list(input()) for _ in range(r)]
+
+result = solve(n, m, table, r, c, pattern)
+
+for row in result:
+    print(''.join(row))
+

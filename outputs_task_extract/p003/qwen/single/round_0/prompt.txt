@@ -1,0 +1,48 @@
+
+Please refactor the Python code below to improve its internal design and maintainability, specifically focusing on: Split the code into small, well named functions. Each function should do one clear job and be no longer than about 15 lines. Move the input reading, each step of the computation and the output printing into their own functions. Do not leave long blocks of logic inside one function or at the top level of the file.
+
+Key constraints for this refactoring:
+- Preserve runtime behavior: The code must produce the exact same outputs, return values, side effects, and exceptions as before.
+- Keep public interfaces: Do not rename or modify signatures for any public functions, classes, or methods to avoid breaking external callers.
+- Strict scope: Focus solely on structural improvements. Do not add features, fix bugs, or change error handling logic, even if something looks wrong. Do not modify test files. If a change might alter behavior, skip it.
+- No-op condition: If you determine that the code does not benefit from this specific refactoring, return it unchanged and briefly state why.
+
+Response format:
+1. The complete refactored file in a single Python code block.
+2. A short bulleted list summarizing each change and its justification.
+
+Code:
+# Read input
+password = input().strip()
+n = int(input().strip())
+words = []
+for _ in range(n):
+    words.append(input().strip())
+
+# Check if password exists as a word
+if password in words:
+    print("YES")
+else:
+    # Check if we can form password across word boundaries
+    first_char_needed = password[0]
+    second_char_needed = password[1]
+    
+    # Find if there's a word ending with first_char_needed
+    can_end_with_first = False
+    for word in words:
+        if word[1] == first_char_needed:
+            can_end_with_first = True
+            break
+    
+    # Find if there's a word starting with second_char_needed
+    can_start_with_second = False
+    for word in words:
+        if word[0] == second_char_needed:
+            can_start_with_second = True
+            break
+    
+    if can_end_with_first and can_start_with_second:
+        print("YES")
+    else:
+        print("NO")
+

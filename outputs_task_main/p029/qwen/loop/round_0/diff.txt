@@ -1,0 +1,125 @@
+--- original.py
++++ code.py
+@@ -1,61 +1,80 @@
+ from collections import deque, defaultdict
+ import sys
+-input = sys.stdin.read
+ 
+-def main():
+-    data = input().split()
++
++def _read_input_tokens():
++    return sys.stdin.read().split()
++
++
++def _consume_int(data, idx):
++    value = int(data[idx])
++    idx += 1
++    return value, idx
++
++
++def _parse_header(data):
+     idx = 0
+-    n = int(data[idx])
+-    idx += 1
+-    m = int(data[idx])
+-    idx += 1
+-    k = int(data[idx])
+-    idx += 1
++    n, idx = _consume_int(data, idx)
++    m, idx = _consume_int(data, idx)
++    k, idx = _consume_int(data, idx)
++    return n, m, k, idx
+ 
+-    # Graph initialization
++
++def _add_edge(adj, deg, u, v):
++    if v not in adj[u]:
++        adj[u].add(v)
++        adj[v].add(u)
++        deg[u] += 1
++        deg[v] += 1
++
++
++def _count_current_group_size(adj, deg, n, k):
++    cur_deg = deg[:]
++    queue = deque()
++
++    for i in range(1, n + 1):
++        if cur_deg[i] < k:
++            queue.append(i)
++
++    removed = [False] * (n + 1)
++    while queue:
++        node = queue.popleft()
++        if removed[node]:
++            continue
++        removed[node] = True
++        for nei in adj[node]:
++            if not removed[nei]:
++                cur_deg[nei] -= 1
++                if cur_deg[nei] < k:
++                    queue.append(nei)
++
++    return sum(1 for i in range(1, n + 1) if not removed[i])
++
++
++def _compute_results(data, idx, n, m, k):
+     adj = [set() for _ in range(n + 1)]
+     deg = [0] * (n + 1)
+-
+     results = []
+ 
+     for _ in range(m):
+-        u = int(data[idx])
+-        idx += 1
+-        v = int(data[idx])
+-        idx += 1
++        u, idx = _consume_int(data, idx)
++        v, idx = _consume_int(data, idx)
++        _add_edge(adj, deg, u, v)
++        results.append(_count_current_group_size(adj, deg, n, k))
+ 
+-        # Add edge
+-        if v not in adj[u]:
+-            adj[u].add(v)
+-            adj[v].add(u)
+-            deg[u] += 1
+-            deg[v] += 1
++    return results
+ 
+-        # Now calculate max group size satisfying condition
+-        # Make copy of current degrees
+-        cur_deg = deg[:]
+-        queue = deque()
+ 
+-        # Enqueue all nodes with degree < k
+-        for i in range(1, n + 1):
+-            if cur_deg[i] < k:
+-                queue.append(i)
++def _print_results(results):
++    print('\n'.join(map(str, results)))
+ 
+-        removed = [False] * (n + 1)
+-        while queue:
+-            node = queue.popleft()
+-            if removed[node]: continue
+-            removed[node] = True
+-            for nei in adj[node]:
+-                if not removed[nei]:
+-                    cur_deg[nei] -= 1
+-                    if cur_deg[nei] < k:
+-                        queue.append(nei)
+ 
+-        count = sum(1 for i in range(1, n + 1) if not removed[i])
+-        results.append(count)
++def main():
++    data = _read_input_tokens()
++    n, m, k, idx = _parse_header(data)
++    results = _compute_results(data, idx, n, m, k)
++    _print_results(results)
+ 
+-    print('\n'.join(map(str, results)))
+ 
+ if __name__ == "__main__":
+     main()

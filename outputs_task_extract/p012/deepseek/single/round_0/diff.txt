@@ -1,0 +1,138 @@
+--- original.py
++++ code.py
+@@ -1,58 +1,86 @@
+-def main():
++def read_input():
+     import sys
+-    input = sys.stdin.read
+-    data = input().splitlines()
+-    
+-    n = int(data[0])
+-    lines = data[1:]
+-    
+-    x = 0  # Max within a single day
+-    y = 0  # Max across multiple days
+-    
+-    prev_trailing_c = 0  # Trailing C's from previous day
+-    
++    data = sys.stdin.read().splitlines()
++    int(data[0])  # Preserve original validation of the first line
++    return data[1:]
++
++
++def max_streak_in_line(line):
++    max_in_day = 0
++    curr_streak = 0
++
++    for ch in line:
++        if ch == 'C':
++            curr_streak += 1
++            if curr_streak > max_in_day:
++                max_in_day = curr_streak
++        else:
++            curr_streak = 0
++
++    return max_in_day
++
++
++def count_leading_c(line):
++    count = 0
++    for ch in line:
++        if ch == 'C':
++            count += 1
++        else:
++            break
++    return count
++
++
++def count_trailing_c(line):
++    count = 0
++    for ch in reversed(line):
++        if ch == 'C':
++            count += 1
++        else:
++            break
++    return count
++
++
++def compute_day_stats(line):
++    return (
++        max_streak_in_line(line),
++        count_leading_c(line),
++        count_trailing_c(line),
++    )
++
++
++def process_lines(lines):
++    x = 0
++    y = 0
++    prev_trailing_c = 0
++
+     for line in lines:
+-        # Find max streak within this day
+-        max_in_day = 0
+-        curr_streak = 0
+-        
+-        for ch in line:
+-            if ch == 'C':
+-                curr_streak += 1
+-                max_in_day = max(max_in_day, curr_streak)
+-            else:
+-                curr_streak = 0
+-        
+-        x = max(x, max_in_day)
+-        
+-        # Now process for across-day streaks
+-        # Count leading C's
+-        leading_c = 0
+-        for ch in line:
+-            if ch == 'C':
+-                leading_c += 1
+-            else:
+-                break
+-        
+-        # Count trailing C's
+-        trailing_c = 0
+-        for ch in reversed(line):
+-            if ch == 'C':
+-                trailing_c += 1
+-            else:
+-                break
+-        
+-        # Combine with previous day's trailing C's
++        max_in_day, leading_c, trailing_c = compute_day_stats(line)
++
++        if max_in_day > x:
++            x = max_in_day
++
+         if prev_trailing_c > 0 and leading_c > 0:
+             combined = prev_trailing_c + leading_c
+-            y = max(y, combined)
+-        
+-        # Also consider max_in_day itself for Y
+-        y = max(y, max_in_day)
+-        
++            if combined > y:
++                y = combined
++
++        if max_in_day > y:
++            y = max_in_day
++
+         prev_trailing_c = trailing_c
+-    
++
++    return x, y
++
++
++def print_result(x, y):
+     print(x, y)
++
++
++def main():
++    lines = read_input()
++    x, y = process_lines(lines)
++    print_result(x, y)
++
+ 
+ if __name__ == "__main__":
+     main()

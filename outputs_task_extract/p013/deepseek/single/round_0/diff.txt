@@ -1,0 +1,250 @@
+--- original.py
++++ code.py
+@@ -1,122 +1,138 @@
+ def rotate_90_clockwise(x, y):
+     return (y, -x)
++
+ 
+ def gcd(a, b):
+     while b:
+         a, b = b, a % b
+     return abs(a)
+ 
++
++def read_point():
++    line = input().split()
++    return int(line[0]), int(line[1])
++
++
++def read_points():
++    return read_point(), read_point(), read_point()
++
++
++def generate_rotations(point):
++    rotations = [point]
++    for _ in range(3):
++        rotations.append(rotate_90_clockwise(*rotations[-1]))
++    return rotations
++
++
++def compute_target(a, b):
++    return (b[0] - a[0], b[1] - a[1])
++
++
++def is_zero(point):
++    return point[0] == 0 and point[1] == 0
++
++
++def print_yes():
++    print("YES")
++
++
++def print_no():
++    print("NO")
++
++
++def can_express_with_single_vector(target, vector):
++    tx, ty = target
++    vx, vy = vector
++
++    if vx != 0 and tx % vx == 0:
++        k = tx // vx
++        return k >= 0 and k * vy == ty
++    elif vy != 0 and ty % vy == 0:
++        k = ty // vy
++        return k >= 0 and k * vx == tx
++    elif vx == 0 and vy == 0 and tx == 0 and ty == 0:
++        return True
++
++    return False
++
++
++def check_single_vectors(target, vectors):
++    for vector in vectors:
++        if can_express_with_single_vector(target, vector):
++            return True
++    return False
++
++
++def can_express_with_independent_pair(target, v1, v2, det):
++    tx, ty = target
++    v1x, v1y = v1
++    v2x, v2y = v2
++
++    num_a = v2y * tx - v2x * ty
++    num_b = v1x * ty - v1y * tx
++
++    if num_a % det == 0 and num_b % det == 0:
++        a = num_a // det
++        b = num_b // det
++        return a >= 0 and b >= 0
++
++    return False
++
++
++def can_express_with_dependent_pair(target, v1, v2):
++    tx, ty = target
++    v1x, v1y = v1
++
++    if v1x * ty - v1y * tx != 0:
++        return False
++
++    if v1x != 0:
++        if tx % v1x == 0:
++            a = tx // v1x
++            return a >= 0 and a * v1y == ty
++    elif v1y != 0:
++        if ty % v1y == 0:
++            a = ty // v1y
++            return a >= 0 and a * v1x == tx
++    elif tx == 0 and ty == 0:
++        return True
++
++    return False
++
++
++def can_express_with_pair(target, v1, v2):
++    det = v1[0] * v2[1] - v1[1] * v2[0]
++    if det != 0:
++        return can_express_with_independent_pair(target, v1, v2, det)
++    return can_express_with_dependent_pair(target, v1, v2)
++
++
++def check_pairs(target, vectors):
++    for i in range(4):
++        for j in range(i + 1, 4):
++            if can_express_with_pair(target, vectors[i], vectors[j]):
++                return True
++    return False
++
++
++def can_express(target, vectors):
++    return check_single_vectors(target, vectors) or check_pairs(target, vectors)
++
++
+ def main():
+-    line = input().split()
+-    x1, y1 = int(line[0]), int(line[1])
+-    
+-    line = input().split()
+-    x2, y2 = int(line[0]), int(line[1])
+-    
+-    line = input().split()
+-    x3, y3 = int(line[0]), int(line[1])
+-    
+-    # Generate the 4 rotations of C
+-    c_vectors = [(x3, y3)]
+-    for _ in range(3):
+-        c_vectors.append(rotate_90_clockwise(c_vectors[-1][0], c_vectors[-1][1]))
+-    
+-    # For each rotation of A, check if B - rotated_A can be expressed as non-negative combination
+-    current_a = (x1, y1)
+-    for rot in range(4):
+-        target_x = x2 - current_a[0]
+-        target_y = y2 - current_a[1]
+-        
+-        # We want to solve:
+-        # k0*c0_x + k1*c1_x + k2*c2_x + k3*c3_x = target_x
+-        # k0*c0_y + k1*c1_y + k2*c2_y + k3*c3_y = target_y
+-        # k0,k1,k2,k3 >= 0
+-        
+-        # Try some systematic search or mathematical approach
+-        # Since bounds can be up to 10^8, brute force won't work
+-        # But mathematically, with 4 vectors in 2D, there's good chance
+-        
+-        # Special case: if target is (0,0), answer is yes (ki=0 for all)
+-        if target_x == 0 and target_y == 0:
+-            print("YES")
++    a, b, c = read_points()
++    c_vectors = generate_rotations(c)
++    current_a = a
++
++    for _ in range(4):
++        target = compute_target(current_a, b)
++        if is_zero(target) or can_express(target, c_vectors):
++            print_yes()
+             return
+-            
+-        # Try expressing using subsets of vectors
+-        found = False
+-        
+-        # Check all single vectors
+-        for i in range(4):
+-            vx, vy = c_vectors[i]
+-            if vx != 0 and target_x % vx == 0:
+-                k = target_x // vx
+-                if k >= 0 and k * vy == target_y:
+-                    found = True
+-                    break
+-            elif vy != 0 and target_y % vy == 0:
+-                k = target_y // vy
+-                if k >= 0 and k * vx == target_x:
+-                    found = True
+-                    break
+-            elif vx == 0 and vy == 0 and target_x == 0 and target_y == 0:
+-                found = True
+-                break
+-                    
+-        if found:
+-            print("YES")
+-            return
+-            
+-        # Check all pairs of vectors - solve 2x2 system
+-        for i in range(4):
+-            for j in range(i+1, 4):
+-                v1x, v1y = c_vectors[i]
+-                v2x, v2y = c_vectors[j]
+-                
+-                # Solve: a*v1 + b*v2 = target
+-                # a*v1x + b*v2x = target_x
+-                # a*v1y + b*v2y = target_y
+-                
+-                det = v1x * v2y - v1y * v2x
+-                if det != 0:
+-                    # Cramer's rule
+-                    if (v2y * target_x - v2x * target_y) % det == 0 and \
+-                       (v1x * target_y - v1y * target_x) % det == 0:
+-                        a = (v2y * target_x - v2x * target_y) // det
+-                        b = (v1x * target_y - v1y * target_x) // det
+-                        if a >= 0 and b >= 0:
+-                            found = True
+-                            break
+-                else:
+-                    # Dependent vectors
+-                    # Check if target is in span
+-                    cross = v1x * target_y - v1y * target_x
+-                    if cross == 0:  # Target parallel to v1
+-                        # Check if we can express target as a*v1 with a >= 0
+-                        if v1x != 0:
+-                            if target_x % v1x == 0:
+-                                a = target_x // v1x
+-                                if a >= 0 and a * v1y == target_y:
+-                                    found = True
+-                                    break
+-                        elif v1y != 0:
+-                            if target_y % v1y == 0:
+-                                a = target_y // v1y
+-                                if a >= 0 and a * v1x == target_x:
+-                                    found = True
+-                                    break
+-                        elif target_x == 0 and target_y == 0:
+-                            found = True
+-                            break
+-                            
+-            if found:
+-                break
+-                
+-        if found:
+-            print("YES")
+-            return
+-            
+-        current_a = rotate_90_clockwise(current_a[0], current_a[1])
+-    
+-    print("NO")
++        current_a = rotate_90_clockwise(*current_a)
++
++    print_no()
++
+ 
+ if __name__ == "__main__":
+     main()

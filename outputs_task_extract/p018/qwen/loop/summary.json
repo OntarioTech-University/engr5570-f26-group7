@@ -1,0 +1,12 @@
+{
+  "program_id": "p018",
+  "model": "qwen",
+  "model_id": "qwen/qwen3.8-max-0902",
+  "condition": "loop",
+  "rounds": 1,
+  "max_rounds": 4,
+  "stop_reason": "all_public_passed",
+  "final_code": "round_0/code.py",
+  "cost_usd": 0.074974,
+  "date": "2026-11-06"
+}

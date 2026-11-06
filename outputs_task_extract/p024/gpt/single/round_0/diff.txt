@@ -1,0 +1,93 @@
+--- original.py
++++ code.py
+@@ -15,10 +15,12 @@
+             idx -= idx & (-idx)
+         return res
+ 
++
+ import sys
+ input = sys.stdin.read
+ 
+-def main():
++
++def read_input():
+     data = input().split()
+     idx = 0
+     n = int(data[idx]); idx += 1
+@@ -26,36 +28,57 @@
+     a = int(data[idx]); idx += 1
+     b = int(data[idx]); idx += 1
+     q = int(data[idx]); idx += 1
++    return data, idx, n, k, a, b, q
+ 
+-    # orders[i]: number of orders for day i (1-based)
++
++def create_state(n):
+     orders = [0] * (n + 1)
++    bit_pre = BIT(n)
++    bit_suf = BIT(n)
++    results = []
++    return orders, bit_pre, bit_suf, results
+ 
+-    # BITs for prefix and suffix
+-    bit_pre = BIT(n)   # stores min(order_count[i], b)
+-    bit_suf = BIT(n)   # stores min(order_count[i], a)
+ 
+-    results = []
++def process_update(data, idx, orders, a, b, bit_pre, bit_suf):
++    d = int(data[idx]); idx += 1
++    x = int(data[idx]); idx += 1
++    old_b_val = min(orders[d], b)
++    old_a_val = min(orders[d], a)
++    orders[d] += x
++    new_b_val = min(orders[d], b)
++    new_a_val = min(orders[d], a)
++    bit_pre.update(d, new_b_val - old_b_val)
++    bit_suf.update(d, new_a_val - old_a_val)
++    return idx
+ 
++
++def process_query(data, idx, n, k, bit_pre, bit_suf, results):
++    p = int(data[idx]); idx += 1
++    pre_sum = bit_pre.query(p - 1)
++    suf_sum = bit_suf.query(n) - bit_suf.query(p + k - 1)
++    results.append(pre_sum + suf_sum)
++    return idx
++
++
++def process_queries(data, idx, n, k, a, b, q, orders, bit_pre, bit_suf, results):
+     for _ in range(q):
+         t = int(data[idx]); idx += 1
+         if t == 1:
+-            d = int(data[idx]); idx += 1
+-            x = int(data[idx]); idx += 1
+-            old_b_val = min(orders[d], b)
+-            old_a_val = min(orders[d], a)
+-            orders[d] += x
+-            new_b_val = min(orders[d], b)
+-            new_a_val = min(orders[d], a)
+-            bit_pre.update(d, new_b_val - old_b_val)
+-            bit_suf.update(d, new_a_val - old_a_val)
++            idx = process_update(data, idx, orders, a, b, bit_pre, bit_suf)
+         else:
+-            p = int(data[idx]); idx += 1
+-            # Maintenance from p to p+k-1 inclusive
+-            pre_sum = bit_pre.query(p - 1)
+-            suf_sum = bit_suf.query(n) - bit_suf.query(p + k - 1)
+-            results.append(pre_sum + suf_sum)
++            idx = process_query(data, idx, n, k, bit_pre, bit_suf, results)
+ 
++
++def print_results(results):
+     print('\n'.join(map(str, results)))
++
++
++def main():
++    data, idx, n, k, a, b, q = read_input()
++    orders, bit_pre, bit_suf, results = create_state(n)
++    process_queries(data, idx, n, k, a, b, q, orders, bit_pre, bit_suf, results)
++    print_results(results)
++
+ 
+ if __name__ == "__main__":
+     main()

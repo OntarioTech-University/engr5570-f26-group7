@@ -1,0 +1,105 @@
+--- original.py
++++ code.py
+@@ -1,45 +1,63 @@
+-def solve():
+-    """
+-    This function handles a single test case.
+-    """
+-    # Read the sizes of the two arrays
++def _read_sizes():
+     try:
+         n, m = map(int, input().split())
+     except (EOFError, ValueError):
+-        return # Stop if there's no more input
++        return None
++    return n, m
+ 
+-    # Read the two sorted arrays
++
++def _read_arrays():
+     arr1 = list(map(int, input().split()))
+     arr2 = list(map(int, input().split()))
++    return arr1, arr2
+ 
+-    # Initialize pointers for both arrays and the result array
+-    i = 0  # Pointer for arr1
+-    j = 0  # Pointer for arr2
+-    merged_array = []
+ 
+-    # Merge the two arrays using the two-pointer technique
++def _merge_prefix(arr1, arr2, n, m, merged_array):
++    i = j = 0
+     while i < n and j < m:
+-        # Since arrays are sorted in non-increasing order,
+-        # we pick the larger element to maintain the order.
+         if arr1[i] >= arr2[j]:
+             merged_array.append(arr1[i])
+             i += 1
+         else:
+             merged_array.append(arr2[j])
+             j += 1
++    return i, j
+ 
+-    # If there are remaining elements in arr1, append them
+-    while i < n:
+-        merged_array.append(arr1[i])
+-        i += 1
+ 
+-    # If there are remaining elements in arr2, append them
+-    while j < m:
+-        merged_array.append(arr2[j])
+-        j += 1
++def _append_remaining(array, index, size, merged_array):
++    while index < size:
++        merged_array.append(array[index])
++        index += 1
+ 
+-    # Print the final merged array with space-separated values
++
++def _merge_arrays(arr1, arr2, n, m):
++    merged_array = []
++    i, j = _merge_prefix(arr1, arr2, n, m, merged_array)
++    _append_remaining(arr1, i, n, merged_array)
++    _append_remaining(arr2, j, m, merged_array)
++    return merged_array
++
++
++def _print_array(merged_array):
+     print(*merged_array)
++
++
++def solve():
++    """
++    This function handles a single test case.
++    """
++    sizes = _read_sizes()
++    if sizes is None:
++        return
++
++    n, m = sizes
++    arr1, arr2 = _read_arrays()
++    merged_array = _merge_arrays(arr1, arr2, n, m)
++    _print_array(merged_array)
++
++
++def _read_test_count():
++    return int(input())
+ 
+ 
+ def main():
+@@ -47,13 +65,12 @@
+     Main function to handle the number of test cases.
+     """
+     try:
+-        # Read the number of test cases
+-        t = int(input())
++        t = _read_test_count()
+         for _ in range(t):
+             solve()
+     except (EOFError, ValueError):
+-        # Handles cases with no input or invalid input
+         pass
++
+ 
+ if __name__ == "__main__":
+     main()

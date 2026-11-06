@@ -1,0 +1,79 @@
+--- original.py
++++ code.py
+@@ -1,45 +1,51 @@
++def read_test_case():
++    """
++    Reads a single test case input and returns the parsed values.
++    """
++    n, k = map(int, input().split())
++    numbers = list(map(int, input().split()))
++    return n, k, numbers
++
++
++def count_set_bits(numbers):
++    """
++    Calculates the number of set bits (cheesecakes) for each number.
++    """
++    return [bin(num).count('1') for num in numbers]
++
++
++def calculate_max_cakes(cheesecake_counts, k):
++    """
++    Sorts the cheesecake counts in descending order and sums the top K counts.
++    """
++    cheesecake_counts.sort(reverse=True)
++    return sum(cheesecake_counts[:k])
++
++
+ def solve():
+     """
+     Solves a single test case for the Monk and Cakes problem.
+     """
+     try:
+-        # Read N (total numbers) and K (numbers to choose)
+-        n, k = map(int, input().split())
++        n, k, numbers = read_test_case()
++        cheesecake_counts = count_set_bits(numbers)
++        max_cakes = calculate_max_cakes(cheesecake_counts, k)
++        print(max_cakes)
++    except (ValueError, EOFError):
++        pass
+ 
+-        # Read the list of N numbers
+-        numbers = list(map(int, input().split()))
+-
+-        # Step 1: Calculate the number of set bits (cheesecakes) for each number.
+-        # We can use a list comprehension for a concise way to do this.
+-        # bin(num) converts a number to its binary string (e.g., 6 -> '0b110').
+-        # .count('1') counts the occurrences of '1' in that string.
+-        cheesecake_counts = [bin(num).count('1') for num in numbers]
+-
+-        # Step 2: Sort the list of cheesecake counts in descending order.
+-        cheesecake_counts.sort(reverse=True)
+-
+-        # Step 3: Sum the top K counts.
+-        # Slicing the list with [:k] gives us the first K elements.
+-        max_cakes = sum(cheesecake_counts[:k])
+-
+-        # Print the final answer for the test case.
+-        print(max_cakes)
+-
+-    except (ValueError, EOFError):
+-        # Handles potential errors with input, common in some online judges.
+-        pass
+ 
+ def main():
+     """
+     Main function to handle multiple test cases.
+     """
+     try:
+-        # Read the number of test cases
+         t = int(input())
+         for _ in range(t):
+             solve()
+     except (ValueError, EOFError):
+         pass
+ 
++
+ if __name__ == "__main__":
+     main()

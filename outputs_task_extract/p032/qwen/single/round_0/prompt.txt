@@ -1,0 +1,49 @@
+
+Please refactor the Python code below to improve its internal design and maintainability, specifically focusing on: Split the code into small, well named functions. Each function should do one clear job and be no longer than about 15 lines. Move the input reading, each step of the computation and the output printing into their own functions. Do not leave long blocks of logic inside one function or at the top level of the file.
+
+Key constraints for this refactoring:
+- Preserve runtime behavior: The code must produce the exact same outputs, return values, side effects, and exceptions as before.
+- Keep public interfaces: Do not rename or modify signatures for any public functions, classes, or methods to avoid breaking external callers.
+- Strict scope: Focus solely on structural improvements. Do not add features, fix bugs, or change error handling logic, even if something looks wrong. Do not modify test files. If a change might alter behavior, skip it.
+- No-op condition: If you determine that the code does not benefit from this specific refactoring, return it unchanged and briefly state why.
+
+Response format:
+1. The complete refactored file in a single Python code block.
+2. A short bulleted list summarizing each change and its justification.
+
+Code:
+import sys
+
+def main():
+    # Read input
+    n = int(sys.stdin.readline().strip())
+    ai = list(map(int, sys.stdin.readline().strip().split()))
+    
+    # Initialize dp array with infinity
+    INF = float('inf')
+    dp = [[INF] * (n + 1) for _ in range(n + 1)]
+    
+    # Base case: cost to travel from i to i is 0
+    for i in range(1, n + 1):
+        dp[i][i] = 0
+    
+    # Fill the dp array using dynamic programming
+    for i in range(n - 1, 0, -1):
+        for j in range(i + 1, n + 1):
+            if ai[i - 1] >= j:
+                dp[i][j] = 1
+            else:
+                for k in range(i + 1, min(ai[i - 1] + 1, j)):
+                    dp[i][j] = min(dp[i][j], dp[i][k] + dp[k][j])
+    
+    # Compute the sum of all values ρi, j
+    total_cost = 0
+    for i in range(1, n):
+        for j in range(i + 1, n + 1):
+            total_cost += dp[i][j]
+    
+    print(total_cost)
+
+if __name__ == "__main__":
+    main()
+

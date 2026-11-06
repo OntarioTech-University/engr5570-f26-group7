@@ -1,0 +1,70 @@
+--- original.py
++++ code.py
+@@ -17,20 +17,20 @@
+     """Converts a matrix to a hashable tuple for use in a set."""
+     return tuple(tuple(row) for row in matrix)
+ 
+-def solve():
+-    """Main function to solve the problem using BFS."""
++def read_input():
++    """Reads problem input from stdin and returns (M, N, matrix) or None on error."""
+     try:
+         M, N = map(int, input().split())
+         initial_matrix = [list(map(int, input().split())) for _ in range(M)]
++        return M, N, initial_matrix
+     except (IOError, ValueError):
+-        # Handle potential empty input or malformed lines
+-        print(-1)
+-        return
++        return None
+ 
++def compute_min_moves(initial_matrix, M, N):
++    """Computes the minimum number of moves to reach a solution, or -1 if impossible."""
+     # 1. Initial Check: Check if the starting board is already a solution
+     if has_2x2_ones(initial_matrix, M, N):
+-        print(0)
+-        return
++        return 0
+ 
+     # 2. Initialization for BFS
+     queue = collections.deque([(initial_matrix, 0)])
+@@ -65,15 +65,33 @@
+                         if new_matrix_tuple not in visited:
+                             # Check if this new state is a solution
+                             if has_2x2_ones(new_matrix, M, N):
+-                                print(moves + 1)
+-                                return
+-                            
++                                return moves + 1
++
+                             # If not a solution, add to queue and visited set
+                             visited.add(new_matrix_tuple)
+                             queue.append((new_matrix, moves + 1))
+ 
+     # 4. Termination: If queue is empty and no solution found
+-    print(-1)
++    return -1
+ 
+-# Run the solver
+-solve()
++def print_result(result):
++    """Prints the computed result."""
++    print(result)
++
++def solve():
++    """Orchestrates reading input, computing the answer, and printing the result."""
++    input_data = read_input()
++    if input_data is None:
++        print_result(-1)
++        return
++
++    M, N, initial_matrix = input_data
++    result = compute_min_moves(initial_matrix, M, N)
++    print_result(result)
++
++def main():
++    """Entry point when the script is run directly."""
++    solve()
++
++if __name__ == "__main__":
++    main()

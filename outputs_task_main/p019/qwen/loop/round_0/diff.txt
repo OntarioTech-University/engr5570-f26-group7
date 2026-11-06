@@ -1,0 +1,135 @@
+--- original.py
++++ code.py
+@@ -1,32 +1,39 @@
+ import heapq
+ from sys import stdin
+ 
+-def main():
++
++def _read_input_tokens():
+     import sys
+-    input = sys.stdin.read
+-    data = input().split()
+-    
++    read_stdin = sys.stdin.read
++    return read_stdin().split()
++
++
++def _next_int(data, idx):
++    value = int(data[idx])
++    return value, idx + 1
++
++
++def _parse_books(data):
+     idx = 0
+-    n = int(data[idx])
+-    idx += 1
+-    k = int(data[idx])
+-    idx += 1
+-    
++
++    n, idx = _next_int(data, idx)
++    k, idx = _next_int(data, idx)
++
+     books = []
+     for _ in range(n):
+-        t = int(data[idx])
+-        idx += 1
+-        a = int(data[idx])
+-        idx += 1
+-        b = int(data[idx])
+-        idx += 1
++        t, idx = _next_int(data, idx)
++        a, idx = _next_int(data, idx)
++        b, idx = _next_int(data, idx)
+         books.append((t, a, b))
+-    
+-    # Separate books into categories
+-    ab = []   # both like
++
++    return k, books
++
++
++def _categorize_books(books):
++    ab = []       # both like
+     a_only = []   # alice only
+     b_only = []   # bob only
+-    none = []
++    none = []     # preserved from the original structure; not used further
+ 
+     for t, a, b in books:
+         if a == 1 and b == 1:
+@@ -38,42 +45,58 @@
+         else:
+             none.append(t)
+ 
+-    # Sort all arrays
++    return ab, a_only, b_only
++
++
++def _make_prefix(arr):
++    res = [0]
++    s = 0
++    for x in arr:
++        s += x
++        res.append(s)
++    return res
++
++
++def _compute_min_time(k, books):
++    ab, a_only, b_only = _categorize_books(books)
++
+     ab.sort()
+     a_only.sort()
+     b_only.sort()
+ 
+-    # Prefix sums for quick sum calculation
+-    def make_prefix(arr):
+-        res = [0]
+-        s = 0
+-        for x in arr:
+-            s += x
+-            res.append(s)
+-        return res
+-
+-    p_ab = make_prefix(ab)
+-    p_a = make_prefix(a_only)
+-    p_b = make_prefix(b_only)
++    p_ab = _make_prefix(ab)
++    p_a = _make_prefix(a_only)
++    p_b = _make_prefix(b_only)
+ 
+     min_time = float('inf')
+     max_ab = len(ab)
+ 
+-    # Try every valid count of books taken from 'ab' list
+     for cnt_ab in range(max_ab + 1):
+         alice_needed = max(0, k - cnt_ab)
+         bob_needed = max(0, k - cnt_ab)
+ 
+         if alice_needed > len(a_only) or bob_needed > len(b_only):
+             continue
+-        
++
+         total_time = p_ab[cnt_ab] + p_a[alice_needed] + p_b[bob_needed]
+         min_time = min(min_time, total_time)
+ 
++    return min_time
++
++
++def _print_result(min_time):
+     if min_time == float('inf'):
+         print(-1)
+     else:
+         print(min_time)
+ 
++
++def main():
++    data = _read_input_tokens()
++    k, books = _parse_books(data)
++    min_time = _compute_min_time(k, books)
++    _print_result(min_time)
++
++
+ if __name__ == "__main__":
+     main()

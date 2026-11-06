@@ -1,0 +1,12 @@
+{
+  "program_id": "p009",
+  "model": "deepseek",
+  "model_id": "deepseek/deepseek-v4-pro-0813",
+  "condition": "loop",
+  "rounds": 1,
+  "max_rounds": 4,
+  "stop_reason": "all_public_passed",
+  "final_code": "round_0/code.py",
+  "cost_usd": 0.001305,
+  "date": "2026-11-05"
+}

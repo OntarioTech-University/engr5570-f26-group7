@@ -1,0 +1,76 @@
+
+Please refactor the Python code below to improve its internal design and maintainability, specifically focusing on: Split the code into small, well named functions. Each function should do one clear job and be no longer than about 15 lines. Move the input reading, each step of the computation and the output printing into their own functions. Do not leave long blocks of logic inside one function or at the top level of the file.
+
+Key constraints for this refactoring:
+- Preserve runtime behavior: The code must produce the exact same outputs, return values, side effects, and exceptions as before.
+- Keep public interfaces: Do not rename or modify signatures for any public functions, classes, or methods to avoid breaking external callers.
+- Strict scope: Focus solely on structural improvements. Do not add features, fix bugs, or change error handling logic, even if something looks wrong. Do not modify test files. If a change might alter behavior, skip it.
+- No-op condition: If you determine that the code does not benefit from this specific refactoring, return it unchanged and briefly state why.
+
+Response format:
+1. The complete refactored file in a single Python code block.
+2. A short bulleted list summarizing each change and its justification.
+
+Code:
+class BIT:
+    def __init__(self, size):
+        self.n = size
+        self.tree = [0] * (size + 1)
+
+    def update(self, idx, delta):
+        while idx <= self.n:
+            self.tree[idx] += delta
+            idx += idx & (-idx)
+
+    def query(self, idx):
+        res = 0
+        while idx > 0:
+            res += self.tree[idx]
+            idx -= idx & (-idx)
+        return res
+
+import sys
+input = sys.stdin.read
+
+def main():
+    data = input().split()
+    idx = 0
+    n = int(data[idx]); idx += 1
+    k = int(data[idx]); idx += 1
+    a = int(data[idx]); idx += 1
+    b = int(data[idx]); idx += 1
+    q = int(data[idx]); idx += 1
+
+    # orders[i]: number of orders for day i (1-based)
+    orders = [0] * (n + 1)
+
+    # BITs for prefix and suffix
+    bit_pre = BIT(n)   # stores min(order_count[i], b)
+    bit_suf = BIT(n)   # stores min(order_count[i], a)
+
+    results = []
+
+    for _ in range(q):
+        t = int(data[idx]); idx += 1
+        if t == 1:
+            d = int(data[idx]); idx += 1
+            x = int(data[idx]); idx += 1
+            old_b_val = min(orders[d], b)
+            old_a_val = min(orders[d], a)
+            orders[d] += x
+            new_b_val = min(orders[d], b)
+            new_a_val = min(orders[d], a)
+            bit_pre.update(d, new_b_val - old_b_val)
+            bit_suf.update(d, new_a_val - old_a_val)
+        else:
+            p = int(data[idx]); idx += 1
+            # Maintenance from p to p+k-1 inclusive
+            pre_sum = bit_pre.query(p - 1)
+            suf_sum = bit_suf.query(n) - bit_suf.query(p + k - 1)
+            results.append(pre_sum + suf_sum)
+
+    print('\n'.join(map(str, results)))
+
+if __name__ == "__main__":
+    main()
+

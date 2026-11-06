@@ -1,0 +1,134 @@
+--- original.py
++++ code.py
+@@ -1,71 +1,71 @@
+ import sys
++
++DAYS_IN_MONTH = [0, 31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31]
++
++
++def read_prophesy():
++    return sys.stdin.readline().strip()
++
++
++def has_valid_format(candidate):
++    if candidate[2] != '-' or candidate[5] != '-':
++        return False
++    return (
++        candidate[0:2].isdigit()
++        and candidate[3:5].isdigit()
++        and candidate[6:10].isdigit()
++    )
++
++
++def parse_date_parts(candidate):
++    return int(candidate[0:2]), int(candidate[3:5]), int(candidate[6:10])
++
++
++def is_valid_calendar_date(day, month, year):
++    if not (2013 <= year <= 2015):
++        return False
++    if not (1 <= month <= 12):
++        return False
++    return 1 <= day <= DAYS_IN_MONTH[month]
++
++
++def is_valid_date(candidate):
++    if not has_valid_format(candidate):
++        return False
++    day, month, year = parse_date_parts(candidate)
++    return is_valid_calendar_date(day, month, year)
++
++
++def count_valid_dates(prophesy):
++    date_counts = {}
++    n = len(prophesy)
++
++    for i in range(n - 9):
++        candidate = prophesy[i : i + 10]
++        if is_valid_date(candidate):
++            date_counts[candidate] = date_counts.get(candidate, 0) + 1
++
++    return date_counts
++
++
++def find_most_frequent_date(date_counts):
++    return max(date_counts, key=date_counts.get)
++
++
++def print_apocalypse_date(date):
++    print(date)
++
+ 
+ def find_apocalypse_date():
+     """
+     This function reads a prophesy string, finds all valid dates within it,
+     counts their occurrences, and prints the date that appears most frequently.
+     """
+-    prophesy = sys.stdin.readline().strip()
+-    n = len(prophesy)
++    prophesy = read_prophesy()
++    date_counts = count_valid_dates(prophesy)
++    apocalypse_date = find_most_frequent_date(date_counts)
++    print_apocalypse_date(apocalypse_date)
+ 
+-    # A dictionary to store the frequency of each valid date found.
+-    # Key: date string "dd-mm-yyyy", Value: count
+-    date_counts = {}
+ 
+-    # Days in each month for a non-leap year (years 2013-2015).
+-    # Index 0 is a placeholder to allow for 1-based month indexing.
+-    days_in_month = [0, 31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31]
+-
+-    # Iterate through the prophesy string to find all possible 10-character substrings
+-    # that could represent a date in the "dd-mm-yyyy" format.
+-    for i in range(n - 9):
+-        # Extract a potential date substring of length 10.
+-        candidate = prophesy[i : i + 10]
+-
+-        # --- Validation Steps ---
+-
+-        # 1. Check the basic format: "xx-xx-xxxx"
+-        # The hyphens must be in the correct positions.
+-        if candidate[2] != '-' or candidate[5] != '-':
+-            continue
+-
+-        # 2. Extract day, month, and year parts.
+-        dd_str = candidate[0:2]
+-        mm_str = candidate[3:5]
+-        yyyy_str = candidate[6:10]
+-
+-        # 3. Check if all parts are composed of digits.
+-        if not (dd_str.isdigit() and mm_str.isdigit() and yyyy_str.isdigit()):
+-            continue
+-
+-        # 4. Convert parts to integers for numerical validation.
+-        d = int(dd_str)
+-        m = int(mm_str)
+-        y = int(yyyy_str)
+-
+-        # 5. Validate the date against the given rules.
+-        # Year must be between 2013 and 2015.
+-        if not (2013 <= y <= 2015):
+-            continue
+-
+-        # Month must be between 1 and 12.
+-        if not (1 <= m <= 12):
+-            continue
+-
+-        # Day must be valid for the given month.
+-        if not (1 <= d <= days_in_month[m]):
+-            continue
+-
+-        # If all checks pass, the date is correct.
+-        # Increment its count in our dictionary.
+-        date_counts[candidate] = date_counts.get(candidate, 0) + 1
+-
+-    # The problem guarantees that a unique apocalypse date exists.
+-    # Find the date (key) with the highest count (value) in the dictionary.
+-    apocalypse_date = max(date_counts, key=date_counts.get)
+-
+-    print(apocalypse_date)
+-
+-# Standard entry point for the script.
+ if __name__ == "__main__":
+     find_apocalypse_date()

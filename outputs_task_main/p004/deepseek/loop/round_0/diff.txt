@@ -1,0 +1,64 @@
+--- original.py
++++ code.py
+@@ -1,31 +1,39 @@
++def _can_reduce_to_min(height, min_height):
++    """Return True if height can be reduced to min_height by halving even values."""
++    temp = height
++    while temp > min_height:
++        if temp % 2 == 0:
++            temp //= 2
++        else:
++            return False
++    return temp == min_height
++
++
+ def can_make_same_height(N, heights):
+-    # Find the minimum height
+     min_height = min(heights)
+ 
+-    # Check if all heights can be made equal to the minimum height
+     for height in heights:
+-        # If the height is not equal to the minimum height, try to make it equal
+-        if height != min_height:
+-            # If the height is not a multiple of 2, it's not possible to make it equal
+-            if height % 2 != 0:
+-                return "NO"
+-            # If the height is a multiple of 2, but not a multiple of the minimum height, it's not possible to make it equal
+-            temp = height
+-            while temp > min_height:
+-                if temp % 2 == 0:
+-                    temp = temp // 2
+-                else:
+-                    return "NO"
+-            if temp != min_height:
+-                return "NO"
++        if height != min_height and not _can_reduce_to_min(height, min_height):
++            return "NO"
+ 
+     return "YES"
+ 
+-# Read the number of sugarcanes
+-N = int(input())
+ 
+-# Read the heights of sugarcanes
+-heights = list(map(int, input().split()))
++def read_input():
++    N = int(input())
++    heights = list(map(int, input().split()))
++    return N, heights
+ 
+-# Check if it's possible to make all sugarcanes of the same height
+-print(can_make_same_height(N, heights))
++
++def print_result(result):
++    print(result)
++
++
++def main():
++    N, heights = read_input()
++    result = can_make_same_height(N, heights)
++    print_result(result)
++
++
++if __name__ == "__main__":
++    main()
