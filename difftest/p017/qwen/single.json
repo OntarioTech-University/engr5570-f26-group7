@@ -1,0 +1,11 @@
+{
+  "total": 100,
+  "same": 100,
+  "different": 0,
+  "differences": [],
+  "time_seconds": 8.576,
+  "program_id": "p017",
+  "model": "qwen",
+  "condition": "single",
+  "refactored_path": "outputs/p017/qwen/single/round_0/code.py"
+}

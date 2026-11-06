@@ -1,0 +1,11 @@
+{
+  "total": 100,
+  "same": 100,
+  "different": 0,
+  "differences": [],
+  "time_seconds": 8.37,
+  "program_id": "p005",
+  "model": "deepseek",
+  "condition": "single",
+  "refactored_path": "outputs/p005/deepseek/single/round_0/code.py"
+}
