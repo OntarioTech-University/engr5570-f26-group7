@@ -23,7 +23,7 @@ Interface rules followed (Shared Interfaces, Part 3):
 Needs Python >=3.10 for PyExamine. Setup:
     uv venv --python 3.12 .venv
     uv pip install --python .venv/bin/python radon \\
-        "code-quality-analyzer @ git+https://github.com/KarthikShivasankar/python_smells_detector"
+        "code-quality-analyzer @ git+https://github.com/KarthikShivasankar/python_smells_detector@fd6d9f971c8eb577a5686da0e0c283e81edc0695"
     .venv/bin/python scores/run_scoring.py
 """
 import argparse

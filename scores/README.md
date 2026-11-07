@@ -89,13 +89,46 @@ inside this environment.
 ```bash
 uv venv --python 3.12 .venv
 uv pip install --python .venv/bin/python radon \
-    "code-quality-analyzer @ git+https://github.com/KarthikShivasankar/python_smells_detector"
+    "code-quality-analyzer @ git+https://github.com/KarthikShivasankar/python_smells_detector@fd6d9f971c8eb577a5686da0e0c283e81edc0695"
 .venv/bin/python scores/run_scoring.py      # about 2 minutes
 python3 scores/make_summary.py
 ```
 
 `--no-timing` skips rerunning the tests, `--limit N` scores only the first N
 programs.
+
+## A3 trade-off analysis (two PyExamine versions)
+
+`analyze_tradeoff.py` answers why the highest complexity went down while the
+smells went up. It reports the highest and the summed complexity, the number of
+functions and the smells by type, and writes `a3_tradeoff.csv` and
+`a3_tradeoff_summary.md`. The A2 files above are not changed.
+
+It uses a different PyExamine than A2, on purpose:
+
+| Use | PyExamine | Environment |
+| --- | --- | --- |
+| A2 scores (`run_scoring.py`, `scores.csv`) | 0.2.3, commit `fd6d9f9` | `.venv` |
+| A3 analysis (`analyze_tradeoff.py`) | 0.3.0, commit `838b212` | `.venv-a3` |
+
+Version 0.2.3 reports every call to a Python builtin as Potential Shotgun
+Surgery. All 13 such smells in A2 are `range`, and all appear in refactored code
+only, so they inflate the "smells went up" result. Version 0.3.0 fixes that. Pin
+the commit: an unpinned install gets whatever GitHub holds today, and 29 of the
+136 A2 rows change with 0.3.0.
+
+```bash
+uv venv --python 3.12 .venv-a3
+uv pip install --python .venv-a3/bin/python radon \
+    "code-quality-analyzer @ git+https://github.com/KarthikShivasankar/python_smells_detector@838b212fafe9b1ff1e06c3364892e53177dab16f"
+.venv-a3/bin/python scores/analyze_tradeoff.py
+.venv-a3/bin/python scores/analyze_tradeoff.py --outputs outputs_task_main
+.venv-a3/bin/python scores/analyze_tradeoff.py --outputs outputs_task_extract
+```
+
+Each run scores the `single` condition (`--condition` changes it; the loop never
+ran a second round, so its code is the same). Only programs where all three
+models gave usable code are compared, so every row uses the same programs.
 
 ## Open point
 
