@@ -1,0 +1,11 @@
+{
+  "total": 100,
+  "same": 100,
+  "different": 0,
+  "differences": [],
+  "time_seconds": 7.199,
+  "program_id": "p027",
+  "model": "gpt",
+  "condition": "single",
+  "refactored_path": "outputs_task_extract/p027/gpt/single/round_0/code.py"
+}
