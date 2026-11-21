@@ -1,0 +1,6 @@
+# Main environment: refactoring, tests and data scripts.
+# See VERSIONS.md for all tool and model versions.
+openai==3.31.0
+python-dotenv==1.2.4
+radon==6.0.1
+pyarrow==26.0.1
