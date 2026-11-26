@@ -1,0 +1,37 @@
+```python
+def _can_reduce_to_height(height, min_height):
+    if height % 2 != 0:
+        return False
+
+    temp = height
+    while temp > min_height:
+        if temp % 2 == 0:
+            temp = temp // 2
+        else:
+            return False
+
+    return temp == min_height
+
+
+def can_make_same_height(N, heights):
+    min_height = min(heights)
+
+    for height in heights:
+        if height != min_height and not _can_reduce_to_height(height, min_height):
+            return "NO"
+
+    return "YES"
+
+
+# Read the number of sugarcanes
+N = int(input())
+
+# Read the heights of sugarcanes
+heights = list(map(int, input().split()))
+
+# Check if it's possible to make all sugarcanes of the same height
+print(can_make_same_height(N, heights))
+```
+
+- Moved the reduction check into a private helper, making the main function easier to read.
+- Replaced nested conditions in `can_make_same_height` with a single early return while retaining the existing checks and public interface.
