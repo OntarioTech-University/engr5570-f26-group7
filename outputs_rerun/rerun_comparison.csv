@@ -4,8 +4,4 @@ p004,gpt,114/114,114/114,0/100,0/100,no,8,34,32
 p007,deepseek,100/100,100/100,0/100,0/100,no,54,49,41
 p007,gpt,100/100,100/100,0/100,0/100,no,52,46,62
 p008,deepseek,106/106,106/106,0/100,0/100,no,33,88,73
-p008,gpt,106/106,missing,0/100,missing,no code,,75,
-p026,deepseek,98/98,missing,0/100,missing,no code,,171,
-p026,gpt,98/98,missing,0/100,missing,no code,,85,
 p028,deepseek,65/65,65/65,0/100,0/100,no,61,79,70
-p028,gpt,65/65,missing,0/100,missing,no code,,67,
