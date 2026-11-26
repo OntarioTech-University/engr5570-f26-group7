@@ -1,0 +1,3 @@
+{
+  "error": "Error code: 402 - {'error': {'message': \"This request's maximum cost exceeds your available credits. Add credits, or lower max_tokens or prompt size.\", 'code': 402, 'metadata': {'reason': 'weight_exceeds_budget', 'limit_source': 'openrouter_credits', 'remedy_hint': 'Add credits at https://openrouter.ai/settings/credits, or lower max_tokens / prompt size to fit your remaining balance.', 'provider_name': None, 'previous_errors': [{'code': 402, 'message': \"This request's maximum cost exceeds your available credits. Add credits, or lower max_tokens or prompt size.\"}, {'code': 402, 'message': \"This request's maximum cost exceeds your available credits. Add credits, or lower max_tokens or prompt size.\"}]}}, 'user_id': 'user_3JjyBpXq51VtXfYy6HTCJ6iRc6h'}"
+}

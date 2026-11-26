@@ -1,0 +1,67 @@
+
+Please refactor the Python code below to improve its internal design and maintainability, specifically focusing on: Reduce complexity and improve readability. Simplify complex or deeply nested conditional logic, and split long code into smaller, well named functions where this makes the code easier to understand.
+
+Key constraints for this refactoring:
+- Preserve runtime behavior: The code must produce the exact same outputs, return values, side effects, and exceptions as before.
+- Keep public interfaces: Do not rename or modify signatures for any public functions, classes, or methods to avoid breaking external callers.
+- Strict scope: Focus solely on structural improvements. Do not add features, fix bugs, or change error handling logic, even if something looks wrong. Do not modify test files. If a change might alter behavior, skip it.
+- No-op condition: If you determine that the code does not benefit from this specific refactoring, return it unchanged and briefly state why.
+
+Response format:
+1. The complete refactored file in a single Python code block.
+2. A short bulleted list summarizing each change and its justification.
+
+Code:
+import math
+
+def distance(p1, p2):
+    return math.sqrt((p1[0] - p2[0])**2 + (p1[1] - p2[1])**2)
+
+def can_communicate_directly(pos1, pos2, R):
+    return distance(pos1, pos2) <= R
+
+def solve_case():
+    R = int(input())
+    chef = tuple(map(int, input().split()))
+    head_server = tuple(map(int, input().split()))
+    sous_chef = tuple(map(int, input().split()))
+    
+    positions = [chef, head_server, sous_chef]
+    
+    # Check direct communication between all pairs
+    can_communicate = [[False for _ in range(3)] for _ in range(3)]
+    
+    for i in range(3):
+        for j in range(3):
+            if i == j:
+                can_communicate[i][j] = True
+            else:
+                can_communicate[i][j] = can_communicate_directly(positions[i], positions[j], R)
+    
+    # Check if all pairs can communicate (directly or indirectly)
+    all_can_communicate = True
+    
+    # Check Chef <-> Head Server
+    if not can_communicate[0][1]:
+        # Need to go through Sous Chef
+        if not (can_communicate[0][2] and can_communicate[1][2]):
+            all_can_communicate = False
+    
+    # Check Chef <-> Sous Chef  
+    if not can_communicate[0][2]:
+        # Need to go through Head Server
+        if not (can_communicate[0][1] and can_communicate[1][2]):
+            all_can_communicate = False
+    
+    # Check Head Server <-> Sous Chef
+    if not can_communicate[1][2]:
+        # Need to go through Chef
+        if not (can_communicate[0][1] and can_communicate[0][2]):
+            all_can_communicate = False
+    
+    return "yes" if all_can_communicate else "no"
+
+T = int(input())
+for _ in range(T):
+    print(solve_case())
+
