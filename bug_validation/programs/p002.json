@@ -1,0 +1,438 @@
+{
+  "settings": {
+    "timeout": 5.0,
+    "python": "3.10.11",
+    "method": "raw_output_v1"
+  },
+  "rows": [
+    {
+      "bug_id": "p002_b01",
+      "program_id": "p002",
+      "problem_id": "143_A",
+      "kind": "arithmetic",
+      "change": "+ -> -",
+      "lineno": "21",
+      "code_path": "data/buggy/p002/p002_b01.py",
+      "tests_path": "data/tests/p002.json",
+      "hidden": 1,
+      "new_inputs": 1,
+      "both": 1,
+      "either": 1,
+      "review_note": "multiple_valid_outputs",
+      "hidden_witness": {
+        "index": 0,
+        "reason": "output_difference",
+        "error": "",
+        "expected": "2 1\n6 8\n",
+        "actual": "-1\n"
+      },
+      "new_witness": {
+        "index": 1,
+        "reason": "output_difference",
+        "error": "",
+        "expected": "3 1\n4 9\n",
+        "actual": "-1\n"
+      }
+    },
+    {
+      "bug_id": "p002_b02",
+      "program_id": "p002",
+      "problem_id": "143_A",
+      "kind": "logical",
+      "change": "and -> or",
+      "lineno": "21",
+      "code_path": "data/buggy/p002/p002_b02.py",
+      "tests_path": "data/tests/p002.json",
+      "hidden": 1,
+      "new_inputs": 1,
+      "both": 1,
+      "either": 1,
+      "review_note": "multiple_valid_outputs",
+      "hidden_witness": {
+        "index": 3,
+        "reason": "output_difference",
+        "error": "",
+        "expected": "-1\n",
+        "actual": "1 8\n2 9\n"
+      },
+      "new_witness": {
+        "index": 54,
+        "reason": "output_difference",
+        "error": "",
+        "expected": "-1\n",
+        "actual": "4 8\n7 3\n"
+      }
+    },
+    {
+      "bug_id": "p002_b03",
+      "program_id": "p002",
+      "problem_id": "143_A",
+      "kind": "constant",
+      "change": "1 -> 2",
+      "lineno": "10",
+      "code_path": "data/buggy/p002/p002_b03.py",
+      "tests_path": "data/tests/p002.json",
+      "hidden": 1,
+      "new_inputs": 1,
+      "both": 1,
+      "either": 1,
+      "review_note": "multiple_valid_outputs",
+      "hidden_witness": {
+        "index": 10,
+        "reason": "output_difference",
+        "error": "",
+        "expected": "1 8\n4 2\n",
+        "actual": "-1\n"
+      },
+      "new_witness": {
+        "index": 17,
+        "reason": "output_difference",
+        "error": "",
+        "expected": "1 8\n4 6\n",
+        "actual": "-1\n"
+      }
+    },
+    {
+      "bug_id": "p002_b04",
+      "program_id": "p002",
+      "problem_id": "143_A",
+      "kind": "relational",
+      "change": "<= -> <",
+      "lineno": "17",
+      "code_path": "data/buggy/p002/p002_b04.py",
+      "tests_path": "data/tests/p002.json",
+      "hidden": 1,
+      "new_inputs": 1,
+      "both": 1,
+      "either": 1,
+      "review_note": "multiple_valid_outputs",
+      "hidden_witness": {
+        "index": 9,
+        "reason": "output_difference",
+        "error": "",
+        "expected": "3 9\n2 5\n",
+        "actual": "-1\n"
+      },
+      "new_witness": {
+        "index": 28,
+        "reason": "output_difference",
+        "error": "",
+        "expected": "8 9\n7 3\n",
+        "actual": "-1\n"
+      }
+    },
+    {
+      "bug_id": "p002_b05",
+      "program_id": "p002",
+      "problem_id": "143_A",
+      "kind": "arithmetic",
+      "change": "+ -> -",
+      "lineno": "21",
+      "code_path": "data/buggy/p002/p002_b05.py",
+      "tests_path": "data/tests/p002.json",
+      "hidden": 1,
+      "new_inputs": 1,
+      "both": 1,
+      "either": 1,
+      "review_note": "multiple_valid_outputs",
+      "hidden_witness": {
+        "index": 0,
+        "reason": "output_difference",
+        "error": "",
+        "expected": "2 1\n6 8\n",
+        "actual": "-1\n"
+      },
+      "new_witness": {
+        "index": 1,
+        "reason": "output_difference",
+        "error": "",
+        "expected": "3 1\n4 9\n",
+        "actual": "-1\n"
+      }
+    },
+    {
+      "bug_id": "p002_b06",
+      "program_id": "p002",
+      "problem_id": "143_A",
+      "kind": "logical",
+      "change": "and -> or",
+      "lineno": "17",
+      "code_path": "data/buggy/p002/p002_b06.py",
+      "tests_path": "data/tests/p002.json",
+      "hidden": 1,
+      "new_inputs": 0,
+      "both": 0,
+      "either": 1,
+      "review_note": "multiple_valid_outputs",
+      "hidden_witness": {
+        "index": 2,
+        "reason": "output_difference",
+        "error": "",
+        "expected": "-1\n",
+        "actual": "3 9\n7 10\n"
+      },
+      "new_witness": null
+    },
+    {
+      "bug_id": "p002_b07",
+      "program_id": "p002",
+      "problem_id": "143_A",
+      "kind": "constant",
+      "change": "0 -> -1",
+      "lineno": "27",
+      "code_path": "data/buggy/p002/p002_b07.py",
+      "tests_path": "data/tests/p002.json",
+      "hidden": 1,
+      "new_inputs": 1,
+      "both": 1,
+      "either": 1,
+      "review_note": "multiple_valid_outputs",
+      "hidden_witness": {
+        "index": 0,
+        "reason": "output_difference",
+        "error": "",
+        "expected": "2 1\n6 8\n",
+        "actual": "1 1\n6 8\n"
+      },
+      "new_witness": {
+        "index": 1,
+        "reason": "output_difference",
+        "error": "",
+        "expected": "3 1\n4 9\n",
+        "actual": "1 1\n4 9\n"
+      }
+    },
+    {
+      "bug_id": "p002_b08",
+      "program_id": "p002",
+      "problem_id": "143_A",
+      "kind": "relational",
+      "change": "<= -> <",
+      "lineno": "17",
+      "code_path": "data/buggy/p002/p002_b08.py",
+      "tests_path": "data/tests/p002.json",
+      "hidden": 1,
+      "new_inputs": 1,
+      "both": 1,
+      "either": 1,
+      "review_note": "multiple_valid_outputs",
+      "hidden_witness": {
+        "index": 47,
+        "reason": "output_difference",
+        "error": "",
+        "expected": "8 5\n1 6\n",
+        "actual": "-1\n"
+      },
+      "new_witness": {
+        "index": 24,
+        "reason": "output_difference",
+        "error": "",
+        "expected": "3 6\n1 7\n",
+        "actual": "-1\n"
+      }
+    },
+    {
+      "bug_id": "p002_b09",
+      "program_id": "p002",
+      "problem_id": "143_A",
+      "kind": "arithmetic",
+      "change": "- -> +",
+      "lineno": "14",
+      "code_path": "data/buggy/p002/p002_b09.py",
+      "tests_path": "data/tests/p002.json",
+      "hidden": 1,
+      "new_inputs": 1,
+      "both": 1,
+      "either": 1,
+      "review_note": "multiple_valid_outputs",
+      "hidden_witness": {
+        "index": 0,
+        "reason": "output_difference",
+        "error": "",
+        "expected": "2 1\n6 8\n",
+        "actual": "-1\n"
+      },
+      "new_witness": {
+        "index": 1,
+        "reason": "output_difference",
+        "error": "",
+        "expected": "3 1\n4 9\n",
+        "actual": "-1\n"
+      }
+    },
+    {
+      "bug_id": "p002_b10",
+      "program_id": "p002",
+      "problem_id": "143_A",
+      "kind": "constant",
+      "change": "1 -> 2",
+      "lineno": "17",
+      "code_path": "data/buggy/p002/p002_b10.py",
+      "tests_path": "data/tests/p002.json",
+      "hidden": 1,
+      "new_inputs": 1,
+      "both": 1,
+      "either": 1,
+      "review_note": "multiple_valid_outputs",
+      "hidden_witness": {
+        "index": 11,
+        "reason": "output_difference",
+        "error": "",
+        "expected": "9 7\n4 1\n",
+        "actual": "-1\n"
+      },
+      "new_witness": {
+        "index": 6,
+        "reason": "output_difference",
+        "error": "",
+        "expected": "6 5\n9 1\n",
+        "actual": "-1\n"
+      }
+    },
+    {
+      "bug_id": "p002_b11",
+      "program_id": "p002",
+      "problem_id": "143_A",
+      "kind": "relational",
+      "change": "<= -> <",
+      "lineno": "17",
+      "code_path": "data/buggy/p002/p002_b11.py",
+      "tests_path": "data/tests/p002.json",
+      "hidden": 1,
+      "new_inputs": 1,
+      "both": 1,
+      "either": 1,
+      "review_note": "multiple_valid_outputs",
+      "hidden_witness": {
+        "index": 35,
+        "reason": "output_difference",
+        "error": "",
+        "expected": "7 8\n9 2\n",
+        "actual": "-1\n"
+      },
+      "new_witness": {
+        "index": 6,
+        "reason": "output_difference",
+        "error": "",
+        "expected": "6 5\n9 1\n",
+        "actual": "-1\n"
+      }
+    },
+    {
+      "bug_id": "p002_b12",
+      "program_id": "p002",
+      "problem_id": "143_A",
+      "kind": "arithmetic",
+      "change": "- -> +",
+      "lineno": "13",
+      "code_path": "data/buggy/p002/p002_b12.py",
+      "tests_path": "data/tests/p002.json",
+      "hidden": 1,
+      "new_inputs": 1,
+      "both": 1,
+      "either": 1,
+      "review_note": "multiple_valid_outputs",
+      "hidden_witness": {
+        "index": 0,
+        "reason": "output_difference",
+        "error": "",
+        "expected": "2 1\n6 8\n",
+        "actual": "-1\n"
+      },
+      "new_witness": {
+        "index": 1,
+        "reason": "output_difference",
+        "error": "",
+        "expected": "3 1\n4 9\n",
+        "actual": "-1\n"
+      }
+    },
+    {
+      "bug_id": "p002_b13",
+      "program_id": "p002",
+      "problem_id": "143_A",
+      "kind": "constant",
+      "change": "4 -> 3",
+      "lineno": "19",
+      "code_path": "data/buggy/p002/p002_b13.py",
+      "tests_path": "data/tests/p002.json",
+      "hidden": 1,
+      "new_inputs": 1,
+      "both": 1,
+      "either": 1,
+      "review_note": "multiple_valid_outputs",
+      "hidden_witness": {
+        "index": 0,
+        "reason": "output_difference",
+        "error": "",
+        "expected": "2 1\n6 8\n",
+        "actual": "-1\n"
+      },
+      "new_witness": {
+        "index": 1,
+        "reason": "output_difference",
+        "error": "",
+        "expected": "3 1\n4 9\n",
+        "actual": "-1\n"
+      }
+    },
+    {
+      "bug_id": "p002_b14",
+      "program_id": "p002",
+      "problem_id": "143_A",
+      "kind": "relational",
+      "change": "== -> !=",
+      "lineno": "21",
+      "code_path": "data/buggy/p002/p002_b14.py",
+      "tests_path": "data/tests/p002.json",
+      "hidden": 1,
+      "new_inputs": 1,
+      "both": 1,
+      "either": 1,
+      "review_note": "multiple_valid_outputs",
+      "hidden_witness": {
+        "index": 0,
+        "reason": "output_difference",
+        "error": "",
+        "expected": "2 1\n6 8\n",
+        "actual": "-1\n"
+      },
+      "new_witness": {
+        "index": 1,
+        "reason": "output_difference",
+        "error": "",
+        "expected": "3 1\n4 9\n",
+        "actual": "-1\n"
+      }
+    },
+    {
+      "bug_id": "p002_b15",
+      "program_id": "p002",
+      "problem_id": "143_A",
+      "kind": "arithmetic",
+      "change": "- -> +",
+      "lineno": "12",
+      "code_path": "data/buggy/p002/p002_b15.py",
+      "tests_path": "data/tests/p002.json",
+      "hidden": 1,
+      "new_inputs": 1,
+      "both": 1,
+      "either": 1,
+      "review_note": "multiple_valid_outputs",
+      "hidden_witness": {
+        "index": 0,
+        "reason": "output_difference",
+        "error": "",
+        "expected": "2 1\n6 8\n",
+        "actual": "-1\n"
+      },
+      "new_witness": {
+        "index": 1,
+        "reason": "output_difference",
+        "error": "",
+        "expected": "3 1\n4 9\n",
+        "actual": "-1\n"
+      }
+    }
+  ]
+}

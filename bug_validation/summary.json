@@ -1,0 +1,17 @@
+{
+  "n_bugs": 459,
+  "dataset_size": 459,
+  "complete": true,
+  "hidden": 383,
+  "new_inputs": 378,
+  "both": 373,
+  "either": 388,
+  "missed_by_all": 71,
+  "rates_percent": {
+    "hidden": 83.44,
+    "new_inputs": 82.35,
+    "both": 81.26,
+    "either": 84.53
+  },
+  "pilot_disagreements": 0
+}

@@ -1,0 +1,414 @@
+{
+  "settings": {
+    "timeout": 5.0,
+    "python": "3.10.11",
+    "method": "raw_output_v1"
+  },
+  "rows": [
+    {
+      "bug_id": "p021_b01",
+      "program_id": "p021",
+      "problem_id": "260_B",
+      "kind": "logical",
+      "change": "and -> or",
+      "lineno": "21",
+      "code_path": "data/buggy/p021/p021_b01.py",
+      "tests_path": "data/tests/p021.json",
+      "hidden": 1,
+      "new_inputs": 0,
+      "both": 0,
+      "either": 1,
+      "review_note": "",
+      "hidden_witness": {
+        "index": 17,
+        "reason": "output_difference",
+        "error": "",
+        "expected": "11-10-2015\n",
+        "actual": "1201102013\n"
+      },
+      "new_witness": null
+    },
+    {
+      "bug_id": "p021_b02",
+      "program_id": "p021",
+      "problem_id": "260_B",
+      "kind": "constant",
+      "change": "1 -> 0",
+      "lineno": "30",
+      "code_path": "data/buggy/p021/p021_b02.py",
+      "tests_path": "data/tests/p021.json",
+      "hidden": 1,
+      "new_inputs": 1,
+      "both": 1,
+      "either": 1,
+      "review_note": "",
+      "hidden_witness": {
+        "index": 10,
+        "reason": "output_difference",
+        "error": "",
+        "expected": "13-08-2013\n",
+        "actual": "15-04-2014\n"
+      },
+      "new_witness": {
+        "index": 2,
+        "reason": "output_difference",
+        "error": "",
+        "expected": "07-06-2015\n",
+        "actual": "23-09-2014\n"
+      }
+    },
+    {
+      "bug_id": "p021_b03",
+      "program_id": "p021",
+      "problem_id": "260_B",
+      "kind": "logical",
+      "change": "or -> and",
+      "lineno": "2",
+      "code_path": "data/buggy/p021/p021_b03.py",
+      "tests_path": "data/tests/p021.json",
+      "hidden": 1,
+      "new_inputs": 1,
+      "both": 1,
+      "either": 1,
+      "review_note": "",
+      "hidden_witness": {
+        "index": 16,
+        "reason": "output_difference",
+        "error": "",
+        "expected": "01-01-2013\n",
+        "actual": "20-12-2012\n"
+      },
+      "new_witness": {
+        "index": 39,
+        "reason": "output_difference",
+        "error": "",
+        "expected": "13-11-2015\n",
+        "actual": "29-04-2016\n"
+      }
+    },
+    {
+      "bug_id": "p021_b04",
+      "program_id": "p021",
+      "problem_id": "260_B",
+      "kind": "arithmetic",
+      "change": "- -> +",
+      "lineno": "17",
+      "code_path": "data/buggy/p021/p021_b04.py",
+      "tests_path": "data/tests/p021.json",
+      "hidden": 0,
+      "new_inputs": 0,
+      "both": 0,
+      "either": 0,
+      "review_note": "",
+      "hidden_witness": null,
+      "new_witness": null
+    },
+    {
+      "bug_id": "p021_b05",
+      "program_id": "p021",
+      "problem_id": "260_B",
+      "kind": "constant",
+      "change": "2015 -> 2014",
+      "lineno": "2",
+      "code_path": "data/buggy/p021/p021_b05.py",
+      "tests_path": "data/tests/p021.json",
+      "hidden": 1,
+      "new_inputs": 1,
+      "both": 1,
+      "either": 1,
+      "review_note": "",
+      "hidden_witness": {
+        "index": 17,
+        "reason": "runtime_error",
+        "error": "  File \"C:\\Users\\林\\Desktop\\engr5570-f26-group7\\data\\buggy\\p021\\p021_b05.py\", line 29, in <module>\n    print(solve(prophesy))\n  File \"C:\\Users\\林\\Desktop\\engr5570-f26-group7\\data\\buggy\\p021\\p021_b05.py\", line 24, in solve\n    max_count = max(date_count.values())\nValueError: max() arg is an empty sequence",
+        "expected": "11-10-2015\n",
+        "actual": ""
+      },
+      "new_witness": {
+        "index": 1,
+        "reason": "runtime_error",
+        "error": "  File \"C:\\Users\\林\\Desktop\\engr5570-f26-group7\\data\\buggy\\p021\\p021_b05.py\", line 29, in <module>\n    print(solve(prophesy))\n  File \"C:\\Users\\林\\Desktop\\engr5570-f26-group7\\data\\buggy\\p021\\p021_b05.py\", line 24, in solve\n    max_count = max(date_count.values())\nValueError: max() arg is an empty sequence",
+        "expected": "30-05-2015\n",
+        "actual": ""
+      }
+    },
+    {
+      "bug_id": "p021_b06",
+      "program_id": "p021",
+      "problem_id": "260_B",
+      "kind": "logical",
+      "change": "or -> and",
+      "lineno": "4",
+      "code_path": "data/buggy/p021/p021_b06.py",
+      "tests_path": "data/tests/p021.json",
+      "hidden": 1,
+      "new_inputs": 1,
+      "both": 1,
+      "either": 1,
+      "review_note": "",
+      "hidden_witness": {
+        "index": 4,
+        "reason": "runtime_error",
+        "error": "  File \"C:\\Users\\林\\Desktop\\engr5570-f26-group7\\data\\buggy\\p021\\p021_b06.py\", line 19, in solve\n    if is_valid_date(day, month, year):\n  File \"C:\\Users\\林\\Desktop\\engr5570-f26-group7\\data\\buggy\\p021\\p021_b06.py\", line 7, in is_valid_date\n    max_days = days_in_month[month - 1]\nIndexError: list index out of range",
+        "expected": "23-11-2014\n",
+        "actual": ""
+      },
+      "new_witness": {
+        "index": 7,
+        "reason": "runtime_error",
+        "error": "  File \"C:\\Users\\林\\Desktop\\engr5570-f26-group7\\data\\buggy\\p021\\p021_b06.py\", line 19, in solve\n    if is_valid_date(day, month, year):\n  File \"C:\\Users\\林\\Desktop\\engr5570-f26-group7\\data\\buggy\\p021\\p021_b06.py\", line 7, in is_valid_date\n    max_days = days_in_month[month - 1]\nIndexError: list index out of range",
+        "expected": "07-05-2015\n",
+        "actual": ""
+      }
+    },
+    {
+      "bug_id": "p021_b07",
+      "program_id": "p021",
+      "problem_id": "260_B",
+      "kind": "relational",
+      "change": "== -> !=",
+      "lineno": "37",
+      "code_path": "data/buggy/p021/p021_b07.py",
+      "tests_path": "data/tests/p021.json",
+      "hidden": 1,
+      "new_inputs": 1,
+      "both": 1,
+      "either": 1,
+      "review_note": "",
+      "hidden_witness": {
+        "index": 0,
+        "reason": "output_difference",
+        "error": "",
+        "expected": "12-12-2013\n",
+        "actual": "None\n"
+      },
+      "new_witness": {
+        "index": 0,
+        "reason": "output_difference",
+        "error": "",
+        "expected": "17-03-2013\n",
+        "actual": "None\n"
+      }
+    },
+    {
+      "bug_id": "p021_b08",
+      "program_id": "p021",
+      "problem_id": "260_B",
+      "kind": "arithmetic",
+      "change": "+ -> -",
+      "lineno": "30",
+      "code_path": "data/buggy/p021/p021_b08.py",
+      "tests_path": "data/tests/p021.json",
+      "hidden": 1,
+      "new_inputs": 1,
+      "both": 1,
+      "either": 1,
+      "review_note": "",
+      "hidden_witness": {
+        "index": 2,
+        "reason": "output_difference",
+        "error": "",
+        "expected": "01-04-2014\n",
+        "actual": "25-08-2013\n"
+      },
+      "new_witness": {
+        "index": 2,
+        "reason": "output_difference",
+        "error": "",
+        "expected": "07-06-2015\n",
+        "actual": "20-08-2013\n"
+      }
+    },
+    {
+      "bug_id": "p021_b09",
+      "program_id": "p021",
+      "problem_id": "260_B",
+      "kind": "constant",
+      "change": "1 -> 2",
+      "lineno": "4",
+      "code_path": "data/buggy/p021/p021_b09.py",
+      "tests_path": "data/tests/p021.json",
+      "hidden": 1,
+      "new_inputs": 1,
+      "both": 1,
+      "either": 1,
+      "review_note": "",
+      "hidden_witness": {
+        "index": 7,
+        "reason": "output_difference",
+        "error": "",
+        "expected": "14-01-2014\n",
+        "actual": "02-04-2015\n"
+      },
+      "new_witness": {
+        "index": 13,
+        "reason": "output_difference",
+        "error": "",
+        "expected": "20-01-2014\n",
+        "actual": "25-10-2014\n"
+      }
+    },
+    {
+      "bug_id": "p021_b10",
+      "program_id": "p021",
+      "problem_id": "260_B",
+      "kind": "relational",
+      "change": "<= -> <",
+      "lineno": "11",
+      "code_path": "data/buggy/p021/p021_b10.py",
+      "tests_path": "data/tests/p021.json",
+      "hidden": 1,
+      "new_inputs": 1,
+      "both": 1,
+      "either": 1,
+      "review_note": "",
+      "hidden_witness": {
+        "index": 2,
+        "reason": "output_difference",
+        "error": "",
+        "expected": "01-04-2014\n",
+        "actual": "25-08-2013\n"
+      },
+      "new_witness": {
+        "index": 20,
+        "reason": "output_difference",
+        "error": "",
+        "expected": "01-07-2015\n",
+        "actual": "09-03-2014\n"
+      }
+    },
+    {
+      "bug_id": "p021_b11",
+      "program_id": "p021",
+      "problem_id": "260_B",
+      "kind": "constant",
+      "change": "30 -> 31",
+      "lineno": "8",
+      "code_path": "data/buggy/p021/p021_b11.py",
+      "tests_path": "data/tests/p021.json",
+      "hidden": 1,
+      "new_inputs": 0,
+      "both": 0,
+      "either": 1,
+      "review_note": "",
+      "hidden_witness": {
+        "index": 24,
+        "reason": "output_difference",
+        "error": "",
+        "expected": "31-12-2013\n",
+        "actual": "31-11-2013\n"
+      },
+      "new_witness": null
+    },
+    {
+      "bug_id": "p021_b12",
+      "program_id": "p021",
+      "problem_id": "260_B",
+      "kind": "relational",
+      "change": "> -> >=",
+      "lineno": "2",
+      "code_path": "data/buggy/p021/p021_b12.py",
+      "tests_path": "data/tests/p021.json",
+      "hidden": 1,
+      "new_inputs": 1,
+      "both": 1,
+      "either": 1,
+      "review_note": "",
+      "hidden_witness": {
+        "index": 17,
+        "reason": "runtime_error",
+        "error": "  File \"C:\\Users\\林\\Desktop\\engr5570-f26-group7\\data\\buggy\\p021\\p021_b12.py\", line 29, in <module>\n    print(solve(prophesy))\n  File \"C:\\Users\\林\\Desktop\\engr5570-f26-group7\\data\\buggy\\p021\\p021_b12.py\", line 24, in solve\n    max_count = max(date_count.values())\nValueError: max() arg is an empty sequence",
+        "expected": "11-10-2015\n",
+        "actual": ""
+      },
+      "new_witness": {
+        "index": 1,
+        "reason": "runtime_error",
+        "error": "  File \"C:\\Users\\林\\Desktop\\engr5570-f26-group7\\data\\buggy\\p021\\p021_b12.py\", line 29, in <module>\n    print(solve(prophesy))\n  File \"C:\\Users\\林\\Desktop\\engr5570-f26-group7\\data\\buggy\\p021\\p021_b12.py\", line 24, in solve\n    max_count = max(date_count.values())\nValueError: max() arg is an empty sequence",
+        "expected": "30-05-2015\n",
+        "actual": ""
+      }
+    },
+    {
+      "bug_id": "p021_b13",
+      "program_id": "p021",
+      "problem_id": "260_B",
+      "kind": "constant",
+      "change": "2013 -> 2012",
+      "lineno": "2",
+      "code_path": "data/buggy/p021/p021_b13.py",
+      "tests_path": "data/tests/p021.json",
+      "hidden": 1,
+      "new_inputs": 0,
+      "both": 0,
+      "either": 1,
+      "review_note": "",
+      "hidden_witness": {
+        "index": 16,
+        "reason": "output_difference",
+        "error": "",
+        "expected": "01-01-2013\n",
+        "actual": "20-12-2012\n"
+      },
+      "new_witness": null
+    },
+    {
+      "bug_id": "p021_b14",
+      "program_id": "p021",
+      "problem_id": "260_B",
+      "kind": "relational",
+      "change": "<= -> <",
+      "lineno": "11",
+      "code_path": "data/buggy/p021/p021_b14.py",
+      "tests_path": "data/tests/p021.json",
+      "hidden": 1,
+      "new_inputs": 1,
+      "both": 1,
+      "either": 1,
+      "review_note": "",
+      "hidden_witness": {
+        "index": 9,
+        "reason": "runtime_error",
+        "error": "  File \"C:\\Users\\林\\Desktop\\engr5570-f26-group7\\data\\buggy\\p021\\p021_b14.py\", line 29, in <module>\n    print(solve(prophesy))\n  File \"C:\\Users\\林\\Desktop\\engr5570-f26-group7\\data\\buggy\\p021\\p021_b14.py\", line 24, in solve\n    max_count = max(date_count.values())\nValueError: max() arg is an empty sequence",
+        "expected": "28-02-2014\n",
+        "actual": ""
+      },
+      "new_witness": {
+        "index": 27,
+        "reason": "output_difference",
+        "error": "",
+        "expected": "31-10-2015\n",
+        "actual": "28-03-2015\n"
+      }
+    },
+    {
+      "bug_id": "p021_b15",
+      "program_id": "p021",
+      "problem_id": "260_B",
+      "kind": "relational",
+      "change": "< -> <=",
+      "lineno": "4",
+      "code_path": "data/buggy/p021/p021_b15.py",
+      "tests_path": "data/tests/p021.json",
+      "hidden": 1,
+      "new_inputs": 1,
+      "both": 1,
+      "either": 1,
+      "review_note": "",
+      "hidden_witness": {
+        "index": 7,
+        "reason": "output_difference",
+        "error": "",
+        "expected": "14-01-2014\n",
+        "actual": "02-04-2015\n"
+      },
+      "new_witness": {
+        "index": 13,
+        "reason": "output_difference",
+        "error": "",
+        "expected": "20-01-2014\n",
+        "actual": "25-10-2014\n"
+      }
+    }
+  ]
+}

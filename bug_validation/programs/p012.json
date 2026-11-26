@@ -1,0 +1,384 @@
+{
+  "settings": {
+    "timeout": 5.0,
+    "python": "3.10.11",
+    "method": "raw_output_v1"
+  },
+  "rows": [
+    {
+      "bug_id": "p012_b01",
+      "program_id": "p012",
+      "problem_id": "roys_life_cycle",
+      "kind": "logical",
+      "change": "and -> or",
+      "lineno": "46",
+      "code_path": "data/buggy/p012/p012_b01.py",
+      "tests_path": "data/tests/p012.json",
+      "hidden": 0,
+      "new_inputs": 0,
+      "both": 0,
+      "either": 0,
+      "review_note": "known_bug_in_original",
+      "hidden_witness": null,
+      "new_witness": null
+    },
+    {
+      "bug_id": "p012_b02",
+      "program_id": "p012",
+      "problem_id": "roys_life_cycle",
+      "kind": "constant",
+      "change": "0 -> 1",
+      "lineno": "10",
+      "code_path": "data/buggy/p012/p012_b02.py",
+      "tests_path": "data/tests/p012.json",
+      "hidden": 0,
+      "new_inputs": 0,
+      "both": 0,
+      "either": 0,
+      "review_note": "known_bug_in_original",
+      "hidden_witness": null,
+      "new_witness": null
+    },
+    {
+      "bug_id": "p012_b03",
+      "program_id": "p012",
+      "problem_id": "roys_life_cycle",
+      "kind": "augassign",
+      "change": "+= -> -=",
+      "lineno": "41",
+      "code_path": "data/buggy/p012/p012_b03.py",
+      "tests_path": "data/tests/p012.json",
+      "hidden": 1,
+      "new_inputs": 1,
+      "both": 1,
+      "either": 1,
+      "review_note": "known_bug_in_original",
+      "hidden_witness": {
+        "index": 0,
+        "reason": "output_difference",
+        "error": "",
+        "expected": "7 9\n",
+        "actual": "7 7\n"
+      },
+      "new_witness": {
+        "index": 1,
+        "reason": "output_difference",
+        "error": "",
+        "expected": "1440 1447\n",
+        "actual": "1440 1440\n"
+      }
+    },
+    {
+      "bug_id": "p012_b04",
+      "program_id": "p012",
+      "problem_id": "roys_life_cycle",
+      "kind": "relational",
+      "change": "== -> !=",
+      "lineno": "20",
+      "code_path": "data/buggy/p012/p012_b04.py",
+      "tests_path": "data/tests/p012.json",
+      "hidden": 1,
+      "new_inputs": 1,
+      "both": 1,
+      "either": 1,
+      "review_note": "known_bug_in_original",
+      "hidden_witness": {
+        "index": 0,
+        "reason": "output_difference",
+        "error": "",
+        "expected": "7 9\n",
+        "actual": "12 12\n"
+      },
+      "new_witness": {
+        "index": 0,
+        "reason": "output_difference",
+        "error": "",
+        "expected": "14 14\n",
+        "actual": "7 7\n"
+      }
+    },
+    {
+      "bug_id": "p012_b05",
+      "program_id": "p012",
+      "problem_id": "roys_life_cycle",
+      "kind": "arithmetic",
+      "change": "+ -> -",
+      "lineno": "47",
+      "code_path": "data/buggy/p012/p012_b05.py",
+      "tests_path": "data/tests/p012.json",
+      "hidden": 1,
+      "new_inputs": 1,
+      "both": 1,
+      "either": 1,
+      "review_note": "known_bug_in_original",
+      "hidden_witness": {
+        "index": 0,
+        "reason": "output_difference",
+        "error": "",
+        "expected": "7 9\n",
+        "actual": "7 7\n"
+      },
+      "new_witness": {
+        "index": 1,
+        "reason": "output_difference",
+        "error": "",
+        "expected": "1440 1447\n",
+        "actual": "1440 1440\n"
+      }
+    },
+    {
+      "bug_id": "p012_b06",
+      "program_id": "p012",
+      "problem_id": "roys_life_cycle",
+      "kind": "constant",
+      "change": "1 -> 0",
+      "lineno": "33",
+      "code_path": "data/buggy/p012/p012_b06.py",
+      "tests_path": "data/tests/p012.json",
+      "hidden": 1,
+      "new_inputs": 1,
+      "both": 1,
+      "either": 1,
+      "review_note": "known_bug_in_original",
+      "hidden_witness": {
+        "index": 0,
+        "reason": "output_difference",
+        "error": "",
+        "expected": "7 9\n",
+        "actual": "7 7\n"
+      },
+      "new_witness": {
+        "index": 1,
+        "reason": "output_difference",
+        "error": "",
+        "expected": "1440 1447\n",
+        "actual": "1440 1440\n"
+      }
+    },
+    {
+      "bug_id": "p012_b07",
+      "program_id": "p012",
+      "problem_id": "roys_life_cycle",
+      "kind": "augassign",
+      "change": "+= -> -=",
+      "lineno": "33",
+      "code_path": "data/buggy/p012/p012_b07.py",
+      "tests_path": "data/tests/p012.json",
+      "hidden": 1,
+      "new_inputs": 1,
+      "both": 1,
+      "either": 1,
+      "review_note": "known_bug_in_original",
+      "hidden_witness": {
+        "index": 0,
+        "reason": "output_difference",
+        "error": "",
+        "expected": "7 9\n",
+        "actual": "7 7\n"
+      },
+      "new_witness": {
+        "index": 1,
+        "reason": "output_difference",
+        "error": "",
+        "expected": "1440 1447\n",
+        "actual": "1440 1440\n"
+      }
+    },
+    {
+      "bug_id": "p012_b08",
+      "program_id": "p012",
+      "problem_id": "roys_life_cycle",
+      "kind": "relational",
+      "change": "> -> >=",
+      "lineno": "46",
+      "code_path": "data/buggy/p012/p012_b08.py",
+      "tests_path": "data/tests/p012.json",
+      "hidden": 0,
+      "new_inputs": 0,
+      "both": 0,
+      "either": 0,
+      "review_note": "known_bug_in_original",
+      "hidden_witness": null,
+      "new_witness": null
+    },
+    {
+      "bug_id": "p012_b09",
+      "program_id": "p012",
+      "problem_id": "roys_life_cycle",
+      "kind": "constant",
+      "change": "0 -> -1",
+      "lineno": "46",
+      "code_path": "data/buggy/p012/p012_b09.py",
+      "tests_path": "data/tests/p012.json",
+      "hidden": 0,
+      "new_inputs": 0,
+      "both": 0,
+      "either": 0,
+      "review_note": "known_bug_in_original",
+      "hidden_witness": null,
+      "new_witness": null
+    },
+    {
+      "bug_id": "p012_b10",
+      "program_id": "p012",
+      "problem_id": "roys_life_cycle",
+      "kind": "augassign",
+      "change": "+= -> -=",
+      "lineno": "21",
+      "code_path": "data/buggy/p012/p012_b10.py",
+      "tests_path": "data/tests/p012.json",
+      "hidden": 1,
+      "new_inputs": 1,
+      "both": 1,
+      "either": 1,
+      "review_note": "known_bug_in_original",
+      "hidden_witness": {
+        "index": 0,
+        "reason": "output_difference",
+        "error": "",
+        "expected": "7 9\n",
+        "actual": "0 9\n"
+      },
+      "new_witness": {
+        "index": 0,
+        "reason": "output_difference",
+        "error": "",
+        "expected": "14 14\n",
+        "actual": "0 0\n"
+      }
+    },
+    {
+      "bug_id": "p012_b11",
+      "program_id": "p012",
+      "problem_id": "roys_life_cycle",
+      "kind": "relational",
+      "change": "== -> !=",
+      "lineno": "57",
+      "code_path": "data/buggy/p012/p012_b11.py",
+      "tests_path": "data/tests/p012.json",
+      "hidden": 1,
+      "new_inputs": 1,
+      "both": 1,
+      "either": 1,
+      "review_note": "known_bug_in_original",
+      "hidden_witness": {
+        "index": 0,
+        "reason": "output_difference",
+        "error": "",
+        "expected": "7 9\n",
+        "actual": ""
+      },
+      "new_witness": {
+        "index": 0,
+        "reason": "output_difference",
+        "error": "",
+        "expected": "14 14\n",
+        "actual": ""
+      }
+    },
+    {
+      "bug_id": "p012_b12",
+      "program_id": "p012",
+      "problem_id": "roys_life_cycle",
+      "kind": "constant",
+      "change": "1 -> 2",
+      "lineno": "33",
+      "code_path": "data/buggy/p012/p012_b12.py",
+      "tests_path": "data/tests/p012.json",
+      "hidden": 1,
+      "new_inputs": 1,
+      "both": 1,
+      "either": 1,
+      "review_note": "known_bug_in_original",
+      "hidden_witness": {
+        "index": 0,
+        "reason": "output_difference",
+        "error": "",
+        "expected": "7 9\n",
+        "actual": "7 14\n"
+      },
+      "new_witness": {
+        "index": 1,
+        "reason": "output_difference",
+        "error": "",
+        "expected": "1440 1447\n",
+        "actual": "1440 1454\n"
+      }
+    },
+    {
+      "bug_id": "p012_b13",
+      "program_id": "p012",
+      "problem_id": "roys_life_cycle",
+      "kind": "relational",
+      "change": "== -> !=",
+      "lineno": "32",
+      "code_path": "data/buggy/p012/p012_b13.py",
+      "tests_path": "data/tests/p012.json",
+      "hidden": 1,
+      "new_inputs": 1,
+      "both": 1,
+      "either": 1,
+      "review_note": "known_bug_in_original",
+      "hidden_witness": {
+        "index": 0,
+        "reason": "output_difference",
+        "error": "",
+        "expected": "7 9\n",
+        "actual": "7 7\n"
+      },
+      "new_witness": {
+        "index": 1,
+        "reason": "output_difference",
+        "error": "",
+        "expected": "1440 1447\n",
+        "actual": "1440 1440\n"
+      }
+    },
+    {
+      "bug_id": "p012_b14",
+      "program_id": "p012",
+      "problem_id": "roys_life_cycle",
+      "kind": "constant",
+      "change": "0 -> -1",
+      "lineno": "30",
+      "code_path": "data/buggy/p012/p012_b14.py",
+      "tests_path": "data/tests/p012.json",
+      "hidden": 1,
+      "new_inputs": 1,
+      "both": 1,
+      "either": 1,
+      "review_note": "known_bug_in_original",
+      "hidden_witness": {
+        "index": 0,
+        "reason": "output_difference",
+        "error": "",
+        "expected": "7 9\n",
+        "actual": "7 8\n"
+      },
+      "new_witness": {
+        "index": 1,
+        "reason": "output_difference",
+        "error": "",
+        "expected": "1440 1447\n",
+        "actual": "1440 1446\n"
+      }
+    },
+    {
+      "bug_id": "p012_b15",
+      "program_id": "p012",
+      "problem_id": "roys_life_cycle",
+      "kind": "relational",
+      "change": "> -> >=",
+      "lineno": "46",
+      "code_path": "data/buggy/p012/p012_b15.py",
+      "tests_path": "data/tests/p012.json",
+      "hidden": 0,
+      "new_inputs": 0,
+      "both": 0,
+      "either": 0,
+      "review_note": "known_bug_in_original",
+      "hidden_witness": null,
+      "new_witness": null
+    }
+  ]
+}

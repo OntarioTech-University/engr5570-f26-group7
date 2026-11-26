@@ -1,0 +1,372 @@
+{
+  "settings": {
+    "timeout": 5.0,
+    "python": "3.10.11",
+    "method": "raw_output_v1"
+  },
+  "rows": [
+    {
+      "bug_id": "p032_b01",
+      "program_id": "p032",
+      "problem_id": "675_E",
+      "kind": "relational",
+      "change": "== -> !=",
+      "lineno": "33",
+      "code_path": "data/buggy/p032/p032_b01.py",
+      "tests_path": "data/tests/p032.json",
+      "hidden": 1,
+      "new_inputs": 1,
+      "both": 1,
+      "either": 1,
+      "review_note": "",
+      "hidden_witness": {
+        "index": 0,
+        "reason": "output_difference",
+        "error": "",
+        "expected": "35\n",
+        "actual": ""
+      },
+      "new_witness": {
+        "index": 0,
+        "reason": "output_difference",
+        "error": "",
+        "expected": "3\n",
+        "actual": ""
+      }
+    },
+    {
+      "bug_id": "p032_b02",
+      "program_id": "p032",
+      "problem_id": "675_E",
+      "kind": "arithmetic",
+      "change": "+ -> -",
+      "lineno": "18",
+      "code_path": "data/buggy/p032/p032_b02.py",
+      "tests_path": "data/tests/p032.json",
+      "hidden": 0,
+      "new_inputs": 0,
+      "both": 0,
+      "either": 0,
+      "review_note": "",
+      "hidden_witness": null,
+      "new_witness": null
+    },
+    {
+      "bug_id": "p032_b03",
+      "program_id": "p032",
+      "problem_id": "675_E",
+      "kind": "constant",
+      "change": "1 -> 0",
+      "lineno": "13",
+      "code_path": "data/buggy/p032/p032_b03.py",
+      "tests_path": "data/tests/p032.json",
+      "hidden": 0,
+      "new_inputs": 0,
+      "both": 0,
+      "either": 0,
+      "review_note": "",
+      "hidden_witness": null,
+      "new_witness": null
+    },
+    {
+      "bug_id": "p032_b04",
+      "program_id": "p032",
+      "problem_id": "675_E",
+      "kind": "augassign",
+      "change": "+= -> -=",
+      "lineno": "29",
+      "code_path": "data/buggy/p032/p032_b04.py",
+      "tests_path": "data/tests/p032.json",
+      "hidden": 1,
+      "new_inputs": 1,
+      "both": 1,
+      "either": 1,
+      "review_note": "",
+      "hidden_witness": {
+        "index": 0,
+        "reason": "output_difference",
+        "error": "",
+        "expected": "35\n",
+        "actual": "-35\n"
+      },
+      "new_witness": {
+        "index": 0,
+        "reason": "output_difference",
+        "error": "",
+        "expected": "3\n",
+        "actual": "-3\n"
+      }
+    },
+    {
+      "bug_id": "p032_b05",
+      "program_id": "p032",
+      "problem_id": "675_E",
+      "kind": "relational",
+      "change": ">= -> >",
+      "lineno": "19",
+      "code_path": "data/buggy/p032/p032_b05.py",
+      "tests_path": "data/tests/p032.json",
+      "hidden": 1,
+      "new_inputs": 1,
+      "both": 1,
+      "either": 1,
+      "review_note": "",
+      "hidden_witness": {
+        "index": 0,
+        "reason": "output_difference",
+        "error": "",
+        "expected": "35\n",
+        "actual": "inf\n"
+      },
+      "new_witness": {
+        "index": 0,
+        "reason": "output_difference",
+        "error": "",
+        "expected": "3\n",
+        "actual": "inf\n"
+      }
+    },
+    {
+      "bug_id": "p032_b06",
+      "program_id": "p032",
+      "problem_id": "675_E",
+      "kind": "arithmetic",
+      "change": "+ -> -",
+      "lineno": "23",
+      "code_path": "data/buggy/p032/p032_b06.py",
+      "tests_path": "data/tests/p032.json",
+      "hidden": 1,
+      "new_inputs": 1,
+      "both": 1,
+      "either": 1,
+      "review_note": "",
+      "hidden_witness": {
+        "index": 0,
+        "reason": "output_difference",
+        "error": "",
+        "expected": "35\n",
+        "actual": "15\n"
+      },
+      "new_witness": {
+        "index": 1,
+        "reason": "output_difference",
+        "error": "",
+        "expected": "286\n",
+        "actual": "36\n"
+      }
+    },
+    {
+      "bug_id": "p032_b07",
+      "program_id": "p032",
+      "problem_id": "675_E",
+      "kind": "arithmetic",
+      "change": "+ -> -",
+      "lineno": "13",
+      "code_path": "data/buggy/p032/p032_b07.py",
+      "tests_path": "data/tests/p032.json",
+      "hidden": 0,
+      "new_inputs": 0,
+      "both": 0,
+      "either": 0,
+      "review_note": "",
+      "hidden_witness": null,
+      "new_witness": null
+    },
+    {
+      "bug_id": "p032_b08",
+      "program_id": "p032",
+      "problem_id": "675_E",
+      "kind": "arithmetic",
+      "change": "+ -> -",
+      "lineno": "28",
+      "code_path": "data/buggy/p032/p032_b08.py",
+      "tests_path": "data/tests/p032.json",
+      "hidden": 1,
+      "new_inputs": 1,
+      "both": 1,
+      "either": 1,
+      "review_note": "",
+      "hidden_witness": {
+        "index": 0,
+        "reason": "output_difference",
+        "error": "",
+        "expected": "35\n",
+        "actual": "14\n"
+      },
+      "new_witness": {
+        "index": 0,
+        "reason": "output_difference",
+        "error": "",
+        "expected": "3\n",
+        "actual": "0\n"
+      }
+    },
+    {
+      "bug_id": "p032_b09",
+      "program_id": "p032",
+      "problem_id": "675_E",
+      "kind": "constant",
+      "change": "1 -> 0",
+      "lineno": "18",
+      "code_path": "data/buggy/p032/p032_b09.py",
+      "tests_path": "data/tests/p032.json",
+      "hidden": 0,
+      "new_inputs": 0,
+      "both": 0,
+      "either": 0,
+      "review_note": "",
+      "hidden_witness": null,
+      "new_witness": null
+    },
+    {
+      "bug_id": "p032_b10",
+      "program_id": "p032",
+      "problem_id": "675_E",
+      "kind": "arithmetic",
+      "change": "+ -> -",
+      "lineno": "28",
+      "code_path": "data/buggy/p032/p032_b10.py",
+      "tests_path": "data/tests/p032.json",
+      "hidden": 1,
+      "new_inputs": 1,
+      "both": 1,
+      "either": 1,
+      "review_note": "",
+      "hidden_witness": {
+        "index": 0,
+        "reason": "output_difference",
+        "error": "",
+        "expected": "35\n",
+        "actual": "inf\n"
+      },
+      "new_witness": {
+        "index": 0,
+        "reason": "output_difference",
+        "error": "",
+        "expected": "3\n",
+        "actual": "inf\n"
+      }
+    },
+    {
+      "bug_id": "p032_b11",
+      "program_id": "p032",
+      "problem_id": "675_E",
+      "kind": "constant",
+      "change": "1 -> 0",
+      "lineno": "18",
+      "code_path": "data/buggy/p032/p032_b11.py",
+      "tests_path": "data/tests/p032.json",
+      "hidden": 1,
+      "new_inputs": 1,
+      "both": 1,
+      "either": 1,
+      "review_note": "",
+      "hidden_witness": {
+        "index": 0,
+        "reason": "output_difference",
+        "error": "",
+        "expected": "35\n",
+        "actual": "inf\n"
+      },
+      "new_witness": {
+        "index": 0,
+        "reason": "output_difference",
+        "error": "",
+        "expected": "3\n",
+        "actual": "inf\n"
+      }
+    },
+    {
+      "bug_id": "p032_b12",
+      "program_id": "p032",
+      "problem_id": "675_E",
+      "kind": "arithmetic",
+      "change": "+ -> -",
+      "lineno": "22",
+      "code_path": "data/buggy/p032/p032_b12.py",
+      "tests_path": "data/tests/p032.json",
+      "hidden": 1,
+      "new_inputs": 1,
+      "both": 1,
+      "either": 1,
+      "review_note": "",
+      "hidden_witness": {
+        "index": 0,
+        "reason": "output_difference",
+        "error": "",
+        "expected": "35\n",
+        "actual": "inf\n"
+      },
+      "new_witness": {
+        "index": 1,
+        "reason": "output_difference",
+        "error": "",
+        "expected": "286\n",
+        "actual": "inf\n"
+      }
+    },
+    {
+      "bug_id": "p032_b13",
+      "program_id": "p032",
+      "problem_id": "675_E",
+      "kind": "constant",
+      "change": "1 -> 2",
+      "lineno": "19",
+      "code_path": "data/buggy/p032/p032_b13.py",
+      "tests_path": "data/tests/p032.json",
+      "hidden": 1,
+      "new_inputs": 1,
+      "both": 1,
+      "either": 1,
+      "review_note": "",
+      "hidden_witness": {
+        "index": 0,
+        "reason": "output_difference",
+        "error": "",
+        "expected": "35\n",
+        "actual": "inf\n"
+      },
+      "new_witness": {
+        "index": 1,
+        "reason": "output_difference",
+        "error": "",
+        "expected": "286\n",
+        "actual": "inf\n"
+      }
+    },
+    {
+      "bug_id": "p032_b14",
+      "program_id": "p032",
+      "problem_id": "675_E",
+      "kind": "constant",
+      "change": "0 -> -1",
+      "lineno": "17",
+      "code_path": "data/buggy/p032/p032_b14.py",
+      "tests_path": "data/tests/p032.json",
+      "hidden": 0,
+      "new_inputs": 0,
+      "both": 0,
+      "either": 0,
+      "review_note": "",
+      "hidden_witness": null,
+      "new_witness": null
+    },
+    {
+      "bug_id": "p032_b15",
+      "program_id": "p032",
+      "problem_id": "675_E",
+      "kind": "arithmetic",
+      "change": "+ -> -",
+      "lineno": "22",
+      "code_path": "data/buggy/p032/p032_b15.py",
+      "tests_path": "data/tests/p032.json",
+      "hidden": 0,
+      "new_inputs": 0,
+      "both": 0,
+      "either": 0,
+      "review_note": "",
+      "hidden_witness": null,
+      "new_witness": null
+    }
+  ]
+}
