@@ -1,0 +1,420 @@
+{
+  "settings": {
+    "timeout": 5.0,
+    "python": "3.10.11",
+    "method": "raw_output_v1"
+  },
+  "rows": [
+    {
+      "bug_id": "p025_b01",
+      "program_id": "p025",
+      "problem_id": "663_A",
+      "kind": "negation",
+      "change": "not x -> x",
+      "lineno": "30",
+      "code_path": "data/buggy/p025/p025_b01.py",
+      "tests_path": "data/tests/p025.json",
+      "hidden": 1,
+      "new_inputs": 1,
+      "both": 1,
+      "either": 1,
+      "review_note": "multiple_valid_outputs",
+      "hidden_witness": {
+        "index": 0,
+        "reason": "output_difference",
+        "error": "",
+        "expected": "Possible\n1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 - 33 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 = 33\n",
+        "actual": "Impossible\n"
+      },
+      "new_witness": {
+        "index": 0,
+        "reason": "output_difference",
+        "error": "",
+        "expected": "Possible\n3 + 1 = 4\n",
+        "actual": "Impossible\n"
+      }
+    },
+    {
+      "bug_id": "p025_b02",
+      "program_id": "p025",
+      "problem_id": "663_A",
+      "kind": "relational",
+      "change": "< -> <=",
+      "lineno": "53",
+      "code_path": "data/buggy/p025/p025_b02.py",
+      "tests_path": "data/tests/p025.json",
+      "hidden": 0,
+      "new_inputs": 0,
+      "both": 0,
+      "either": 0,
+      "review_note": "multiple_valid_outputs",
+      "hidden_witness": null,
+      "new_witness": null
+    },
+    {
+      "bug_id": "p025_b03",
+      "program_id": "p025",
+      "problem_id": "663_A",
+      "kind": "constant",
+      "change": "1 -> 0",
+      "lineno": "38",
+      "code_path": "data/buggy/p025/p025_b03.py",
+      "tests_path": "data/tests/p025.json",
+      "hidden": 1,
+      "new_inputs": 1,
+      "both": 1,
+      "either": 1,
+      "review_note": "multiple_valid_outputs",
+      "hidden_witness": {
+        "index": 0,
+        "reason": "output_difference",
+        "error": "",
+        "expected": "Possible\n1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 - 33 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 = 33\n",
+        "actual": "Possible\n0 + 0 + 0 + 0 + 0 + 0 + 0 + 0 + 0 + 0 + 0 + 0 + 0 + 0 + 0 + 0 + 0 + 0 + 0 + 0 + 0 + 0 + 0 + 0 + 0 + 0 + 0 + 0 + 0 + 0 + 0 + 0 + 0 + 0 + 0 + 0 + 0 + 0 + 0 + 0 + 0 + 0 + 0 - 33 + 0 + 0 + 0 + 0 + 0 + 0 + 0 + 0 + 0 + 0 + 0 + 0 + 0 + 0 + 0 + 0 + 0 + 0 + 0 + 0 + 0 + 0 + 0 = 33\n"
+      },
+      "new_witness": {
+        "index": 0,
+        "reason": "output_difference",
+        "error": "",
+        "expected": "Possible\n3 + 1 = 4\n",
+        "actual": "Possible\n2 + 0 = 4\n"
+      }
+    },
+    {
+      "bug_id": "p025_b04",
+      "program_id": "p025",
+      "problem_id": "663_A",
+      "kind": "augassign",
+      "change": "-= -> +=",
+      "lineno": "50",
+      "code_path": "data/buggy/p025/p025_b04.py",
+      "tests_path": "data/tests/p025.json",
+      "hidden": 1,
+      "new_inputs": 1,
+      "both": 1,
+      "either": 1,
+      "review_note": "multiple_valid_outputs",
+      "hidden_witness": {
+        "index": 1,
+        "reason": "output_difference",
+        "error": "",
+        "expected": "Possible\n999999 - 1 - 1 - 1 - 1 - 1 - 1 - 1 - 1 - 1 - 1 - 1 - 1 - 1 - 1 - 1 - 1 - 1 - 1 - 1 - 1 - 1 - 1 - 1 - 1 - 1 - 1 - 1 - 1 - 1 - 1 - 1 - 1 - 1 - 1 - 1 - 1 - 1 - 1 - 1 - 1 - 1 - 1 - 1 - 1 - 1 - 1 - 1 - 1 - 1 - 1 - 1 - 1 - 1 - 1 - 1 - 1 - 1 - 1 - 1 - 1 - 1 - 1 - 1 - 1 - 1 - 1 - 1 - 1 - 1 - 1 - 1 - 1 - 1 - 1 - 1 - 1 - 1 - 1 - 1 - 1 - 1 - 1 - 1 - 1 - 1 - 1 - 1 - 1 - 1 - 1 - 1 - 1 - 1 - 1 - 1 - 1 + 98 - 1 - 1 = 999999\n",
+        "actual": "Possible\n999999 - 1 - 1 - 1 - 1 - 1 - 1 - 1 - 1 - 1 - 1 - 1 - 1 - 1 - 1 - 1 - 1 - 1 - 1 - 1 - 1 - 1 - 1 - 1 - 1 - 1 - 1 - 1 - 1 - 1 - 1 - 1 - 1 - 1 - 1 - 1 - 1 - 1 - 1 - 1 - 1 - 1 - 1 - 1 - 1 - 1 - 1 - 1 - 1 - 1 - 1 - 1 - 1 - 1 - 1 - 1 - 1 - 1 - 1 - 1 - 1 - 1 - 1 - 1 - 1 - 1 - 1 - 1 - 1 - 1 - 1 - 1 - 1 - 1 - 1 - 1 - 1 - 1 - 1 - 1 - 1 - 1 - 1 - 1 - 1 - 1 - 1 - 1 - 1 - 1 - 1 - 1 - 1 - 1 - 1 - 1 - 1 + 999999 - 1 - 1 = 999999\n"
+      },
+      "new_witness": {
+        "index": 0,
+        "reason": "output_difference",
+        "error": "",
+        "expected": "Possible\n3 + 1 = 4\n",
+        "actual": "Possible\n3 + 4 = 4\n"
+      }
+    },
+    {
+      "bug_id": "p025_b05",
+      "program_id": "p025",
+      "problem_id": "663_A",
+      "kind": "arithmetic",
+      "change": "* -> //",
+      "lineno": "28",
+      "code_path": "data/buggy/p025/p025_b05.py",
+      "tests_path": "data/tests/p025.json",
+      "hidden": 0,
+      "new_inputs": 0,
+      "both": 0,
+      "either": 0,
+      "review_note": "multiple_valid_outputs",
+      "hidden_witness": null,
+      "new_witness": null
+    },
+    {
+      "bug_id": "p025_b06",
+      "program_id": "p025",
+      "problem_id": "663_A",
+      "kind": "relational",
+      "change": "<= -> <",
+      "lineno": "30",
+      "code_path": "data/buggy/p025/p025_b06.py",
+      "tests_path": "data/tests/p025.json",
+      "hidden": 1,
+      "new_inputs": 1,
+      "both": 1,
+      "either": 1,
+      "review_note": "multiple_valid_outputs",
+      "hidden_witness": {
+        "index": 0,
+        "reason": "output_difference",
+        "error": "",
+        "expected": "Possible\n1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 - 33 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 = 33\n",
+        "actual": "Impossible\n"
+      },
+      "new_witness": {
+        "index": 10,
+        "reason": "output_difference",
+        "error": "",
+        "expected": "Possible\n1 + 1 + 1 - 1 + 1 + 1 - 1 - 1 + 1 - 1 - 1 + 1 - 1 + 1 - 1 - 1 - 1 - 1 + 1 + 1 - 1 + 1 + 1 - 1 + 1 + 1 - 1 + 1 - 1 - 1 - 1 + 1 - 1 + 1 + 1 = 1\n",
+        "actual": "Impossible\n"
+      }
+    },
+    {
+      "bug_id": "p025_b07",
+      "program_id": "p025",
+      "problem_id": "663_A",
+      "kind": "constant",
+      "change": "1 -> 0",
+      "lineno": "28",
+      "code_path": "data/buggy/p025/p025_b07.py",
+      "tests_path": "data/tests/p025.json",
+      "hidden": 1,
+      "new_inputs": 1,
+      "both": 1,
+      "either": 1,
+      "review_note": "multiple_valid_outputs",
+      "hidden_witness": {
+        "index": 6,
+        "reason": "output_difference",
+        "error": "",
+        "expected": "Impossible\n",
+        "actual": "Possible\n93 - 1 - 1 - 1 - 1 - 1 - 1 - 1 - 1 - 1 - 1 - 1 - 1 - 1 - 1 - 1 - 1 - 1 = 93\n"
+      },
+      "new_witness": {
+        "index": 5,
+        "reason": "output_difference",
+        "error": "",
+        "expected": "Impossible\n",
+        "actual": "Possible\n5 - 1 - 1 - 1 = 5\n"
+      }
+    },
+    {
+      "bug_id": "p025_b08",
+      "program_id": "p025",
+      "problem_id": "663_A",
+      "kind": "augassign",
+      "change": "+= -> -=",
+      "lineno": "20",
+      "code_path": "data/buggy/p025/p025_b08.py",
+      "tests_path": "data/tests/p025.json",
+      "hidden": 1,
+      "new_inputs": 1,
+      "both": 1,
+      "either": 1,
+      "review_note": "multiple_valid_outputs",
+      "hidden_witness": {
+        "index": 0,
+        "reason": "output_difference",
+        "error": "",
+        "expected": "Possible\n1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 - 33 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 = 33\n",
+        "actual": "Impossible\n"
+      },
+      "new_witness": {
+        "index": 0,
+        "reason": "output_difference",
+        "error": "",
+        "expected": "Possible\n3 + 1 = 4\n",
+        "actual": "Impossible\n"
+      }
+    },
+    {
+      "bug_id": "p025_b09",
+      "program_id": "p025",
+      "problem_id": "663_A",
+      "kind": "arithmetic",
+      "change": "- -> +",
+      "lineno": "28",
+      "code_path": "data/buggy/p025/p025_b09.py",
+      "tests_path": "data/tests/p025.json",
+      "hidden": 1,
+      "new_inputs": 1,
+      "both": 1,
+      "either": 1,
+      "review_note": "multiple_valid_outputs",
+      "hidden_witness": {
+        "index": 6,
+        "reason": "output_difference",
+        "error": "",
+        "expected": "Impossible\n",
+        "actual": "Possible\n93 - 1 - 1 - 1 - 1 - 1 - 1 - 1 - 1 - 1 - 1 - 1 - 1 - 1 - 1 - 1 - 1 - 1 = 93\n"
+      },
+      "new_witness": {
+        "index": 5,
+        "reason": "output_difference",
+        "error": "",
+        "expected": "Impossible\n",
+        "actual": "Possible\n5 - 1 - 1 - 1 = 5\n"
+      }
+    },
+    {
+      "bug_id": "p025_b10",
+      "program_id": "p025",
+      "problem_id": "663_A",
+      "kind": "relational",
+      "change": "<= -> <",
+      "lineno": "30",
+      "code_path": "data/buggy/p025/p025_b10.py",
+      "tests_path": "data/tests/p025.json",
+      "hidden": 1,
+      "new_inputs": 1,
+      "both": 1,
+      "either": 1,
+      "review_note": "multiple_valid_outputs",
+      "hidden_witness": {
+        "index": 11,
+        "reason": "output_difference",
+        "error": "",
+        "expected": "Possible\n32 - 1 - 1 - 1 - 1 - 1 - 1 - 1 - 1 - 1 - 1 - 1 - 1 - 1 - 1 - 1 - 1 - 1 - 1 - 1 - 1 - 1 - 1 - 1 - 1 - 1 - 1 - 1 - 1 - 1 - 1 - 1 - 1 - 1 - 1 + 32 - 1 - 1 - 1 - 1 - 1 - 1 - 1 - 1 - 1 - 1 - 1 - 1 - 1 - 1 - 1 - 1 - 1 - 1 - 1 - 1 - 1 - 1 - 1 - 1 - 1 - 1 - 1 - 1 - 1 - 1 - 1 - 1 - 1 - 1 - 1 - 1 - 1 - 1 - 1 + 32 - 1 - 1 - 1 - 1 + 32 - 1 - 1 - 1 - 1 - 1 - 1 - 1 - 1 - 1 - 1 - 1 - 1 - 1 - 1 - 1 - 1 - 1 - 1 - 1 = 32\n",
+        "actual": "Impossible\n"
+      },
+      "new_witness": {
+        "index": 4,
+        "reason": "output_difference",
+        "error": "",
+        "expected": "Possible\n39 = 39\n",
+        "actual": "Impossible\n"
+      }
+    },
+    {
+      "bug_id": "p025_b11",
+      "program_id": "p025",
+      "problem_id": "663_A",
+      "kind": "constant",
+      "change": "1 -> 2",
+      "lineno": "23",
+      "code_path": "data/buggy/p025/p025_b11.py",
+      "tests_path": "data/tests/p025.json",
+      "hidden": 1,
+      "new_inputs": 1,
+      "both": 1,
+      "either": 1,
+      "review_note": "multiple_valid_outputs",
+      "hidden_witness": {
+        "index": 0,
+        "reason": "output_difference",
+        "error": "",
+        "expected": "Possible\n1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 - 33 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 = 33\n",
+        "actual": "Possible\n1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 - 32 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 = 33\n"
+      },
+      "new_witness": {
+        "index": 1,
+        "reason": "output_difference",
+        "error": "",
+        "expected": "Possible\n4 - 1 + 1 + 1 - 1 = 4\n",
+        "actual": "Possible\n4 - 1 + 3 + 1 - 1 = 4\n"
+      }
+    },
+    {
+      "bug_id": "p025_b12",
+      "program_id": "p025",
+      "problem_id": "663_A",
+      "kind": "augassign",
+      "change": "+= -> -=",
+      "lineno": "71",
+      "code_path": "data/buggy/p025/p025_b12.py",
+      "tests_path": "data/tests/p025.json",
+      "hidden": 1,
+      "new_inputs": 1,
+      "both": 1,
+      "either": 1,
+      "review_note": "multiple_valid_outputs",
+      "hidden_witness": {
+        "index": 3,
+        "reason": "output_difference",
+        "error": "",
+        "expected": "Possible\n123456 - 1 + 2 + 1 + 1 + 1 - 1 - 1 - 1 - 1 + 1 - 1 - 1 - 1 + 1 - 1 + 1 + 1 + 1 - 1 + 1 + 1 + 1 - 1 + 1 + 1 - 1 + 1 - 1 + 1 - 1 - 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 - 1 + 1 + 1 + 1 + 1 - 1 - 1 - 1 + 1 - 1 - 1 - 1 - 1 - 1 - 1 + 1 - 1 + 1 + 1 - 1 - 1 - 1 - 1 + 1 - 1 - 1 + 1 + 1 - 1 + 1 + 1 - 1 - 1 - 1 + 1 + 1 - 1 - 1 + 1 - 1 - 1 + 1 - 1 + 1 - 1 - 1 - 1 - 1 + 1 - 1 + 1 - 1 + 1 + 1 + 1 - 1 + 1 + 1 - 1 - 1 + 1 = 123456\n",
+        "actual": "Possible\n123456 - 1 + 1 + 123456 + 2 + 1 - 1 - 1 - 1 - 1 + 1 - 1 - 1 - 1 + 1 - 1 + 1 + 1 + 1 - 1 + 1 + 1 + 1 - 1 + 1 + 1 - 1 + 1 - 1 + 1 - 1 - 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 - 1 + 1 + 1 + 1 + 1 - 1 - 1 - 1 + 1 - 1 - 1 - 1 - 1 - 1 - 1 + 1 - 1 + 1 + 1 - 1 - 1 - 1 - 1 + 1 - 1 - 1 + 1 + 1 - 1 + 1 + 1 - 1 - 1 - 1 + 1 + 1 - 1 - 1 + 1 - 1 - 1 + 1 - 1 + 1 - 1 - 1 - 1 - 1 + 1 - 1 + 1 - 1 + 1 + 1 + 1 - 1 + 1 + 1 - 1 - 1 + 1 = 123456\n"
+      },
+      "new_witness": {
+        "index": 1,
+        "reason": "output_difference",
+        "error": "",
+        "expected": "Possible\n4 - 1 + 1 + 1 - 1 = 4\n",
+        "actual": "Possible\n4 - 1 + 1 + 4 - 1 = 4\n"
+      }
+    },
+    {
+      "bug_id": "p025_b13",
+      "program_id": "p025",
+      "problem_id": "663_A",
+      "kind": "arithmetic",
+      "change": "- -> +",
+      "lineno": "48",
+      "code_path": "data/buggy/p025/p025_b13.py",
+      "tests_path": "data/tests/p025.json",
+      "hidden": 1,
+      "new_inputs": 1,
+      "both": 1,
+      "either": 1,
+      "review_note": "multiple_valid_outputs",
+      "hidden_witness": {
+        "index": 1,
+        "reason": "output_difference",
+        "error": "",
+        "expected": "Possible\n999999 - 1 - 1 - 1 - 1 - 1 - 1 - 1 - 1 - 1 - 1 - 1 - 1 - 1 - 1 - 1 - 1 - 1 - 1 - 1 - 1 - 1 - 1 - 1 - 1 - 1 - 1 - 1 - 1 - 1 - 1 - 1 - 1 - 1 - 1 - 1 - 1 - 1 - 1 - 1 - 1 - 1 - 1 - 1 - 1 - 1 - 1 - 1 - 1 - 1 - 1 - 1 - 1 - 1 - 1 - 1 - 1 - 1 - 1 - 1 - 1 - 1 - 1 - 1 - 1 - 1 - 1 - 1 - 1 - 1 - 1 - 1 - 1 - 1 - 1 - 1 - 1 - 1 - 1 - 1 - 1 - 1 - 1 - 1 - 1 - 1 - 1 - 1 - 1 - 1 - 1 - 1 - 1 - 1 - 1 - 1 - 1 + 98 - 1 - 1 = 999999\n",
+        "actual": "Possible\n1000001 - 1 - 1 - 1 - 1 - 1 - 1 - 1 - 1 - 1 - 1 - 1 - 1 - 1 - 1 - 1 - 1 - 1 - 1 - 1 - 1 - 1 - 1 - 1 - 1 - 1 - 1 - 1 - 1 - 1 - 1 - 1 - 1 - 1 - 1 - 1 - 1 - 1 - 1 - 1 - 1 - 1 - 1 - 1 - 1 - 1 - 1 - 1 - 1 - 1 - 1 - 1 - 1 - 1 - 1 - 1 - 1 - 1 - 1 - 1 - 1 - 1 - 1 - 1 - 1 - 1 - 1 - 1 - 1 - 1 - 1 - 1 - 1 - 1 - 1 - 1 - 1 - 1 - 1 - 1 - 1 - 1 - 1 - 1 - 1 - 1 - 1 - 1 - 1 - 1 - 1 - 1 - 1 - 1 - 1 - 1 - 1 + 96 - 1 - 1 = 999999\n"
+      },
+      "new_witness": {
+        "index": 17,
+        "reason": "output_difference",
+        "error": "",
+        "expected": "Possible\n996898 - 1 + 2 - 1 - 1 + 1 + 1 + 1 - 1 - 1 = 996898\n",
+        "actual": "Possible\n996899 - 1 + 1 - 1 - 1 + 1 + 1 + 1 - 1 - 1 = 996898\n"
+      }
+    },
+    {
+      "bug_id": "p025_b14",
+      "program_id": "p025",
+      "problem_id": "663_A",
+      "kind": "relational",
+      "change": "== -> !=",
+      "lineno": "61",
+      "code_path": "data/buggy/p025/p025_b14.py",
+      "tests_path": "data/tests/p025.json",
+      "hidden": 1,
+      "new_inputs": 1,
+      "both": 1,
+      "either": 1,
+      "review_note": "multiple_valid_outputs",
+      "hidden_witness": {
+        "index": 2,
+        "reason": "output_difference",
+        "error": "",
+        "expected": "Possible\n1 - 2 + 1 - 2 + 1 + 1 + 1 + 1 = 2\n",
+        "actual": "Possible\n1 - 2 + 1 - 1 + 1 + 1 + 1 + 1 = 2\n"
+      },
+      "new_witness": {
+        "index": 55,
+        "reason": "output_difference",
+        "error": "",
+        "expected": "Possible\n1 + 1 + 1 + 1 - 5 - 3 + 1 + 1 + 1 + 1 + 1 - 1 + 1 + 1 - 1 + 1 - 1 - 1 - 1 + 1 - 1 + 1 - 1 - 1 - 1 - 1 + 1 - 1 + 1 + 1 + 1 + 1 + 1 + 1 - 1 - 1 + 1 + 1 + 1 + 1 + 1 + 1 - 1 + 1 - 1 - 1 + 1 - 1 + 1 - 1 - 1 + 1 + 1 - 1 + 1 + 1 - 1 + 1 + 1 - 1 + 1 + 1 - 1 - 1 + 1 - 1 - 1 - 1 - 1 + 1 - 1 + 1 - 1 + 1 - 1 + 1 + 1 - 1 - 1 + 1 + 1 + 1 - 1 + 1 + 1 + 1 - 1 + 1 - 1 - 1 - 1 - 1 + 1 - 1 + 1 + 1 - 1 + 1 - 1 = 5\n",
+        "actual": "Possible\n1 + 1 + 1 + 1 - 5 - 1 + 1 + 1 + 1 + 1 + 1 - 1 + 1 + 1 - 1 + 1 - 1 - 1 - 1 + 1 - 1 + 1 - 1 - 1 - 1 - 1 + 1 - 1 + 1 + 1 + 1 + 1 + 1 + 1 - 1 - 1 + 1 + 1 + 1 + 1 + 1 + 1 - 1 + 1 - 1 - 1 + 1 - 1 + 1 - 1 - 1 + 1 + 1 - 1 + 1 + 1 - 1 + 1 + 1 - 1 + 1 + 1 - 1 - 1 + 1 - 1 - 1 - 1 - 1 + 1 - 1 + 1 - 1 + 1 - 1 + 1 + 1 - 1 - 1 + 1 + 1 + 1 - 1 + 1 + 1 + 1 - 1 + 1 - 1 - 1 - 1 - 1 + 1 - 1 + 1 + 1 - 1 + 1 - 1 = 5\n"
+      }
+    },
+    {
+      "bug_id": "p025_b15",
+      "program_id": "p025",
+      "problem_id": "663_A",
+      "kind": "constant",
+      "change": "1 -> 0",
+      "lineno": "71",
+      "code_path": "data/buggy/p025/p025_b15.py",
+      "tests_path": "data/tests/p025.json",
+      "hidden": 1,
+      "new_inputs": 1,
+      "both": 1,
+      "either": 1,
+      "review_note": "multiple_valid_outputs",
+      "hidden_witness": {
+        "index": 1,
+        "reason": "output_difference",
+        "error": "",
+        "expected": "Possible\n999999 - 1 - 1 - 1 - 1 - 1 - 1 - 1 - 1 - 1 - 1 - 1 - 1 - 1 - 1 - 1 - 1 - 1 - 1 - 1 - 1 - 1 - 1 - 1 - 1 - 1 - 1 - 1 - 1 - 1 - 1 - 1 - 1 - 1 - 1 - 1 - 1 - 1 - 1 - 1 - 1 - 1 - 1 - 1 - 1 - 1 - 1 - 1 - 1 - 1 - 1 - 1 - 1 - 1 - 1 - 1 - 1 - 1 - 1 - 1 - 1 - 1 - 1 - 1 - 1 - 1 - 1 - 1 - 1 - 1 - 1 - 1 - 1 - 1 - 1 - 1 - 1 - 1 - 1 - 1 - 1 - 1 - 1 - 1 - 1 - 1 - 1 - 1 - 1 - 1 - 1 - 1 - 1 - 1 - 1 - 1 - 1 + 98 - 1 - 1 = 999999\n",
+        "actual": "Possible\n999999 - 1 - 1 - 1 - 1 - 1 - 1 - 1 - 1 - 1 - 1 - 1 - 1 - 1 - 1 - 1 - 1 - 1 - 1 - 1 - 1 - 1 - 1 - 1 - 1 - 1 - 1 - 1 - 1 - 1 - 1 - 1 - 1 - 1 - 1 - 1 - 1 - 1 - 1 - 1 - 1 - 1 - 1 - 1 - 1 - 1 - 1 - 1 - 1 - 1 - 1 - 1 - 1 - 1 - 1 - 1 - 1 - 1 - 1 - 1 - 1 - 1 - 1 - 1 - 1 - 1 - 1 - 1 - 1 - 1 - 1 - 1 - 1 - 1 - 1 - 1 - 1 - 1 - 1 - 1 - 1 - 1 - 1 - 1 - 1 - 1 - 1 - 1 - 1 - 1 - 1 - 1 - 1 - 1 - 1 - 1 - 1 + 999999 - 1 - 1 = 999999\n"
+      },
+      "new_witness": {
+        "index": 0,
+        "reason": "output_difference",
+        "error": "",
+        "expected": "Possible\n3 + 1 = 4\n",
+        "actual": "Possible\n3 + 3 = 4\n"
+      }
+    }
+  ]
+}

@@ -1,0 +1,444 @@
+{
+  "settings": {
+    "timeout": 5.0,
+    "python": "3.10.11",
+    "method": "raw_output_v1"
+  },
+  "rows": [
+    {
+      "bug_id": "p024_b01",
+      "program_id": "p024",
+      "problem_id": "634_C",
+      "kind": "arithmetic",
+      "change": "+ -> -",
+      "lineno": "56",
+      "code_path": "data/buggy/p024/p024_b01.py",
+      "tests_path": "data/tests/p024.json",
+      "hidden": 1,
+      "new_inputs": 1,
+      "both": 1,
+      "either": 1,
+      "review_note": "",
+      "hidden_witness": {
+        "index": 2,
+        "reason": "output_difference",
+        "error": "",
+        "expected": "3\n4\n4\n",
+        "actual": "-1\n-4\n0\n"
+      },
+      "new_witness": {
+        "index": 1,
+        "reason": "output_difference",
+        "error": "",
+        "expected": "0\n342\n342\n",
+        "actual": "0\n-342\n-342\n"
+      }
+    },
+    {
+      "bug_id": "p024_b02",
+      "program_id": "p024",
+      "problem_id": "634_C",
+      "kind": "relational",
+      "change": "<= -> <",
+      "lineno": "7",
+      "code_path": "data/buggy/p024/p024_b02.py",
+      "tests_path": "data/tests/p024.json",
+      "hidden": 1,
+      "new_inputs": 1,
+      "both": 1,
+      "either": 1,
+      "review_note": "",
+      "hidden_witness": {
+        "index": 2,
+        "reason": "output_difference",
+        "error": "",
+        "expected": "3\n4\n4\n",
+        "actual": "1\n2\n2\n"
+      },
+      "new_witness": {
+        "index": 1,
+        "reason": "output_difference",
+        "error": "",
+        "expected": "0\n342\n342\n",
+        "actual": "0\n-686\n-1026\n"
+      }
+    },
+    {
+      "bug_id": "p024_b03",
+      "program_id": "p024",
+      "problem_id": "634_C",
+      "kind": "constant",
+      "change": "0 -> -1",
+      "lineno": "4",
+      "code_path": "data/buggy/p024/p024_b03.py",
+      "tests_path": "data/tests/p024.json",
+      "hidden": 1,
+      "new_inputs": 1,
+      "both": 1,
+      "either": 1,
+      "review_note": "",
+      "hidden_witness": {
+        "index": 2,
+        "reason": "output_difference",
+        "error": "",
+        "expected": "3\n4\n4\n",
+        "actual": "2\n3\n2\n"
+      },
+      "new_witness": {
+        "index": 1,
+        "reason": "output_difference",
+        "error": "",
+        "expected": "0\n342\n342\n",
+        "actual": "-1\n344\n344\n"
+      }
+    },
+    {
+      "bug_id": "p024_b04",
+      "program_id": "p024",
+      "problem_id": "634_C",
+      "kind": "relational",
+      "change": "== -> !=",
+      "lineno": "60",
+      "code_path": "data/buggy/p024/p024_b04.py",
+      "tests_path": "data/tests/p024.json",
+      "hidden": 1,
+      "new_inputs": 1,
+      "both": 1,
+      "either": 1,
+      "review_note": "",
+      "hidden_witness": {
+        "index": 0,
+        "reason": "output_difference",
+        "error": "",
+        "expected": "0\n",
+        "actual": ""
+      },
+      "new_witness": {
+        "index": 0,
+        "reason": "output_difference",
+        "error": "",
+        "expected": "0\n",
+        "actual": ""
+      }
+    },
+    {
+      "bug_id": "p024_b05",
+      "program_id": "p024",
+      "problem_id": "634_C",
+      "kind": "augassign",
+      "change": "+= -> -=",
+      "lineno": "14",
+      "code_path": "data/buggy/p024/p024_b05.py",
+      "tests_path": "data/tests/p024.json",
+      "hidden": 1,
+      "new_inputs": 1,
+      "both": 1,
+      "either": 1,
+      "review_note": "",
+      "hidden_witness": {
+        "index": 2,
+        "reason": "output_difference",
+        "error": "",
+        "expected": "3\n4\n4\n",
+        "actual": "-3\n-4\n-4\n"
+      },
+      "new_witness": {
+        "index": 1,
+        "reason": "output_difference",
+        "error": "",
+        "expected": "0\n342\n342\n",
+        "actual": "0\n-342\n-342\n"
+      }
+    },
+    {
+      "bug_id": "p024_b06",
+      "program_id": "p024",
+      "problem_id": "634_C",
+      "kind": "arithmetic",
+      "change": "- -> +",
+      "lineno": "50",
+      "code_path": "data/buggy/p024/p024_b06.py",
+      "tests_path": "data/tests/p024.json",
+      "hidden": 1,
+      "new_inputs": 1,
+      "both": 1,
+      "either": 1,
+      "review_note": "",
+      "hidden_witness": {
+        "index": 4,
+        "reason": "output_difference",
+        "error": "",
+        "expected": "3\n2\n4\n",
+        "actual": "3\n6\n8\n"
+      },
+      "new_witness": {
+        "index": 3,
+        "reason": "output_difference",
+        "error": "",
+        "expected": "0\n1\n0\n2\n4494\n2\n4497\n6\n4500\n8\n9\n8\n9\n9\n9\n12\n8\n10\n12\n12\n12\n12\n14\n11\n11\n11\n8\n14\n14\n2265\n14\n14\n2266\n2265\n2634\n6758\n5257\n5257\n5257\n4891\n2637\n6763\n2639\n2638\n4891\n2638\n2638\n2641\n5258\n7980\n4895\n4894\n2641\n4897\n10688\n4897\n10735\n5491\n8114\n10737\n8114\n10732\n4897\n10690\n10737\n11436\n7520\n10687\n8115\n13310\n11436\n7520\n13356\n10372\n7519\n10738\n7520\n15930\n12014\n13356\n13362\n10375\n14640\n17807\n13368\n18608\n14636\n12769\n17498\n18771\n20118\n18772\n20121\n20118\n20073\n20122\n17501\n22742\n19150\n20053\n26220\n22890\n26810\n26599\n26604\n3446",
+        "actual": "0\n1\n0\n2\n4494\n2\n4497\n6\n4500\n8\n9\n8\n9\n9\n9\n12\n8\n10\n12\n12\n12\n12\n14\n11\n11\n11\n8\n14\n14\n2265\n14\n14\n2266\n2265\n2634\n6758\n5257\n5257\n5257\n4891\n2637\n6763\n2639\n2638\n4891\n2638\n2638\n2641\n5258\n7980\n4895\n4894\n2641\n4897\n10688\n4897\n10735\n5491\n8114\n10737\n8114\n10732\n4897\n10690\n10737\n11436\n7520\n10687\n8115\n13310\n11436\n7520\n13356\n10372\n7519\n10738\n7520\n15930\n12014\n13356\n13362\n10375\n14640\n17807\n13368\n18608\n14636\n12769\n17498\n18771\n20118\n18772\n20121\n20118\n20073\n20122\n17501\n22742\n19150\n20053\n26220\n22890\n26810\n26599\n26604\n3446"
+      }
+    },
+    {
+      "bug_id": "p024_b07",
+      "program_id": "p024",
+      "problem_id": "634_C",
+      "kind": "augassign",
+      "change": "+= -> -=",
+      "lineno": "8",
+      "code_path": "data/buggy/p024/p024_b07.py",
+      "tests_path": "data/tests/p024.json",
+      "hidden": 1,
+      "new_inputs": 1,
+      "both": 1,
+      "either": 1,
+      "review_note": "",
+      "hidden_witness": {
+        "index": 2,
+        "reason": "output_difference",
+        "error": "",
+        "expected": "3\n4\n4\n",
+        "actual": "-3\n-4\n-4\n"
+      },
+      "new_witness": {
+        "index": 1,
+        "reason": "output_difference",
+        "error": "",
+        "expected": "0\n342\n342\n",
+        "actual": "0\n-342\n-342\n"
+      }
+    },
+    {
+      "bug_id": "p024_b08",
+      "program_id": "p024",
+      "problem_id": "634_C",
+      "kind": "arithmetic",
+      "change": "- -> +",
+      "lineno": "55",
+      "code_path": "data/buggy/p024/p024_b08.py",
+      "tests_path": "data/tests/p024.json",
+      "hidden": 1,
+      "new_inputs": 1,
+      "both": 1,
+      "either": 1,
+      "review_note": "",
+      "hidden_witness": {
+        "index": 2,
+        "reason": "output_difference",
+        "error": "",
+        "expected": "3\n4\n4\n",
+        "actual": "9\n10\n14\n"
+      },
+      "new_witness": {
+        "index": 0,
+        "reason": "output_difference",
+        "error": "",
+        "expected": "0\n",
+        "actual": "76\n"
+      }
+    },
+    {
+      "bug_id": "p024_b09",
+      "program_id": "p024",
+      "problem_id": "634_C",
+      "kind": "augassign",
+      "change": "+= -> -=",
+      "lineno": "52",
+      "code_path": "data/buggy/p024/p024_b09.py",
+      "tests_path": "data/tests/p024.json",
+      "hidden": 1,
+      "new_inputs": 1,
+      "both": 1,
+      "either": 1,
+      "review_note": "",
+      "hidden_witness": {
+        "index": 2,
+        "reason": "output_difference",
+        "error": "",
+        "expected": "3\n4\n4\n",
+        "actual": "3\n3\n3\n3\n3\n"
+      },
+      "new_witness": {
+        "index": 1,
+        "reason": "output_difference",
+        "error": "",
+        "expected": "0\n342\n342\n",
+        "actual": "0\n0\n0\n0\n0\n0\n0\n0\n0\n0\n"
+      }
+    },
+    {
+      "bug_id": "p024_b10",
+      "program_id": "p024",
+      "problem_id": "634_C",
+      "kind": "arithmetic",
+      "change": "- -> +",
+      "lineno": "54",
+      "code_path": "data/buggy/p024/p024_b10.py",
+      "tests_path": "data/tests/p024.json",
+      "hidden": 1,
+      "new_inputs": 1,
+      "both": 1,
+      "either": 1,
+      "review_note": "",
+      "hidden_witness": {
+        "index": 0,
+        "reason": "runtime_error",
+        "error": "  File \"C:\\Users\\林\\Desktop\\engr5570-f26-group7\\data\\buggy\\p024\\p024_b10.py\", line 56, in main\n    pre_sum = bit_pre.query(p + 1)\n  File \"C:\\Users\\林\\Desktop\\engr5570-f26-group7\\data\\buggy\\p024\\p024_b10.py\", line 15, in query\n    res += self.tree[idx]\nIndexError: list index out of range",
+        "expected": "0\n",
+        "actual": ""
+      },
+      "new_witness": {
+        "index": 0,
+        "reason": "runtime_error",
+        "error": "  File \"C:\\Users\\林\\Desktop\\engr5570-f26-group7\\data\\buggy\\p024\\p024_b10.py\", line 56, in main\n    pre_sum = bit_pre.query(p + 1)\n  File \"C:\\Users\\林\\Desktop\\engr5570-f26-group7\\data\\buggy\\p024\\p024_b10.py\", line 15, in query\n    res += self.tree[idx]\nIndexError: list index out of range",
+        "expected": "0\n",
+        "actual": ""
+      }
+    },
+    {
+      "bug_id": "p024_b11",
+      "program_id": "p024",
+      "problem_id": "634_C",
+      "kind": "constant",
+      "change": "0 -> 1",
+      "lineno": "13",
+      "code_path": "data/buggy/p024/p024_b11.py",
+      "tests_path": "data/tests/p024.json",
+      "hidden": 1,
+      "new_inputs": 1,
+      "both": 1,
+      "either": 1,
+      "review_note": "",
+      "hidden_witness": {
+        "index": 2,
+        "reason": "output_difference",
+        "error": "",
+        "expected": "3\n4\n4\n",
+        "actual": "2\n4\n4\n"
+      },
+      "new_witness": {
+        "index": 9,
+        "reason": "output_difference",
+        "error": "",
+        "expected": "0\n3\n0\n3\n3\n3\n3\n",
+        "actual": "0\n3\n0\n3\n3\n6\n6\n"
+      }
+    },
+    {
+      "bug_id": "p024_b12",
+      "program_id": "p024",
+      "problem_id": "634_C",
+      "kind": "constant",
+      "change": "1 -> 0",
+      "lineno": "54",
+      "code_path": "data/buggy/p024/p024_b12.py",
+      "tests_path": "data/tests/p024.json",
+      "hidden": 1,
+      "new_inputs": 1,
+      "both": 1,
+      "either": 1,
+      "review_note": "",
+      "hidden_witness": {
+        "index": 2,
+        "reason": "output_difference",
+        "error": "",
+        "expected": "3\n4\n4\n",
+        "actual": "4\n5\n4\n"
+      },
+      "new_witness": {
+        "index": 0,
+        "reason": "output_difference",
+        "error": "",
+        "expected": "0\n",
+        "actual": "6\n"
+      }
+    },
+    {
+      "bug_id": "p024_b13",
+      "program_id": "p024",
+      "problem_id": "634_C",
+      "kind": "arithmetic",
+      "change": "- -> +",
+      "lineno": "49",
+      "code_path": "data/buggy/p024/p024_b13.py",
+      "tests_path": "data/tests/p024.json",
+      "hidden": 1,
+      "new_inputs": 1,
+      "both": 1,
+      "either": 1,
+      "review_note": "",
+      "hidden_witness": {
+        "index": 6,
+        "reason": "output_difference",
+        "error": "",
+        "expected": "3\n3\n4\n",
+        "actual": "3\n3\n6\n"
+      },
+      "new_witness": {
+        "index": 2,
+        "reason": "output_difference",
+        "error": "",
+        "expected": "0\n0\n0\n0\n0\n0\n0\n0\n0\n3\n1328\n1327\n1330\n1334\n2547\n2544\n2430\n1334\n1336\n3868\n4713\n3978\n3868\n3980\n4718\n3868\n3871\n4715\n4715\n3984\n4718\n3871\n5190\n3872\n5190\n3397\n5309\n",
+        "actual": "0\n0\n0\n0\n0\n0\n0\n0\n0\n3\n1328\n1327\n1330\n1334\n2547\n2544\n2430\n1334\n1336\n3868\n4713\n3978\n6284\n3980\n7134\n6284\n6287\n7131\n7131\n3984\n7134\n6287\n7606\n6288\n7606\n5813\n5309\n"
+      }
+    },
+    {
+      "bug_id": "p024_b14",
+      "program_id": "p024",
+      "problem_id": "634_C",
+      "kind": "constant",
+      "change": "1 -> 0",
+      "lineno": "25",
+      "code_path": "data/buggy/p024/p024_b14.py",
+      "tests_path": "data/tests/p024.json",
+      "hidden": 1,
+      "new_inputs": 1,
+      "both": 1,
+      "either": 1,
+      "review_note": "",
+      "hidden_witness": {
+        "index": 0,
+        "reason": "runtime_error",
+        "error": "  File \"C:\\Users\\林\\Desktop\\engr5570-f26-group7\\data\\buggy\\p024\\p024_b14.py\", line 61, in <module>\n    main()\n  File \"C:\\Users\\林\\Desktop\\engr5570-f26-group7\\data\\buggy\\p024\\p024_b14.py\", line 46, in main\n    old_b_val = min(orders[d], b)\nIndexError: list index out of range",
+        "expected": "0\n",
+        "actual": ""
+      },
+      "new_witness": {
+        "index": 0,
+        "reason": "runtime_error",
+        "error": "  File \"C:\\Users\\林\\Desktop\\engr5570-f26-group7\\data\\buggy\\p024\\p024_b14.py\", line 61, in <module>\n    main()\n  File \"C:\\Users\\林\\Desktop\\engr5570-f26-group7\\data\\buggy\\p024\\p024_b14.py\", line 46, in main\n    old_b_val = min(orders[d], b)\nIndexError: list index out of range",
+        "expected": "0\n",
+        "actual": ""
+      }
+    },
+    {
+      "bug_id": "p024_b15",
+      "program_id": "p024",
+      "problem_id": "634_C",
+      "kind": "constant",
+      "change": "1 -> 0",
+      "lineno": "27",
+      "code_path": "data/buggy/p024/p024_b15.py",
+      "tests_path": "data/tests/p024.json",
+      "hidden": 1,
+      "new_inputs": 1,
+      "both": 1,
+      "either": 1,
+      "review_note": "",
+      "hidden_witness": {
+        "index": 0,
+        "reason": "runtime_error",
+        "error": "  File \"C:\\Users\\林\\Desktop\\engr5570-f26-group7\\data\\buggy\\p024\\p024_b15.py\", line 61, in <module>\n    main()\n  File \"C:\\Users\\林\\Desktop\\engr5570-f26-group7\\data\\buggy\\p024\\p024_b15.py\", line 46, in main\n    old_b_val = min(orders[d], b)\nIndexError: list index out of range",
+        "expected": "0\n",
+        "actual": ""
+      },
+      "new_witness": {
+        "index": 0,
+        "reason": "runtime_error",
+        "error": "  File \"C:\\Users\\林\\Desktop\\engr5570-f26-group7\\data\\buggy\\p024\\p024_b15.py\", line 61, in <module>\n    main()\n  File \"C:\\Users\\林\\Desktop\\engr5570-f26-group7\\data\\buggy\\p024\\p024_b15.py\", line 46, in main\n    old_b_val = min(orders[d], b)\nIndexError: list index out of range",
+        "expected": "0\n",
+        "actual": ""
+      }
+    }
+  ]
+}

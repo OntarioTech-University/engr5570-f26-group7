@@ -1,0 +1,38 @@
+{
+  "settings": {
+    "timeout": 5.0,
+    "python": "3.10.11",
+    "method": "raw_output_v1"
+  },
+  "rows": [
+    {
+      "bug_id": "p010_b01",
+      "program_id": "p010",
+      "problem_id": "monks_choice_of_numbers_1",
+      "kind": "relational",
+      "change": "== -> !=",
+      "lineno": "44",
+      "code_path": "data/buggy/p010/p010_b01.py",
+      "tests_path": "data/tests/p010.json",
+      "hidden": 1,
+      "new_inputs": 1,
+      "both": 1,
+      "either": 1,
+      "review_note": "",
+      "hidden_witness": {
+        "index": 0,
+        "reason": "output_difference",
+        "error": "",
+        "expected": "8624\n8512\n8941\n7655\n8483\n8541\n8077\n8676\n8306\n8509\n",
+        "actual": ""
+      },
+      "new_witness": {
+        "index": 0,
+        "reason": "output_difference",
+        "error": "",
+        "expected": "10\n",
+        "actual": ""
+      }
+    }
+  ]
+}

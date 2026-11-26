@@ -1,0 +1,432 @@
+{
+  "settings": {
+    "timeout": 5.0,
+    "python": "3.10.11",
+    "method": "raw_output_v1"
+  },
+  "rows": [
+    {
+      "bug_id": "p023_b01",
+      "program_id": "p023",
+      "problem_id": "634_C",
+      "kind": "negation",
+      "change": "not x -> x",
+      "lineno": "68",
+      "code_path": "data/buggy/p023/p023_b01.py",
+      "tests_path": "data/tests/p023.json",
+      "hidden": 1,
+      "new_inputs": 1,
+      "both": 1,
+      "either": 1,
+      "review_note": "",
+      "hidden_witness": {
+        "index": 0,
+        "reason": "output_difference",
+        "error": "",
+        "expected": "0\n",
+        "actual": ""
+      },
+      "new_witness": {
+        "index": 0,
+        "reason": "output_difference",
+        "error": "",
+        "expected": "0\n",
+        "actual": ""
+      }
+    },
+    {
+      "bug_id": "p023_b02",
+      "program_id": "p023",
+      "problem_id": "634_C",
+      "kind": "relational",
+      "change": "== -> !=",
+      "lineno": "102",
+      "code_path": "data/buggy/p023/p023_b02.py",
+      "tests_path": "data/tests/p023.json",
+      "hidden": 1,
+      "new_inputs": 1,
+      "both": 1,
+      "either": 1,
+      "review_note": "",
+      "hidden_witness": {
+        "index": 0,
+        "reason": "output_difference",
+        "error": "",
+        "expected": "0\n",
+        "actual": ""
+      },
+      "new_witness": {
+        "index": 0,
+        "reason": "output_difference",
+        "error": "",
+        "expected": "0\n",
+        "actual": ""
+      }
+    },
+    {
+      "bug_id": "p023_b03",
+      "program_id": "p023",
+      "problem_id": "634_C",
+      "kind": "constant",
+      "change": "0 -> 1",
+      "lineno": "95",
+      "code_path": "data/buggy/p023/p023_b03.py",
+      "tests_path": "data/tests/p023.json",
+      "hidden": 1,
+      "new_inputs": 1,
+      "both": 1,
+      "either": 1,
+      "review_note": "",
+      "hidden_witness": {
+        "index": 2,
+        "reason": "output_difference",
+        "error": "",
+        "expected": "3\n4\n4\n",
+        "actual": "2\n4\n2\n"
+      },
+      "new_witness": {
+        "index": 2,
+        "reason": "output_difference",
+        "error": "",
+        "expected": "0\n0\n0\n0\n0\n0\n0\n0\n0\n3\n1328\n1327\n1330\n1334\n2547\n2544\n2430\n1334\n1336\n3868\n4713\n3978\n3868\n3980\n4718\n3868\n3871\n4715\n4715\n3984\n4718\n3871\n5190\n3872\n5190\n3397\n5309\n",
+        "actual": "0\n0\n0\n0\n0\n0\n0\n0\n0\n3\n1328\n1327\n1330\n1334\n2547\n2544\n2430\n1334\n1336\n3868\n4713\n3978\n3868\n3980\n4718\n3868\n3871\n4715\n4715\n3984\n4718\n3871\n5189\n3871\n5189\n3396\n5308\n"
+      }
+    },
+    {
+      "bug_id": "p023_b04",
+      "program_id": "p023",
+      "problem_id": "634_C",
+      "kind": "augassign",
+      "change": "+= -> -=",
+      "lineno": "87",
+      "code_path": "data/buggy/p023/p023_b04.py",
+      "tests_path": "data/tests/p023.json",
+      "hidden": 1,
+      "new_inputs": 1,
+      "both": 1,
+      "either": 1,
+      "review_note": "",
+      "hidden_witness": {
+        "index": 2,
+        "reason": "output_difference",
+        "error": "",
+        "expected": "3\n4\n4\n",
+        "actual": "-5\n-5\n-6\n"
+      },
+      "new_witness": {
+        "index": 1,
+        "reason": "output_difference",
+        "error": "",
+        "expected": "0\n342\n342\n",
+        "actual": "0\n-2136\n-2136\n"
+      }
+    },
+    {
+      "bug_id": "p023_b05",
+      "program_id": "p023",
+      "problem_id": "634_C",
+      "kind": "relational",
+      "change": "!= -> ==",
+      "lineno": "99",
+      "code_path": "data/buggy/p023/p023_b05.py",
+      "tests_path": "data/tests/p023.json",
+      "hidden": 1,
+      "new_inputs": 1,
+      "both": 1,
+      "either": 1,
+      "review_note": "",
+      "hidden_witness": {
+        "index": 2,
+        "reason": "output_difference",
+        "error": "",
+        "expected": "3\n4\n4\n",
+        "actual": "1\n0\n2\n"
+      },
+      "new_witness": {
+        "index": 1,
+        "reason": "output_difference",
+        "error": "",
+        "expected": "0\n342\n342\n",
+        "actual": "0\n0\n0\n"
+      }
+    },
+    {
+      "bug_id": "p023_b06",
+      "program_id": "p023",
+      "problem_id": "634_C",
+      "kind": "arithmetic",
+      "change": "- -> +",
+      "lineno": "94",
+      "code_path": "data/buggy/p023/p023_b06.py",
+      "tests_path": "data/tests/p023.json",
+      "hidden": 1,
+      "new_inputs": 1,
+      "both": 1,
+      "either": 1,
+      "review_note": "",
+      "hidden_witness": {
+        "index": 6,
+        "reason": "output_difference",
+        "error": "",
+        "expected": "3\n3\n4\n",
+        "actual": "3\n3\n6\n"
+      },
+      "new_witness": {
+        "index": 2,
+        "reason": "output_difference",
+        "error": "",
+        "expected": "0\n0\n0\n0\n0\n0\n0\n0\n0\n3\n1328\n1327\n1330\n1334\n2547\n2544\n2430\n1334\n1336\n3868\n4713\n3978\n3868\n3980\n4718\n3868\n3871\n4715\n4715\n3984\n4718\n3871\n5190\n3872\n5190\n3397\n5309\n",
+        "actual": "0\n0\n0\n0\n0\n0\n0\n0\n0\n3\n1328\n1327\n1330\n1334\n2547\n2544\n2430\n1334\n1336\n3868\n4713\n3978\n6284\n3980\n7134\n6284\n6287\n7131\n7131\n3984\n7134\n6287\n7606\n6288\n7606\n5813\n5309\n"
+      }
+    },
+    {
+      "bug_id": "p023_b07",
+      "program_id": "p023",
+      "problem_id": "634_C",
+      "kind": "constant",
+      "change": "0 -> 1",
+      "lineno": "32",
+      "code_path": "data/buggy/p023/p023_b07.py",
+      "tests_path": "data/tests/p023.json",
+      "hidden": 1,
+      "new_inputs": 1,
+      "both": 1,
+      "either": 1,
+      "review_note": "",
+      "hidden_witness": {
+        "index": 0,
+        "reason": "output_difference",
+        "error": "",
+        "expected": "0\n",
+        "actual": "1\n"
+      },
+      "new_witness": {
+        "index": 0,
+        "reason": "output_difference",
+        "error": "",
+        "expected": "0\n",
+        "actual": "1\n"
+      }
+    },
+    {
+      "bug_id": "p023_b08",
+      "program_id": "p023",
+      "problem_id": "634_C",
+      "kind": "augassign",
+      "change": "+= -> -=",
+      "lineno": "35",
+      "code_path": "data/buggy/p023/p023_b08.py",
+      "tests_path": "data/tests/p023.json",
+      "hidden": 1,
+      "new_inputs": 1,
+      "both": 1,
+      "either": 1,
+      "review_note": "",
+      "hidden_witness": {
+        "index": 2,
+        "reason": "output_difference",
+        "error": "",
+        "expected": "3\n4\n4\n",
+        "actual": "-3\n-4\n-4\n"
+      },
+      "new_witness": {
+        "index": 1,
+        "reason": "output_difference",
+        "error": "",
+        "expected": "0\n342\n342\n",
+        "actual": "0\n-342\n-342\n"
+      }
+    },
+    {
+      "bug_id": "p023_b09",
+      "program_id": "p023",
+      "problem_id": "634_C",
+      "kind": "relational",
+      "change": "<= -> <",
+      "lineno": "31",
+      "code_path": "data/buggy/p023/p023_b09.py",
+      "tests_path": "data/tests/p023.json",
+      "hidden": 0,
+      "new_inputs": 0,
+      "both": 0,
+      "either": 0,
+      "review_note": "",
+      "hidden_witness": null,
+      "new_witness": null
+    },
+    {
+      "bug_id": "p023_b10",
+      "program_id": "p023",
+      "problem_id": "634_C",
+      "kind": "augassign",
+      "change": "+= -> -=",
+      "lineno": "23",
+      "code_path": "data/buggy/p023/p023_b10.py",
+      "tests_path": "data/tests/p023.json",
+      "hidden": 1,
+      "new_inputs": 1,
+      "both": 1,
+      "either": 1,
+      "review_note": "",
+      "hidden_witness": {
+        "index": 2,
+        "reason": "output_difference",
+        "error": "",
+        "expected": "3\n4\n4\n",
+        "actual": "-3\n-4\n-4\n"
+      },
+      "new_witness": {
+        "index": 1,
+        "reason": "output_difference",
+        "error": "",
+        "expected": "0\n342\n342\n",
+        "actual": "0\n-342\n-342\n"
+      }
+    },
+    {
+      "bug_id": "p023_b11",
+      "program_id": "p023",
+      "problem_id": "634_C",
+      "kind": "relational",
+      "change": "!= -> ==",
+      "lineno": "95",
+      "code_path": "data/buggy/p023/p023_b11.py",
+      "tests_path": "data/tests/p023.json",
+      "hidden": 1,
+      "new_inputs": 1,
+      "both": 1,
+      "either": 1,
+      "review_note": "",
+      "hidden_witness": {
+        "index": 2,
+        "reason": "output_difference",
+        "error": "",
+        "expected": "3\n4\n4\n",
+        "actual": "2\n4\n2\n"
+      },
+      "new_witness": {
+        "index": 2,
+        "reason": "output_difference",
+        "error": "",
+        "expected": "0\n0\n0\n0\n0\n0\n0\n0\n0\n3\n1328\n1327\n1330\n1334\n2547\n2544\n2430\n1334\n1336\n3868\n4713\n3978\n3868\n3980\n4718\n3868\n3871\n4715\n4715\n3984\n4718\n3871\n5190\n3872\n5190\n3397\n5309\n",
+        "actual": "0\n0\n0\n0\n0\n0\n0\n0\n0\n3\n1328\n1325\n1325\n1328\n1325\n1328\n0\n1328\n1328\n2652\n1325\n3978\n2652\n3978\n1325\n2652\n2649\n1325\n1325\n3980\n1325\n2649\n3973\n2649\n3973\n0\n5302\n"
+      }
+    },
+    {
+      "bug_id": "p023_b12",
+      "program_id": "p023",
+      "problem_id": "634_C",
+      "kind": "constant",
+      "change": "2 -> 3",
+      "lineno": "102",
+      "code_path": "data/buggy/p023/p023_b12.py",
+      "tests_path": "data/tests/p023.json",
+      "hidden": 1,
+      "new_inputs": 1,
+      "both": 1,
+      "either": 1,
+      "review_note": "",
+      "hidden_witness": {
+        "index": 0,
+        "reason": "output_difference",
+        "error": "",
+        "expected": "0\n",
+        "actual": ""
+      },
+      "new_witness": {
+        "index": 0,
+        "reason": "output_difference",
+        "error": "",
+        "expected": "0\n",
+        "actual": ""
+      }
+    },
+    {
+      "bug_id": "p023_b13",
+      "program_id": "p023",
+      "problem_id": "634_C",
+      "kind": "relational",
+      "change": "<= -> <",
+      "lineno": "22",
+      "code_path": "data/buggy/p023/p023_b13.py",
+      "tests_path": "data/tests/p023.json",
+      "hidden": 1,
+      "new_inputs": 1,
+      "both": 1,
+      "either": 1,
+      "review_note": "",
+      "hidden_witness": {
+        "index": 2,
+        "reason": "output_difference",
+        "error": "",
+        "expected": "3\n4\n4\n",
+        "actual": "1\n2\n2\n"
+      },
+      "new_witness": {
+        "index": 1,
+        "reason": "output_difference",
+        "error": "",
+        "expected": "0\n342\n342\n",
+        "actual": "0\n-686\n-1026\n"
+      }
+    },
+    {
+      "bug_id": "p023_b14",
+      "program_id": "p023",
+      "problem_id": "634_C",
+      "kind": "arithmetic",
+      "change": "- -> +",
+      "lineno": "113",
+      "code_path": "data/buggy/p023/p023_b14.py",
+      "tests_path": "data/tests/p023.json",
+      "hidden": 1,
+      "new_inputs": 1,
+      "both": 1,
+      "either": 1,
+      "review_note": "",
+      "hidden_witness": {
+        "index": 0,
+        "reason": "runtime_error",
+        "error": "  File \"C:\\Users\\林\\Desktop\\engr5570-f26-group7\\data\\buggy\\p023\\p023_b14.py\", line 72, in solve\n    sum_b = bit_b.query(p + 1)\n  File \"C:\\Users\\林\\Desktop\\engr5570-f26-group7\\data\\buggy\\p023\\p023_b14.py\", line 36, in query\n    s += self.tree[index]\nIndexError: list index out of range",
+        "expected": "0\n",
+        "actual": ""
+      },
+      "new_witness": {
+        "index": 0,
+        "reason": "runtime_error",
+        "error": "  File \"C:\\Users\\林\\Desktop\\engr5570-f26-group7\\data\\buggy\\p023\\p023_b14.py\", line 72, in solve\n    sum_b = bit_b.query(p + 1)\n  File \"C:\\Users\\林\\Desktop\\engr5570-f26-group7\\data\\buggy\\p023\\p023_b14.py\", line 36, in query\n    s += self.tree[index]\nIndexError: list index out of range",
+        "expected": "0\n",
+        "actual": ""
+      }
+    },
+    {
+      "bug_id": "p023_b15",
+      "program_id": "p023",
+      "problem_id": "634_C",
+      "kind": "arithmetic",
+      "change": "+ -> -",
+      "lineno": "119",
+      "code_path": "data/buggy/p023/p023_b15.py",
+      "tests_path": "data/tests/p023.json",
+      "hidden": 1,
+      "new_inputs": 1,
+      "both": 1,
+      "either": 1,
+      "review_note": "",
+      "hidden_witness": {
+        "index": 2,
+        "reason": "output_difference",
+        "error": "",
+        "expected": "3\n4\n4\n",
+        "actual": "6\n7\n9\n"
+      },
+      "new_witness": {
+        "index": 0,
+        "reason": "output_difference",
+        "error": "",
+        "expected": "0\n",
+        "actual": "38\n"
+      }
+    }
+  ]
+}

@@ -1,0 +1,408 @@
+{
+  "settings": {
+    "timeout": 5.0,
+    "python": "3.10.11",
+    "method": "raw_output_v1"
+  },
+  "rows": [
+    {
+      "bug_id": "p007_b01",
+      "program_id": "p007",
+      "problem_id": "comm3",
+      "kind": "logical",
+      "change": "and -> or",
+      "lineno": "33",
+      "code_path": "data/buggy/p007/p007_b01.py",
+      "tests_path": "data/tests/p007.json",
+      "hidden": 0,
+      "new_inputs": 0,
+      "both": 0,
+      "either": 0,
+      "review_note": "",
+      "hidden_witness": null,
+      "new_witness": null
+    },
+    {
+      "bug_id": "p007_b02",
+      "program_id": "p007",
+      "problem_id": "comm3",
+      "kind": "negation",
+      "change": "not x -> x",
+      "lineno": "45",
+      "code_path": "data/buggy/p007/p007_b02.py",
+      "tests_path": "data/tests/p007.json",
+      "hidden": 1,
+      "new_inputs": 1,
+      "both": 1,
+      "either": 1,
+      "review_note": "",
+      "hidden_witness": {
+        "index": 12,
+        "reason": "output_difference",
+        "error": "",
+        "expected": "yes\nyes\nyes\n",
+        "actual": "no\nyes\nyes\n"
+      },
+      "new_witness": {
+        "index": 2,
+        "reason": "output_difference",
+        "error": "",
+        "expected": "no\nno\nno\nno\nno\nyes\nno\nno\nno\nno\nno\nno\nno\nno\nno\nno\nno\nno\nyes\nno\nyes\nno\nno\nno\nyes\nno\nno\nno\nno\nno\nno\nno\nyes\nyes\n",
+        "actual": "no\nno\nno\nno\nno\nyes\nno\nno\nno\nno\nno\nno\nno\nno\nno\nno\nno\nno\nyes\nno\nyes\nno\nno\nno\nno\nno\nno\nno\nno\nno\nno\nno\nyes\nyes\n"
+      }
+    },
+    {
+      "bug_id": "p007_b03",
+      "program_id": "p007",
+      "problem_id": "comm3",
+      "kind": "relational",
+      "change": "<= -> <",
+      "lineno": "7",
+      "code_path": "data/buggy/p007/p007_b03.py",
+      "tests_path": "data/tests/p007.json",
+      "hidden": 1,
+      "new_inputs": 1,
+      "both": 1,
+      "either": 1,
+      "review_note": "",
+      "hidden_witness": {
+        "index": 5,
+        "reason": "output_difference",
+        "error": "",
+        "expected": "yes\nno\nyes\n",
+        "actual": "no\nno\nyes\n"
+      },
+      "new_witness": {
+        "index": 2,
+        "reason": "output_difference",
+        "error": "",
+        "expected": "no\nno\nno\nno\nno\nyes\nno\nno\nno\nno\nno\nno\nno\nno\nno\nno\nno\nno\nyes\nno\nyes\nno\nno\nno\nyes\nno\nno\nno\nno\nno\nno\nno\nyes\nyes\n",
+        "actual": "no\nno\nno\nno\nno\nyes\nno\nno\nno\nno\nno\nno\nno\nno\nno\nno\nno\nno\nyes\nno\nyes\nno\nno\nno\nyes\nno\nno\nno\nno\nno\nno\nno\nno\nyes\n"
+      }
+    },
+    {
+      "bug_id": "p007_b04",
+      "program_id": "p007",
+      "problem_id": "comm3",
+      "kind": "arithmetic",
+      "change": "- -> +",
+      "lineno": "4",
+      "code_path": "data/buggy/p007/p007_b04.py",
+      "tests_path": "data/tests/p007.json",
+      "hidden": 1,
+      "new_inputs": 1,
+      "both": 1,
+      "either": 1,
+      "review_note": "",
+      "hidden_witness": {
+        "index": 2,
+        "reason": "output_difference",
+        "error": "",
+        "expected": "yes\nyes\nyes\n",
+        "actual": "yes\nyes\nno\n"
+      },
+      "new_witness": {
+        "index": 2,
+        "reason": "output_difference",
+        "error": "",
+        "expected": "no\nno\nno\nno\nno\nyes\nno\nno\nno\nno\nno\nno\nno\nno\nno\nno\nno\nno\nyes\nno\nyes\nno\nno\nno\nyes\nno\nno\nno\nno\nno\nno\nno\nyes\nyes\n",
+        "actual": "yes\nno\nno\nno\nno\nyes\nno\nno\nno\nno\nno\nno\nno\nno\nyes\nno\nno\nno\nno\nno\nyes\nno\nno\nno\nyes\nyes\nno\nno\nno\nno\nno\nno\nyes\nyes\n"
+      }
+    },
+    {
+      "bug_id": "p007_b05",
+      "program_id": "p007",
+      "problem_id": "comm3",
+      "kind": "logical",
+      "change": "and -> or",
+      "lineno": "45",
+      "code_path": "data/buggy/p007/p007_b05.py",
+      "tests_path": "data/tests/p007.json",
+      "hidden": 0,
+      "new_inputs": 0,
+      "both": 0,
+      "either": 0,
+      "review_note": "",
+      "hidden_witness": null,
+      "new_witness": null
+    },
+    {
+      "bug_id": "p007_b06",
+      "program_id": "p007",
+      "problem_id": "comm3",
+      "kind": "negation",
+      "change": "not x -> x",
+      "lineno": "43",
+      "code_path": "data/buggy/p007/p007_b06.py",
+      "tests_path": "data/tests/p007.json",
+      "hidden": 1,
+      "new_inputs": 1,
+      "both": 1,
+      "either": 1,
+      "review_note": "",
+      "hidden_witness": {
+        "index": 7,
+        "reason": "output_difference",
+        "error": "",
+        "expected": "yes\nno\nno\n",
+        "actual": "no\nno\nno\n"
+      },
+      "new_witness": {
+        "index": 2,
+        "reason": "output_difference",
+        "error": "",
+        "expected": "no\nno\nno\nno\nno\nyes\nno\nno\nno\nno\nno\nno\nno\nno\nno\nno\nno\nno\nyes\nno\nyes\nno\nno\nno\nyes\nno\nno\nno\nno\nno\nno\nno\nyes\nyes\n",
+        "actual": "no\nno\nno\nno\nno\nyes\nno\nno\nno\nno\nno\nno\nno\nno\nno\nno\nno\nno\nyes\nno\nyes\nno\nno\nno\nyes\nno\nno\nno\nno\nno\nno\nno\nno\nno\n"
+      }
+    },
+    {
+      "bug_id": "p007_b07",
+      "program_id": "p007",
+      "problem_id": "comm3",
+      "kind": "relational",
+      "change": "== -> !=",
+      "lineno": "22",
+      "code_path": "data/buggy/p007/p007_b07.py",
+      "tests_path": "data/tests/p007.json",
+      "hidden": 1,
+      "new_inputs": 1,
+      "both": 1,
+      "either": 1,
+      "review_note": "",
+      "hidden_witness": {
+        "index": 0,
+        "reason": "output_difference",
+        "error": "",
+        "expected": "no\nyes\nno\n",
+        "actual": "yes\nyes\nyes\n"
+      },
+      "new_witness": {
+        "index": 0,
+        "reason": "output_difference",
+        "error": "",
+        "expected": "no\n",
+        "actual": "yes\n"
+      }
+    },
+    {
+      "bug_id": "p007_b08",
+      "program_id": "p007",
+      "problem_id": "comm3",
+      "kind": "constant",
+      "change": "2 -> 1",
+      "lineno": "33",
+      "code_path": "data/buggy/p007/p007_b08.py",
+      "tests_path": "data/tests/p007.json",
+      "hidden": 1,
+      "new_inputs": 1,
+      "both": 1,
+      "either": 1,
+      "review_note": "",
+      "hidden_witness": {
+        "index": 39,
+        "reason": "output_difference",
+        "error": "",
+        "expected": "no\nyes\nyes\n",
+        "actual": "no\nno\nyes\n"
+      },
+      "new_witness": {
+        "index": 3,
+        "reason": "output_difference",
+        "error": "",
+        "expected": "yes\nyes\nno\nno\nyes\nno\nyes\nyes\nyes\nyes\nyes\nyes\nno\nyes\nno\nno\nyes\nyes\nno\nno\nno\nno\nno\nno\nno\nyes\nno\nno\nno\nno\nno\nno\nno\nno\nno\nno\nno\nyes\nno\nno\nyes\nno\nno\nno\nyes\nno\nno\nno\nno\nno\nyes\nno\nno\nyes\nno\nyes\nno\nno\nno\nno\nno\nyes\nno\nno\nyes\nno\nno\nyes\nno\nno\nno\nno\nno\nno\nno\nno\nno\nno\nno\nno\nno\nno\nno\nno\nno\nno\nno\nyes\nno\nyes\nno\nno\nno\nno\nno\nyes\nno\nno\nyes\nno\n",
+        "actual": "yes\nyes\nno\nno\nyes\nno\nyes\nyes\nyes\nyes\nyes\nyes\nno\nyes\nno\nno\nyes\nyes\nno\nno\nno\nno\nno\nno\nno\nyes\nno\nno\nno\nno\nno\nno\nno\nno\nno\nno\nno\nyes\nno\nno\nyes\nno\nno\nno\nyes\nno\nno\nno\nno\nno\nyes\nno\nno\nyes\nno\nyes\nno\nno\nno\nno\nno\nyes\nno\nno\nyes\nno\nno\nyes\nno\nno\nno\nno\nno\nno\nno\nno\nno\nno\nno\nno\nno\nno\nno\nno\nno\nno\nno\nno\nno\nyes\nno\nno\nno\nno\nno\nyes\nno\nno\nyes\nno\n"
+      }
+    },
+    {
+      "bug_id": "p007_b09",
+      "program_id": "p007",
+      "problem_id": "comm3",
+      "kind": "arithmetic",
+      "change": "- -> +",
+      "lineno": "4",
+      "code_path": "data/buggy/p007/p007_b09.py",
+      "tests_path": "data/tests/p007.json",
+      "hidden": 1,
+      "new_inputs": 1,
+      "both": 1,
+      "either": 1,
+      "review_note": "",
+      "hidden_witness": {
+        "index": 5,
+        "reason": "output_difference",
+        "error": "",
+        "expected": "yes\nno\nyes\n",
+        "actual": "no\nno\nyes\n"
+      },
+      "new_witness": {
+        "index": 2,
+        "reason": "output_difference",
+        "error": "",
+        "expected": "no\nno\nno\nno\nno\nyes\nno\nno\nno\nno\nno\nno\nno\nno\nno\nno\nno\nno\nyes\nno\nyes\nno\nno\nno\nyes\nno\nno\nno\nno\nno\nno\nno\nyes\nyes\n",
+        "actual": "no\nno\nno\nyes\nno\nyes\nno\nno\nno\nno\nno\nno\nno\nno\nno\nno\nno\nno\nyes\nno\nyes\nno\nno\nno\nno\nno\nno\nno\nno\nno\nyes\nno\nyes\nno\n"
+      }
+    },
+    {
+      "bug_id": "p007_b10",
+      "program_id": "p007",
+      "problem_id": "comm3",
+      "kind": "logical",
+      "change": "and -> or",
+      "lineno": "39",
+      "code_path": "data/buggy/p007/p007_b10.py",
+      "tests_path": "data/tests/p007.json",
+      "hidden": 0,
+      "new_inputs": 0,
+      "both": 0,
+      "either": 0,
+      "review_note": "",
+      "hidden_witness": null,
+      "new_witness": null
+    },
+    {
+      "bug_id": "p007_b11",
+      "program_id": "p007",
+      "problem_id": "comm3",
+      "kind": "negation",
+      "change": "not x -> x",
+      "lineno": "33",
+      "code_path": "data/buggy/p007/p007_b11.py",
+      "tests_path": "data/tests/p007.json",
+      "hidden": 1,
+      "new_inputs": 1,
+      "both": 1,
+      "either": 1,
+      "review_note": "",
+      "hidden_witness": {
+        "index": 39,
+        "reason": "output_difference",
+        "error": "",
+        "expected": "no\nyes\nyes\n",
+        "actual": "no\nno\nyes\n"
+      },
+      "new_witness": {
+        "index": 3,
+        "reason": "output_difference",
+        "error": "",
+        "expected": "yes\nyes\nno\nno\nyes\nno\nyes\nyes\nyes\nyes\nyes\nyes\nno\nyes\nno\nno\nyes\nyes\nno\nno\nno\nno\nno\nno\nno\nyes\nno\nno\nno\nno\nno\nno\nno\nno\nno\nno\nno\nyes\nno\nno\nyes\nno\nno\nno\nyes\nno\nno\nno\nno\nno\nyes\nno\nno\nyes\nno\nyes\nno\nno\nno\nno\nno\nyes\nno\nno\nyes\nno\nno\nyes\nno\nno\nno\nno\nno\nno\nno\nno\nno\nno\nno\nno\nno\nno\nno\nno\nno\nno\nno\nyes\nno\nyes\nno\nno\nno\nno\nno\nyes\nno\nno\nyes\nno\n",
+        "actual": "yes\nyes\nno\nno\nyes\nno\nyes\nyes\nyes\nyes\nyes\nyes\nno\nyes\nno\nno\nyes\nyes\nno\nno\nno\nno\nno\nno\nno\nyes\nno\nno\nno\nno\nno\nno\nno\nno\nno\nno\nno\nyes\nno\nno\nyes\nno\nno\nno\nyes\nno\nno\nno\nno\nno\nyes\nno\nno\nyes\nno\nyes\nno\nno\nno\nno\nno\nyes\nno\nno\nyes\nno\nno\nyes\nno\nno\nno\nno\nno\nno\nno\nno\nno\nno\nno\nno\nno\nno\nno\nno\nno\nno\nno\nno\nno\nyes\nno\nno\nno\nno\nno\nyes\nno\nno\nyes\nno\n"
+      }
+    },
+    {
+      "bug_id": "p007_b12",
+      "program_id": "p007",
+      "problem_id": "comm3",
+      "kind": "constant",
+      "change": "0 -> 1",
+      "lineno": "37",
+      "code_path": "data/buggy/p007/p007_b12.py",
+      "tests_path": "data/tests/p007.json",
+      "hidden": 1,
+      "new_inputs": 1,
+      "both": 1,
+      "either": 1,
+      "review_note": "",
+      "hidden_witness": {
+        "index": 12,
+        "reason": "output_difference",
+        "error": "",
+        "expected": "yes\nyes\nyes\n",
+        "actual": "no\nyes\nyes\n"
+      },
+      "new_witness": {
+        "index": 2,
+        "reason": "output_difference",
+        "error": "",
+        "expected": "no\nno\nno\nno\nno\nyes\nno\nno\nno\nno\nno\nno\nno\nno\nno\nno\nno\nno\nyes\nno\nyes\nno\nno\nno\nyes\nno\nno\nno\nno\nno\nno\nno\nyes\nyes\n",
+        "actual": "no\nno\nno\nno\nno\nyes\nno\nno\nno\nno\nno\nno\nno\nno\nno\nno\nno\nno\nyes\nno\nyes\nno\nno\nno\nno\nno\nno\nno\nno\nno\nno\nno\nyes\nyes\n"
+      }
+    },
+    {
+      "bug_id": "p007_b13",
+      "program_id": "p007",
+      "problem_id": "comm3",
+      "kind": "negation",
+      "change": "not x -> x",
+      "lineno": "31",
+      "code_path": "data/buggy/p007/p007_b13.py",
+      "tests_path": "data/tests/p007.json",
+      "hidden": 1,
+      "new_inputs": 1,
+      "both": 1,
+      "either": 1,
+      "review_note": "",
+      "hidden_witness": {
+        "index": 7,
+        "reason": "output_difference",
+        "error": "",
+        "expected": "yes\nno\nno\n",
+        "actual": "no\nno\nno\n"
+      },
+      "new_witness": {
+        "index": 2,
+        "reason": "output_difference",
+        "error": "",
+        "expected": "no\nno\nno\nno\nno\nyes\nno\nno\nno\nno\nno\nno\nno\nno\nno\nno\nno\nno\nyes\nno\nyes\nno\nno\nno\nyes\nno\nno\nno\nno\nno\nno\nno\nyes\nyes\n",
+        "actual": "no\nno\nno\nno\nno\nyes\nno\nno\nno\nno\nno\nno\nno\nno\nno\nno\nno\nno\nyes\nno\nyes\nno\nno\nno\nno\nno\nno\nno\nno\nno\nno\nno\nno\nno\n"
+      }
+    },
+    {
+      "bug_id": "p007_b14",
+      "program_id": "p007",
+      "problem_id": "comm3",
+      "kind": "negation",
+      "change": "not x -> x",
+      "lineno": "39",
+      "code_path": "data/buggy/p007/p007_b14.py",
+      "tests_path": "data/tests/p007.json",
+      "hidden": 1,
+      "new_inputs": 1,
+      "both": 1,
+      "either": 1,
+      "review_note": "",
+      "hidden_witness": {
+        "index": 7,
+        "reason": "output_difference",
+        "error": "",
+        "expected": "yes\nno\nno\n",
+        "actual": "no\nno\nno\n"
+      },
+      "new_witness": {
+        "index": 2,
+        "reason": "output_difference",
+        "error": "",
+        "expected": "no\nno\nno\nno\nno\nyes\nno\nno\nno\nno\nno\nno\nno\nno\nno\nno\nno\nno\nyes\nno\nyes\nno\nno\nno\nyes\nno\nno\nno\nno\nno\nno\nno\nyes\nyes\n",
+        "actual": "no\nno\nno\nno\nno\nyes\nno\nno\nno\nno\nno\nno\nno\nno\nno\nno\nno\nno\nyes\nno\nyes\nno\nno\nno\nyes\nno\nno\nno\nno\nno\nno\nno\nno\nno\n"
+      }
+    },
+    {
+      "bug_id": "p007_b15",
+      "program_id": "p007",
+      "problem_id": "comm3",
+      "kind": "negation",
+      "change": "not x -> x",
+      "lineno": "37",
+      "code_path": "data/buggy/p007/p007_b15.py",
+      "tests_path": "data/tests/p007.json",
+      "hidden": 1,
+      "new_inputs": 1,
+      "both": 1,
+      "either": 1,
+      "review_note": "",
+      "hidden_witness": {
+        "index": 12,
+        "reason": "output_difference",
+        "error": "",
+        "expected": "yes\nyes\nyes\n",
+        "actual": "no\nyes\nyes\n"
+      },
+      "new_witness": {
+        "index": 2,
+        "reason": "output_difference",
+        "error": "",
+        "expected": "no\nno\nno\nno\nno\nyes\nno\nno\nno\nno\nno\nno\nno\nno\nno\nno\nno\nno\nyes\nno\nyes\nno\nno\nno\nyes\nno\nno\nno\nno\nno\nno\nno\nyes\nyes\n",
+        "actual": "no\nno\nno\nno\nno\nyes\nno\nno\nno\nno\nno\nno\nno\nno\nno\nno\nno\nno\nyes\nno\nyes\nno\nno\nno\nno\nno\nno\nno\nno\nno\nno\nno\nyes\nyes\n"
+      }
+    }
+  ]
+}

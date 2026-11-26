@@ -1,0 +1,396 @@
+{
+  "settings": {
+    "timeout": 5.0,
+    "python": "3.10.11",
+    "method": "raw_output_v1"
+  },
+  "rows": [
+    {
+      "bug_id": "p022_b01",
+      "program_id": "p022",
+      "problem_id": "309_B",
+      "kind": "relational",
+      "change": ">= -> >",
+      "lineno": "83",
+      "code_path": "data/buggy/p022/p022_b01.py",
+      "tests_path": "data/tests/p022.json",
+      "hidden": 0,
+      "new_inputs": 0,
+      "both": 0,
+      "either": 0,
+      "review_note": "multiple_valid_outputs",
+      "hidden_witness": null,
+      "new_witness": null
+    },
+    {
+      "bug_id": "p022_b02",
+      "program_id": "p022",
+      "problem_id": "309_B",
+      "kind": "constant",
+      "change": "0 -> -1",
+      "lineno": "50",
+      "code_path": "data/buggy/p022/p022_b02.py",
+      "tests_path": "data/tests/p022.json",
+      "hidden": 0,
+      "new_inputs": 0,
+      "both": 0,
+      "either": 0,
+      "review_note": "multiple_valid_outputs",
+      "hidden_witness": null,
+      "new_witness": null
+    },
+    {
+      "bug_id": "p022_b03",
+      "program_id": "p022",
+      "problem_id": "309_B",
+      "kind": "negation",
+      "change": "not x -> x",
+      "lineno": "11",
+      "code_path": "data/buggy/p022/p022_b03.py",
+      "tests_path": "data/tests/p022.json",
+      "hidden": 1,
+      "new_inputs": 1,
+      "both": 1,
+      "either": 1,
+      "review_note": "multiple_valid_outputs",
+      "hidden_witness": {
+        "index": 0,
+        "reason": "output_difference",
+        "error": "",
+        "expected": "isnr u eq\nqas gcj\nrnnf fpb c\ndz g\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n",
+        "actual": ""
+      },
+      "new_witness": {
+        "index": 1,
+        "reason": "output_difference",
+        "error": "",
+        "expected": "tc\n",
+        "actual": ""
+      }
+    },
+    {
+      "bug_id": "p022_b04",
+      "program_id": "p022",
+      "problem_id": "309_B",
+      "kind": "augassign",
+      "change": "+= -> -=",
+      "lineno": "41",
+      "code_path": "data/buggy/p022/p022_b04.py",
+      "tests_path": "data/tests/p022.json",
+      "hidden": 1,
+      "new_inputs": 1,
+      "both": 1,
+      "either": 1,
+      "review_note": "multiple_valid_outputs",
+      "hidden_witness": {
+        "index": 0,
+        "reason": "output_difference",
+        "error": "",
+        "expected": "isnr u eq\nqas gcj\nrnnf fpb c\ndz g\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n",
+        "actual": ""
+      },
+      "new_witness": {
+        "index": 2,
+        "reason": "output_difference",
+        "error": "",
+        "expected": "oocofwx rrvf ksubzcqyag xr\nslslkfaiqmxw vcbifrc papwt aw\nn ws xs xyeoqlmyu qchiweqqmyc\npu xjqldnuzzsm wlgzumlo cnp\nwhlaehcrao gxcg uhcdnybhwuru\njkuigil tqvbganbgy qizuxvsf wo\nhywnleah d oidhtqkwek jqxvn\nfqirwmai jamelrjd ektfxmydrcya\nozn u eepfixtnkt sfwudcgtfkg\ncpogpbpvqsmk f abzsyys g\nwokupwrn ytq yniqhyujx\nyvfiqquxpf ot clgorlxu itp\nrkmtfa jsrhdcn jkzb fheffdqrs\ndzs fqvykmhphez pdnrcfc vduq\nmjmbgvsfjg west tnjqh kspdv\ndcoivq v sqbhh glmi db hrlckne\nyxlmkpfttjk ljp ocdhselzce\npxxkpocg gpz kchj",
+        "actual": "vtuqta rh axxhbystwgc imaqtrio\nzjpkjmsxeox ct qnibnum\nosoypafnkko rbwwonq tld jy\nqbdeiwdjjqo aa tguzw ucazwyf\nimm zd am vwbnqbs gsvwh g\neyfbzxarky tryzhr zzqoia\nyuxkjvvjn xax qb bcladg hwk\nkzgq yk nyilcqbuqflp ij\nxywekegs h mtiwnumlhu uppp\nqtstdzrsdi tmzalsuk re\nfpbkijfwy rkez dzymxoc kpcd\nddxoaewymdlq qfmlq lhi jnlo\nwfrhdl ibfzcqhqzdv oaentqaaygc\nztsidflyjbx squjhtblhlq\nxfcueicbgx hb kuturgbny\nouarpbmbhpbl hoprzcyzzwo\nfuxwws yvcswyckrdgh qhmbzzai\naaexglpmiv gpjqs vwqceq\nggijuoiqu myd wbisgpewh "
+      }
+    },
+    {
+      "bug_id": "p022_b05",
+      "program_id": "p022",
+      "problem_id": "309_B",
+      "kind": "arithmetic",
+      "change": "+ -> -",
+      "lineno": "94",
+      "code_path": "data/buggy/p022/p022_b05.py",
+      "tests_path": "data/tests/p022.json",
+      "hidden": 1,
+      "new_inputs": 1,
+      "both": 1,
+      "either": 1,
+      "review_note": "multiple_valid_outputs",
+      "hidden_witness": {
+        "index": 0,
+        "reason": "output_difference",
+        "error": "",
+        "expected": "isnr u eq\nqas gcj\nrnnf fpb c\ndz g\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n",
+        "actual": "isnr u eq qas\ngcj rnnf fpb\nc dz g\n"
+      },
+      "new_witness": {
+        "index": 2,
+        "reason": "output_difference",
+        "error": "",
+        "expected": "oocofwx rrvf ksubzcqyag xr\nslslkfaiqmxw vcbifrc papwt aw\nn ws xs xyeoqlmyu qchiweqqmyc\npu xjqldnuzzsm wlgzumlo cnp\nwhlaehcrao gxcg uhcdnybhwuru\njkuigil tqvbganbgy qizuxvsf wo\nhywnleah d oidhtqkwek jqxvn\nfqirwmai jamelrjd ektfxmydrcya\nozn u eepfixtnkt sfwudcgtfkg\ncpogpbpvqsmk f abzsyys g\nwokupwrn ytq yniqhyujx\nyvfiqquxpf ot clgorlxu itp\nrkmtfa jsrhdcn jkzb fheffdqrs\ndzs fqvykmhphez pdnrcfc vduq\nmjmbgvsfjg west tnjqh kspdv\ndcoivq v sqbhh glmi db hrlckne\nyxlmkpfttjk ljp ocdhselzce\npxxkpocg gpz kchj",
+        "actual": "oocofwx rrvf ksubzcqyag xr\nslslkfaiqmxw vcbifrc papwt aw n\nws xs xyeoqlmyu qchiweqqmyc pu\nxjqldnuzzsm wlgzumlo cnp\nwhlaehcrao gxcg uhcdnybhwuru\njkuigil tqvbganbgy qizuxvsf wo\nhywnleah d oidhtqkwek jqxvn\nfqirwmai jamelrjd ektfxmydrcya\nozn u eepfixtnkt sfwudcgtfkg\ncpogpbpvqsmk f abzsyys g\nwokupwrn ytq yniqhyujx\nyvfiqquxpf ot clgorlxu itp\nrkmtfa jsrhdcn jkzb fheffdqrs\ndzs fqvykmhphez pdnrcfc vduq\nmjmbgvsfjg west tnjqh kspdv\ndcoivq v sqbhh glmi db hrlckne\nyxlmkpfttjk ljp ocdhselzce\npxxkpocg gpz kchj"
+      }
+    },
+    {
+      "bug_id": "p022_b06",
+      "program_id": "p022",
+      "problem_id": "309_B",
+      "kind": "relational",
+      "change": "< -> <=",
+      "lineno": "32",
+      "code_path": "data/buggy/p022/p022_b06.py",
+      "tests_path": "data/tests/p022.json",
+      "hidden": 0,
+      "new_inputs": 0,
+      "both": 0,
+      "either": 0,
+      "review_note": "multiple_valid_outputs",
+      "hidden_witness": null,
+      "new_witness": null
+    },
+    {
+      "bug_id": "p022_b07",
+      "program_id": "p022",
+      "problem_id": "309_B",
+      "kind": "constant",
+      "change": "0 -> -1",
+      "lineno": "26",
+      "code_path": "data/buggy/p022/p022_b07.py",
+      "tests_path": "data/tests/p022.json",
+      "hidden": 1,
+      "new_inputs": 1,
+      "both": 1,
+      "either": 1,
+      "review_note": "multiple_valid_outputs",
+      "hidden_witness": {
+        "index": 7,
+        "reason": "output_difference",
+        "error": "",
+        "expected": "gwia\nkvs bl\n",
+        "actual": "uuzu\ngwia\n"
+      },
+      "new_witness": {
+        "index": 2,
+        "reason": "output_difference",
+        "error": "",
+        "expected": "oocofwx rrvf ksubzcqyag xr\nslslkfaiqmxw vcbifrc papwt aw\nn ws xs xyeoqlmyu qchiweqqmyc\npu xjqldnuzzsm wlgzumlo cnp\nwhlaehcrao gxcg uhcdnybhwuru\njkuigil tqvbganbgy qizuxvsf wo\nhywnleah d oidhtqkwek jqxvn\nfqirwmai jamelrjd ektfxmydrcya\nozn u eepfixtnkt sfwudcgtfkg\ncpogpbpvqsmk f abzsyys g\nwokupwrn ytq yniqhyujx\nyvfiqquxpf ot clgorlxu itp\nrkmtfa jsrhdcn jkzb fheffdqrs\ndzs fqvykmhphez pdnrcfc vduq\nmjmbgvsfjg west tnjqh kspdv\ndcoivq v sqbhh glmi db hrlckne\nyxlmkpfttjk ljp ocdhselzce\npxxkpocg gpz kchj",
+        "actual": "bogzqciwassh cpcmc zpr\nnfzctlzo sj pbhujhhlit e\nrlcxjccy ccpppoi mgroesza mim\nrkuzh dxmt ejmngktnh\nybyakehqbwsd uw qzitptkzwgx\ncasnxmuohul mn rdduex\nrnyigqykrxv yykixfse wxqo\nsuhnqtbbcuet roih cmgbj iygjw\nlnrysgwqk mr fzphcibxa\nmnmijtpvnm bnrdbsxqse xuuvwu\nzttmaywufqlm erahzsnwar iicx\nmm durye ynvbzgjazxz\nupwugxxiinf ldai rrmr\nwlgdbydpitnc zt puwrxn bfhfx\npxs gwgur tmxgeb brpt msl yge\ncwxqtfgpof wrb fnvxavdmd\nfbyevmhrbxtt fribkq anpgic gpy\nddxsm oxnalpvqge ccx ddorgx\nnvp qhjsegtznoiz iteik\nhukdn"
+      }
+    },
+    {
+      "bug_id": "p022_b08",
+      "program_id": "p022",
+      "problem_id": "309_B",
+      "kind": "augassign",
+      "change": "-= -> +=",
+      "lineno": "27",
+      "code_path": "data/buggy/p022/p022_b08.py",
+      "tests_path": "data/tests/p022.json",
+      "hidden": 1,
+      "new_inputs": 1,
+      "both": 1,
+      "either": 1,
+      "review_note": "multiple_valid_outputs",
+      "hidden_witness": {
+        "index": 0,
+        "reason": "output_difference",
+        "error": "",
+        "expected": "isnr u eq\nqas gcj\nrnnf fpb c\ndz g\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n",
+        "actual": "isnr u eq\n"
+      },
+      "new_witness": {
+        "index": 2,
+        "reason": "output_difference",
+        "error": "",
+        "expected": "oocofwx rrvf ksubzcqyag xr\nslslkfaiqmxw vcbifrc papwt aw\nn ws xs xyeoqlmyu qchiweqqmyc\npu xjqldnuzzsm wlgzumlo cnp\nwhlaehcrao gxcg uhcdnybhwuru\njkuigil tqvbganbgy qizuxvsf wo\nhywnleah d oidhtqkwek jqxvn\nfqirwmai jamelrjd ektfxmydrcya\nozn u eepfixtnkt sfwudcgtfkg\ncpogpbpvqsmk f abzsyys g\nwokupwrn ytq yniqhyujx\nyvfiqquxpf ot clgorlxu itp\nrkmtfa jsrhdcn jkzb fheffdqrs\ndzs fqvykmhphez pdnrcfc vduq\nmjmbgvsfjg west tnjqh kspdv\ndcoivq v sqbhh glmi db hrlckne\nyxlmkpfttjk ljp ocdhselzce\npxxkpocg gpz kchj",
+        "actual": "imm zd am vwbnqbs gsvwh g\n"
+      }
+    },
+    {
+      "bug_id": "p022_b09",
+      "program_id": "p022",
+      "problem_id": "309_B",
+      "kind": "relational",
+      "change": "== -> !=",
+      "lineno": "75",
+      "code_path": "data/buggy/p022/p022_b09.py",
+      "tests_path": "data/tests/p022.json",
+      "hidden": 1,
+      "new_inputs": 1,
+      "both": 1,
+      "either": 1,
+      "review_note": "multiple_valid_outputs",
+      "hidden_witness": {
+        "index": 0,
+        "reason": "output_difference",
+        "error": "",
+        "expected": "isnr u eq\nqas gcj\nrnnf fpb c\ndz g\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n",
+        "actual": ""
+      },
+      "new_witness": {
+        "index": 1,
+        "reason": "output_difference",
+        "error": "",
+        "expected": "tc\n",
+        "actual": ""
+      }
+    },
+    {
+      "bug_id": "p022_b10",
+      "program_id": "p022",
+      "problem_id": "309_B",
+      "kind": "constant",
+      "change": "1 -> 0",
+      "lineno": "65",
+      "code_path": "data/buggy/p022/p022_b10.py",
+      "tests_path": "data/tests/p022.json",
+      "hidden": 0,
+      "new_inputs": 0,
+      "both": 0,
+      "either": 0,
+      "review_note": "multiple_valid_outputs",
+      "hidden_witness": null,
+      "new_witness": null
+    },
+    {
+      "bug_id": "p022_b11",
+      "program_id": "p022",
+      "problem_id": "309_B",
+      "kind": "augassign",
+      "change": "+= -> -=",
+      "lineno": "96",
+      "code_path": "data/buggy/p022/p022_b11.py",
+      "tests_path": "data/tests/p022.json",
+      "hidden": 1,
+      "new_inputs": 1,
+      "both": 1,
+      "either": 1,
+      "review_note": "multiple_valid_outputs",
+      "hidden_witness": {
+        "index": 0,
+        "reason": "output_difference",
+        "error": "",
+        "expected": "isnr u eq\nqas gcj\nrnnf fpb c\ndz g\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n",
+        "actual": "isnr u eq qas gcj rnnf fpb c dz g\n"
+      },
+      "new_witness": {
+        "index": 2,
+        "reason": "output_difference",
+        "error": "",
+        "expected": "oocofwx rrvf ksubzcqyag xr\nslslkfaiqmxw vcbifrc papwt aw\nn ws xs xyeoqlmyu qchiweqqmyc\npu xjqldnuzzsm wlgzumlo cnp\nwhlaehcrao gxcg uhcdnybhwuru\njkuigil tqvbganbgy qizuxvsf wo\nhywnleah d oidhtqkwek jqxvn\nfqirwmai jamelrjd ektfxmydrcya\nozn u eepfixtnkt sfwudcgtfkg\ncpogpbpvqsmk f abzsyys g\nwokupwrn ytq yniqhyujx\nyvfiqquxpf ot clgorlxu itp\nrkmtfa jsrhdcn jkzb fheffdqrs\ndzs fqvykmhphez pdnrcfc vduq\nmjmbgvsfjg west tnjqh kspdv\ndcoivq v sqbhh glmi db hrlckne\nyxlmkpfttjk ljp ocdhselzce\npxxkpocg gpz kchj",
+        "actual": "oocofwx rrvf ksubzcqyag xr slslkfaiqmxw vcbifrc papwt aw n ws xs xyeoqlmyu qchiweqqmyc pu xjqldnuzzsm wlgzumlo cnp whlaehcrao gxcg uhcdnybhwuru jkuigil tqvbganbgy qizuxvsf wo hywnleah d oidhtqkwek jqxvn fqirwmai jamelrjd ektfxmydrcya ozn u eepfixtnkt sfwudcgtfkg cpogpbpvqsmk f abzsyys g wokupwrn ytq yniqhyujx yvfiqquxpf ot clgorlxu itp rkmtfa jsrhdcn jkzb fheffdqrs dzs fqvykmhphez pdnrcfc vduq mjmbgvsfjg west tnjqh kspdv dcoivq v sqbhh glmi db hrlckne yxlmkpfttjk ljp ocdhselzce pxxkpocg gpz kchj"
+      }
+    },
+    {
+      "bug_id": "p022_b12",
+      "program_id": "p022",
+      "problem_id": "309_B",
+      "kind": "arithmetic",
+      "change": "+ -> -",
+      "lineno": "39",
+      "code_path": "data/buggy/p022/p022_b12.py",
+      "tests_path": "data/tests/p022.json",
+      "hidden": 1,
+      "new_inputs": 1,
+      "both": 1,
+      "either": 1,
+      "review_note": "multiple_valid_outputs",
+      "hidden_witness": {
+        "index": 1,
+        "reason": "output_difference",
+        "error": "",
+        "expected": "uzu\nbl\nfl\nou\n",
+        "actual": "j\nlp\ne\ngkp\n"
+      },
+      "new_witness": {
+        "index": 2,
+        "reason": "output_difference",
+        "error": "",
+        "expected": "oocofwx rrvf ksubzcqyag xr\nslslkfaiqmxw vcbifrc papwt aw\nn ws xs xyeoqlmyu qchiweqqmyc\npu xjqldnuzzsm wlgzumlo cnp\nwhlaehcrao gxcg uhcdnybhwuru\njkuigil tqvbganbgy qizuxvsf wo\nhywnleah d oidhtqkwek jqxvn\nfqirwmai jamelrjd ektfxmydrcya\nozn u eepfixtnkt sfwudcgtfkg\ncpogpbpvqsmk f abzsyys g\nwokupwrn ytq yniqhyujx\nyvfiqquxpf ot clgorlxu itp\nrkmtfa jsrhdcn jkzb fheffdqrs\ndzs fqvykmhphez pdnrcfc vduq\nmjmbgvsfjg west tnjqh kspdv\ndcoivq v sqbhh glmi db hrlckne\nyxlmkpfttjk ljp ocdhselzce\npxxkpocg gpz kchj",
+        "actual": "oxathpbo i bhxyjahorciw qprm\nrscw y iwofm rzybsotodfn uf\neftrnvhhgxg guwsstmsfnba\ngolefg lobbnr gc gaq rsvqmzrx\nktvi y anynmjgbrsjr chhkulxe\nzsafnmgx edo bwssd\nazsulfwoiiqi zglwqjmxw y\nfulcquenodnm tw zdomfqbmyj\novjeliulzgve hc ytyufseolm\nkhxutd amvrwxxdbq ivnlgkdphfey\nbogzqciwassh cpcmc zpr\nnfzctlzo sj pbhujhhlit e\nrlcxjccy ccpppoi mgroesza mim\nrkuzh dxmt ejmngktnh\nybyakehqbwsd uw qzitptkzwgx\ncasnxmuohul mn rdduex\nrnyigqykrxv yykixfse wxqo\nsuhnqtbbcuet roih cmgbj iygjw\nlnrysgwqk mr fzphcibxa\nmn"
+      }
+    },
+    {
+      "bug_id": "p022_b13",
+      "program_id": "p022",
+      "problem_id": "309_B",
+      "kind": "relational",
+      "change": "> -> >=",
+      "lineno": "38",
+      "code_path": "data/buggy/p022/p022_b13.py",
+      "tests_path": "data/tests/p022.json",
+      "hidden": 1,
+      "new_inputs": 1,
+      "both": 1,
+      "either": 1,
+      "review_note": "multiple_valid_outputs",
+      "hidden_witness": {
+        "index": 1,
+        "reason": "output_difference",
+        "error": "",
+        "expected": "uzu\nbl\nfl\nou\n",
+        "actual": "bl\n"
+      },
+      "new_witness": {
+        "index": 2,
+        "reason": "output_difference",
+        "error": "",
+        "expected": "oocofwx rrvf ksubzcqyag xr\nslslkfaiqmxw vcbifrc papwt aw\nn ws xs xyeoqlmyu qchiweqqmyc\npu xjqldnuzzsm wlgzumlo cnp\nwhlaehcrao gxcg uhcdnybhwuru\njkuigil tqvbganbgy qizuxvsf wo\nhywnleah d oidhtqkwek jqxvn\nfqirwmai jamelrjd ektfxmydrcya\nozn u eepfixtnkt sfwudcgtfkg\ncpogpbpvqsmk f abzsyys g\nwokupwrn ytq yniqhyujx\nyvfiqquxpf ot clgorlxu itp\nrkmtfa jsrhdcn jkzb fheffdqrs\ndzs fqvykmhphez pdnrcfc vduq\nmjmbgvsfjg west tnjqh kspdv\ndcoivq v sqbhh glmi db hrlckne\nyxlmkpfttjk ljp ocdhselzce\npxxkpocg gpz kchj",
+        "actual": "ct qnibnum osoypafnkko rbwwonq\ntld jy qbdeiwdjjqo aa tguzw\nucazwyf imm zd am vwbnqbs\ngsvwh g eyfbzxarky tryzhr\nzzqoia yuxkjvvjn xax qb bcladg\nhwk kzgq yk nyilcqbuqflp ij\nxywekegs h mtiwnumlhu uppp\nqtstdzrsdi tmzalsuk re\nfpbkijfwy rkez dzymxoc kpcd\nddxoaewymdlq qfmlq lhi jnlo\nwfrhdl ibfzcqhqzdv oaentqaaygc\nztsidflyjbx squjhtblhlq\nxfcueicbgx hb kuturgbny\nouarpbmbhpbl hoprzcyzzwo\nfuxwws yvcswyckrdgh qhmbzzai\naaexglpmiv gpjqs vwqceq\nggijuoiqu myd wbisgpewh j\nciwfjcg c bfsyu issenskzfkd\ncnowca nolgpz"
+      }
+    },
+    {
+      "bug_id": "p022_b14",
+      "program_id": "p022",
+      "problem_id": "309_B",
+      "kind": "constant",
+      "change": "0 -> 1",
+      "lineno": "92",
+      "code_path": "data/buggy/p022/p022_b14.py",
+      "tests_path": "data/tests/p022.json",
+      "hidden": 1,
+      "new_inputs": 1,
+      "both": 1,
+      "either": 1,
+      "review_note": "multiple_valid_outputs",
+      "hidden_witness": {
+        "index": 1,
+        "reason": "output_difference",
+        "error": "",
+        "expected": "uzu\nbl\nfl\nou\n",
+        "actual": "\n\n\n\n"
+      },
+      "new_witness": {
+        "index": 2,
+        "reason": "output_difference",
+        "error": "",
+        "expected": "oocofwx rrvf ksubzcqyag xr\nslslkfaiqmxw vcbifrc papwt aw\nn ws xs xyeoqlmyu qchiweqqmyc\npu xjqldnuzzsm wlgzumlo cnp\nwhlaehcrao gxcg uhcdnybhwuru\njkuigil tqvbganbgy qizuxvsf wo\nhywnleah d oidhtqkwek jqxvn\nfqirwmai jamelrjd ektfxmydrcya\nozn u eepfixtnkt sfwudcgtfkg\ncpogpbpvqsmk f abzsyys g\nwokupwrn ytq yniqhyujx\nyvfiqquxpf ot clgorlxu itp\nrkmtfa jsrhdcn jkzb fheffdqrs\ndzs fqvykmhphez pdnrcfc vduq\nmjmbgvsfjg west tnjqh kspdv\ndcoivq v sqbhh glmi db hrlckne\nyxlmkpfttjk ljp ocdhselzce\npxxkpocg gpz kchj",
+        "actual": "oocofwx rrvf ksubzcqyag xr\nslslkfaiqmxw vcbifrc papwt aw\nn ws xs xyeoqlmyu qchiweqqmyc\npu xjqldnuzzsm wlgzumlo cnp\nwhlaehcrao gxcg uhcdnybhwuru\njkuigil tqvbganbgy qizuxvsf\nwo hywnleah d oidhtqkwek\njqxvn fqirwmai jamelrjd\nektfxmydrcya ozn u eepfixtnkt\nsfwudcgtfkg cpogpbpvqsmk f\nabzsyys g wokupwrn ytq\nyniqhyujx yvfiqquxpf ot\nclgorlxu itp rkmtfa jsrhdcn\njkzb fheffdqrs dzs\nfqvykmhphez pdnrcfc vduq\nmjmbgvsfjg west tnjqh kspdv\ndcoivq v sqbhh glmi db\nhrlckne yxlmkpfttjk ljp\nocdhselzce pxxkpocg gpz\nkchj"
+      }
+    },
+    {
+      "bug_id": "p022_b15",
+      "program_id": "p022",
+      "problem_id": "309_B",
+      "kind": "augassign",
+      "change": "+= -> -=",
+      "lineno": "40",
+      "code_path": "data/buggy/p022/p022_b15.py",
+      "tests_path": "data/tests/p022.json",
+      "hidden": 1,
+      "new_inputs": 1,
+      "both": 1,
+      "either": 1,
+      "review_note": "multiple_valid_outputs",
+      "hidden_witness": {
+        "index": 7,
+        "reason": "output_difference",
+        "error": "",
+        "expected": "gwia\nkvs bl\n",
+        "actual": "onj\nuuzu\n"
+      },
+      "new_witness": {
+        "index": 2,
+        "reason": "output_difference",
+        "error": "",
+        "expected": "oocofwx rrvf ksubzcqyag xr\nslslkfaiqmxw vcbifrc papwt aw\nn ws xs xyeoqlmyu qchiweqqmyc\npu xjqldnuzzsm wlgzumlo cnp\nwhlaehcrao gxcg uhcdnybhwuru\njkuigil tqvbganbgy qizuxvsf wo\nhywnleah d oidhtqkwek jqxvn\nfqirwmai jamelrjd ektfxmydrcya\nozn u eepfixtnkt sfwudcgtfkg\ncpogpbpvqsmk f abzsyys g\nwokupwrn ytq yniqhyujx\nyvfiqquxpf ot clgorlxu itp\nrkmtfa jsrhdcn jkzb fheffdqrs\ndzs fqvykmhphez pdnrcfc vduq\nmjmbgvsfjg west tnjqh kspdv\ndcoivq v sqbhh glmi db hrlckne\nyxlmkpfttjk ljp ocdhselzce\npxxkpocg gpz kchj",
+        "actual": "vtuqta rh axxhbystwgc imaqtrio\nzjpkjmsxeox ct qnibnum\nosoypafnkko rbwwonq tld jy\nqbdeiwdjjqo aa tguzw ucazwyf\nimm zd am vwbnqbs gsvwh g\neyfbzxarky tryzhr zzqoia\nyuxkjvvjn xax qb bcladg hwk\nkzgq yk nyilcqbuqflp ij\nxywekegs h mtiwnumlhu uppp\nqtstdzrsdi tmzalsuk re\nfpbkijfwy rkez dzymxoc kpcd\nddxoaewymdlq qfmlq lhi jnlo\nwfrhdl ibfzcqhqzdv oaentqaaygc\nztsidflyjbx squjhtblhlq\nxfcueicbgx hb kuturgbny\nouarpbmbhpbl hoprzcyzzwo\nfuxwws yvcswyckrdgh qhmbzzai\naaexglpmiv gpjqs vwqceq\nggijuoiqu myd wbisgpewh "
+      }
+    }
+  ]
+}

@@ -1,0 +1,270 @@
+{
+  "settings": {
+    "timeout": 5.0,
+    "python": "3.10.11",
+    "method": "raw_output_v1"
+  },
+  "rows": [
+    {
+      "bug_id": "p003_b01",
+      "program_id": "p003",
+      "problem_id": "868_A",
+      "kind": "logical",
+      "change": "and -> or",
+      "lineno": "30",
+      "code_path": "data/buggy/p003/p003_b01.py",
+      "tests_path": "data/tests/p003.json",
+      "hidden": 1,
+      "new_inputs": 1,
+      "both": 1,
+      "either": 1,
+      "review_note": "",
+      "hidden_witness": {
+        "index": 0,
+        "reason": "output_difference",
+        "error": "",
+        "expected": "NO",
+        "actual": "YES\n"
+      },
+      "new_witness": {
+        "index": 0,
+        "reason": "output_difference",
+        "error": "",
+        "expected": "NO\n",
+        "actual": "YES\n"
+      }
+    },
+    {
+      "bug_id": "p003_b02",
+      "program_id": "p003",
+      "problem_id": "868_A",
+      "kind": "relational",
+      "change": "== -> !=",
+      "lineno": "19",
+      "code_path": "data/buggy/p003/p003_b02.py",
+      "tests_path": "data/tests/p003.json",
+      "hidden": 1,
+      "new_inputs": 1,
+      "both": 1,
+      "either": 1,
+      "review_note": "",
+      "hidden_witness": {
+        "index": 0,
+        "reason": "output_difference",
+        "error": "",
+        "expected": "NO",
+        "actual": "YES\n"
+      },
+      "new_witness": {
+        "index": 0,
+        "reason": "output_difference",
+        "error": "",
+        "expected": "NO\n",
+        "actual": "YES\n"
+      }
+    },
+    {
+      "bug_id": "p003_b03",
+      "program_id": "p003",
+      "problem_id": "868_A",
+      "kind": "relational",
+      "change": "== -> !=",
+      "lineno": "26",
+      "code_path": "data/buggy/p003/p003_b03.py",
+      "tests_path": "data/tests/p003.json",
+      "hidden": 1,
+      "new_inputs": 1,
+      "both": 1,
+      "either": 1,
+      "review_note": "",
+      "hidden_witness": {
+        "index": 1,
+        "reason": "output_difference",
+        "error": "",
+        "expected": "NO",
+        "actual": "YES\n"
+      },
+      "new_witness": {
+        "index": 2,
+        "reason": "output_difference",
+        "error": "",
+        "expected": "NO\n",
+        "actual": "YES\n"
+      }
+    },
+    {
+      "bug_id": "p003_b04",
+      "program_id": "p003",
+      "problem_id": "868_A",
+      "kind": "constant",
+      "change": "0 -> -1",
+      "lineno": "13",
+      "code_path": "data/buggy/p003/p003_b04.py",
+      "tests_path": "data/tests/p003.json",
+      "hidden": 1,
+      "new_inputs": 1,
+      "both": 1,
+      "either": 1,
+      "review_note": "",
+      "hidden_witness": {
+        "index": 0,
+        "reason": "output_difference",
+        "error": "",
+        "expected": "NO",
+        "actual": "YES\n"
+      },
+      "new_witness": {
+        "index": 9,
+        "reason": "output_difference",
+        "error": "",
+        "expected": "NO\n",
+        "actual": "YES\n"
+      }
+    },
+    {
+      "bug_id": "p003_b05",
+      "program_id": "p003",
+      "problem_id": "868_A",
+      "kind": "constant",
+      "change": "0 -> -1",
+      "lineno": "26",
+      "code_path": "data/buggy/p003/p003_b05.py",
+      "tests_path": "data/tests/p003.json",
+      "hidden": 1,
+      "new_inputs": 1,
+      "both": 1,
+      "either": 1,
+      "review_note": "",
+      "hidden_witness": {
+        "index": 27,
+        "reason": "output_difference",
+        "error": "",
+        "expected": "NO",
+        "actual": "YES\n"
+      },
+      "new_witness": {
+        "index": 2,
+        "reason": "output_difference",
+        "error": "",
+        "expected": "NO\n",
+        "actual": "YES\n"
+      }
+    },
+    {
+      "bug_id": "p003_b06",
+      "program_id": "p003",
+      "problem_id": "868_A",
+      "kind": "constant",
+      "change": "0 -> 1",
+      "lineno": "26",
+      "code_path": "data/buggy/p003/p003_b06.py",
+      "tests_path": "data/tests/p003.json",
+      "hidden": 1,
+      "new_inputs": 1,
+      "both": 1,
+      "either": 1,
+      "review_note": "",
+      "hidden_witness": {
+        "index": 27,
+        "reason": "output_difference",
+        "error": "",
+        "expected": "NO",
+        "actual": "YES\n"
+      },
+      "new_witness": {
+        "index": 2,
+        "reason": "output_difference",
+        "error": "",
+        "expected": "NO\n",
+        "actual": "YES\n"
+      }
+    },
+    {
+      "bug_id": "p003_b07",
+      "program_id": "p003",
+      "problem_id": "868_A",
+      "kind": "constant",
+      "change": "1 -> 0",
+      "lineno": "14",
+      "code_path": "data/buggy/p003/p003_b07.py",
+      "tests_path": "data/tests/p003.json",
+      "hidden": 1,
+      "new_inputs": 1,
+      "both": 1,
+      "either": 1,
+      "review_note": "",
+      "hidden_witness": {
+        "index": 16,
+        "reason": "output_difference",
+        "error": "",
+        "expected": "NO",
+        "actual": "YES\n"
+      },
+      "new_witness": {
+        "index": 22,
+        "reason": "output_difference",
+        "error": "",
+        "expected": "NO\n",
+        "actual": "YES\n"
+      }
+    },
+    {
+      "bug_id": "p003_b08",
+      "program_id": "p003",
+      "problem_id": "868_A",
+      "kind": "constant",
+      "change": "1 -> 0",
+      "lineno": "19",
+      "code_path": "data/buggy/p003/p003_b08.py",
+      "tests_path": "data/tests/p003.json",
+      "hidden": 1,
+      "new_inputs": 1,
+      "both": 1,
+      "either": 1,
+      "review_note": "",
+      "hidden_witness": {
+        "index": 29,
+        "reason": "output_difference",
+        "error": "",
+        "expected": "NO",
+        "actual": "YES\n"
+      },
+      "new_witness": {
+        "index": 0,
+        "reason": "output_difference",
+        "error": "",
+        "expected": "NO\n",
+        "actual": "YES\n"
+      }
+    },
+    {
+      "bug_id": "p003_b09",
+      "program_id": "p003",
+      "problem_id": "868_A",
+      "kind": "constant",
+      "change": "0 -> 1",
+      "lineno": "13",
+      "code_path": "data/buggy/p003/p003_b09.py",
+      "tests_path": "data/tests/p003.json",
+      "hidden": 1,
+      "new_inputs": 1,
+      "both": 1,
+      "either": 1,
+      "review_note": "",
+      "hidden_witness": {
+        "index": 0,
+        "reason": "output_difference",
+        "error": "",
+        "expected": "NO",
+        "actual": "YES\n"
+      },
+      "new_witness": {
+        "index": 9,
+        "reason": "output_difference",
+        "error": "",
+        "expected": "NO\n",
+        "actual": "YES\n"
+      }
+    }
+  ]
+}
